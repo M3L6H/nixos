@@ -1,0 +1,11 @@
+{ pkgs, lib, config, ... }: {
+  options = {
+    vcs.enable = lib.mkEnableOption "enables vcs module";
+  };
+
+  config = lib.mkIf config.vcs.enable {
+    environment.systemPackages = with pkgs; [
+      git
+    ];
+  };
+}
