@@ -4,14 +4,17 @@
   };
 
   config = lib.mkIf config.tmux.enable {
-    home.packages = with pkgs; [
-      tmux
-      tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
-    ];
-
-    home.file = {
-      ".config/tmux/tmux.conf".source = dotfiles/tmux.conf;
+    programs.tmux = {
+      enable = true;
+      baseIndex = 1;
+      mouse = true;
+      newSession = true;
+      plugins = with pkgs.tmuxPlugins; [
+        sensible
+        vim-tmux-navigator
+      ];
+      shell = lib.mkIf config.zsh.enable "${pkgs.zsh}/bin/zsh";
+      terminal = "screen-256color";
     };
   };
 }

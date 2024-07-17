@@ -15,16 +15,13 @@
       autosuggestion.enable = true;
 
       envExtra = ''
+      ${if config.tmux.enable then "export ZSH_TMUX_AUTOSTART=true" else ""}
       ${if config.zsh.zoxide.enable then "export ZOXIDE_CMD_OVERRIDE='cd'" else ""}
       '';
 
       history = {
         expireDuplicatesFirst = true;
       };
-
-      initExtra = ''
-      ${if config.tmux.enable then "tmux source ~/.config/tmux/tmux.conf" else ""}
-      '';
 
       oh-my-zsh = {
         enable = true;
