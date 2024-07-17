@@ -7,6 +7,8 @@
   config = lib.mkIf config.zsh.enable {
     zsh.zoxide.enable = lib.mkDefault true;
 
+    programs.zoxide.enable = config.zsh.zoxide.enable;
+
     programs.zsh = {
       enable = true;
       enableCompletion = true;
