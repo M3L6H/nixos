@@ -3,8 +3,10 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/default.nix
+    ../../modules/nixos/default.nix
   ];
+
+  system.stateVersion = "24.05";
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sdd";
@@ -52,16 +54,5 @@
     pulse.enable = true;
   };
 
-  users.users.m3l6h = {
-    isNormalUser = true;
-    description = "Michael Hollingworth";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
-  };
-
   programs.firefox.enable = true;
-
-  system.stateVersion = "24.05";
 }

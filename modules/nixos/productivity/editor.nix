@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ config, lib, pkgs, ... }: {
   options = {
     editor.enable = lib.mkEnableOption "enables editor module";
   };

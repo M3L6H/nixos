@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ config, lib, pkgs, ... }: {
   options = {
     vcs.enable = lib.mkEnableOption "enables vcs module";
   };

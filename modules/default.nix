@@ -1,5 +1,0 @@
-{ ... }: {
-  imports = [
-    ./productivity/bundle.nix
-  ];
-}
