@@ -14,6 +14,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Completion for system packages (e.g. systemd)
+  environment.pathsToLink = [ "/share/zsh" ];
+
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
