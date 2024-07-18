@@ -5,9 +5,18 @@
   };
 
   config = lib.mkIf config.zsh.enable {
+    home.packages = with pkgs; [
+      spaceship-prompt
+    ];
+
     zsh.zoxide.enable = lib.mkDefault true;
 
     programs.zoxide.enable = config.zsh.zoxide.enable;
+
+    home.file.".zsh-custom/themes/spaceship.zsh-theme" = {
+      recursive = true;
+      source = "${pkgs.spaceship-prompt}/lib/spaceship-prompt/spaceship.zsh";
+    };
 
     programs.zsh = {
       enable = true;
@@ -25,13 +34,19 @@
 
       oh-my-zsh = {
         enable = true;
-	plugins = [
-	  "git"
-	] ++ lib.optionals (config.tmux.enable) [
-	  "tmux"
-	] ++ lib.optionals (config.zsh.zoxide.enable) [
-	  "zoxide"
-	];
+        custom = "$HOME/.zsh-custom";
+        plugins = [
+          "git"
+        ] ++ lib.optionals (config.tmux.enable) [
+          "tmux"
+        ] ++ lib.optionals (config.zsh.zoxide.enable) [
+          "zoxide"
+        ];
+        theme = "spaceship";
+      };
+
+      shellAliases = {
+        gs = "git status";
       };
     };
   };
