@@ -10,10 +10,6 @@
   home.username = "m3l6h";
   home.homeDirectory = "/home/m3l6h";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
