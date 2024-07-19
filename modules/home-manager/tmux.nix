@@ -14,7 +14,7 @@
         vim-tmux-navigator
       ];
       shell = lib.mkIf config.zsh.enable "${pkgs.zsh}/bin/zsh";
-      terminal = "screen-256color";
+      terminal = "xterm-kitty";
     };
   };
 }
