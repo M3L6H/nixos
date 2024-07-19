@@ -10,7 +10,15 @@
       viAlias = true;
       vimAlias = true;
       vimdiffAlias = true;
+      extraLuaConfig = ''
+      ${builtins.readFile ./lazy-bootstrap.lua}
+      ${builtins.readFile ./opts.lua}
+      ${builtins.readFile ./keymaps.lua}
+      ${builtins.readFile ./lazy-setup.lua}
+      '';
     };
+
+    home.file.".config/nvim/lua/plugins".source = ./plugins;
 
     home.shellAliases.v = "nvim";
   };
