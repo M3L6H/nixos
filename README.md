@@ -13,6 +13,7 @@ Breakdown of the included modules.
 - [scripts](/modules/home-manager/scripts) - Scripts submodule
   - [wallpaper-haven](/modules/home-manager/scripts/wallpaper-haven.nix) - Sets a random wallpaper from wallpaper haven
     - scripts.wallpaper-haven.enable `boolean` - Enables the module
+    - configure [api options](https://wallhaven.cc/help/api) with `~/.config/.wallhaven.ini`
 - [toolchains](/modules/home-manager/toolchains) - Toolchains submodule
   - [c-cpp](/modules/home-manager/toolchains/c-cpp.nix) - Install c/c++ toolchain
     - toolchains.c-cpp.enable `boolean` - Enables the module
