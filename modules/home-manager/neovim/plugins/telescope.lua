@@ -28,6 +28,9 @@ local M = {
     local telescope = require("telescope")
     telescope.setup(opts)
     telescope.load_extension("fzf")
+
+    -- Transparent background
+    vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
   end,
 }
 
