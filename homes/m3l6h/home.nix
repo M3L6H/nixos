@@ -13,10 +13,22 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Enable file util
-  utils.file.enable = true;
+  # Enable neovim
+  neovim.enable = true;
+
+  # Enable kitty
+  terminal.enable = true;
+
+  # Enable tmux
+  tmux.enable = true;
+
+  # Enable zsh
+  zsh.enable = true;
 
   # Enable wallpaper haven script
   scripts.wallpaper-haven.enable = true;
+
+  # Enable file util
+  utils.file.enable = true;
 }
 

@@ -10,8 +10,8 @@
     ./zsh.nix
   ];
 
-  neovim.enable = lib.mkDefault true;
-  terminal.enable = lib.mkDefault true;
-  tmux.enable = lib.mkDefault true;
-  zsh.enable = lib.mkDefault true;
+  neovim.enable = lib.mkDefault false;
+  terminal.enable = lib.mkDefault false;
+  tmux.enable = lib.mkDefault false;
+  zsh.enable = lib.mkDefault false;
 }
