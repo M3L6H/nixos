@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }: {
   options = {
-    ripgrep.enable = lib.mkEnableOption "enables ripgrep module";
+    utils.ripgrep.enable = lib.mkEnableOption "enables ripgrep module";
   };
 
-  config = lib.mkIf config.ripgrep.enable {
+  config = lib.mkIf config.utils.ripgrep.enable {
     programs.ripgrep = {
       enable = true;
     };

@@ -32,6 +32,11 @@
         expireDuplicatesFirst = true;
       };
 
+      initExtra = ''
+      ${if config.scripts.wallpaper-haven.enable then "# Load a random wallpaper from wallpaper haven" else ""}
+      ${if config.scripts.wallpaper-haven.enable then "(&>/dev/null $HOME/.local/bin/wallpaper-haven &)" else ""}
+      '';
+
       oh-my-zsh = {
         enable = true;
         custom = "$HOME/.zsh-custom";
@@ -43,10 +48,6 @@
           "zoxide"
         ];
         theme = "spaceship";
-      };
-
-      shellAliases = {
-        gs = "git status";
       };
     };
   };

@@ -1,8 +1,10 @@
 { lib, ... }: {
   imports = [
     ./c-cpp.nix
+    ./python.nix
   ];
 
-  c-cpp.enable = lib.mkDefault true;
+  toolchains.c-cpp.enable = lib.mkDefault false;
+  toolchains.python.enable = lib.mkDefault false;
 }
 
