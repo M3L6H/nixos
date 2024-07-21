@@ -1,5 +1,6 @@
 local M = {
   "folke/zen-mode.nvim",
+  enabled = false,
   dependencies = {
     { "folke/twilight.nvim" },
   },
@@ -41,6 +42,13 @@ local M = {
   },
   config = function(_, opts)
     require("zen-mode").setup(opts)
+
+    -- open zen mode immediately
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        require("zen-mode").open()
+      end,
+    })
   end,
 }
 
