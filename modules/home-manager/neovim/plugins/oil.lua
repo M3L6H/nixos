@@ -7,15 +7,15 @@ local M = {
   keys = {
     { "-", "<cmd>Oil<cr>", mode = "n", desc = "Open parent directory" },
   },
-  opts = function()
-    return {
-      skip_confirm_for_simple_edits = true,
+  opts = {
+    skip_confirm_for_simple_edits = true,
+    view_options = {
       show_hidden = true,
-      is_always_file = function(name, _)
+      is_always_hidden = function(name, _)
         return vim.startswith(name, ".git")
       end,
-    }
-  end,
+    },
+  },
   config = function(_, opts)
     local oil = require("oil")
     oil.setup(opts)
