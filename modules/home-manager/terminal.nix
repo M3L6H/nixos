@@ -20,13 +20,13 @@
 
         # Required for dynamically changing the terminal background in kitty
         allow_remote_control = "${if config.scripts.wallpaper-haven.enable then "socket-only" else "no"}";
-        listen_on = "${if config.scripts.wallpaper-haven.enable then "unix:@kitty" else "none"}";
+        listen_on = "${if config.scripts.wallpaper-haven.enable then "unix:/tmp/kitty" else "none"}";
       };
       theme = "Tokyo Night";
     };
 
     # Required for dynamically changing the terminal background in kitty
-    home.sessionVariables.KITTY_LISTEN_ON = "${if config.scripts.wallpaper-haven.enable then "unix:@kitty" else "none"}";
+    home.sessionVariables.KITTY_LISTEN_ON = "${if config.scripts.wallpaper-haven.enable then "unix:/tmp/kitty" else "none"}";
   };
 }
 
