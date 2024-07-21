@@ -16,7 +16,7 @@
         tab_bar_edge = "top";
 
         # Color scheme
-        background_tint = "0.95";
+        background_tint = "0.98";
 
         # Required for dynamically changing the terminal background in kitty
         allow_remote_control = "${if config.scripts.wallpaper-haven.enable then "socket-only" else "no"}";
