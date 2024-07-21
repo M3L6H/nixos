@@ -21,6 +21,7 @@
       ${builtins.readFile ./opts.lua}
       ${builtins.readFile ./keymaps.lua}
       ${builtins.readFile ./lazy-setup.lua}
+      ${builtins.readFile ./autocmds.lua}
       '';
     };
 
