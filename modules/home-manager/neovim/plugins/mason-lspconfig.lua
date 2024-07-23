@@ -2,9 +2,10 @@ local M = {
   "williamboman/mason-lspconfig.nvim",
   event = "BufReadPre",
   dependencies = {
-    "williamboman/mason.nvim",
-    "hrsh7th/cmp-nvim-lsp",
-    "neovim/nvim-lspconfig",
+    { "williamboman/mason.nvim" },
+    { "hrsh7th/cmp-nvim-lsp" },
+    { "neovim/nvim-lspconfig" },
+    { "j-hui/fidget.nvim", opts = {} },
   },
   opts = {
     ensure_installed = {
