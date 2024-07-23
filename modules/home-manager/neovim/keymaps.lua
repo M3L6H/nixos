@@ -3,11 +3,14 @@ vim.g.maplocalleader = " "
 
 local km = vim.keymap
 
--- Move lines in visual mode
+-- move lines in visual mode
 km.set("v", "J", ":m '>+1<CR>gv=gv")
 km.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- nice join
 km.set("n", "J", "mzJ`z")
+
+-- fix paging/navigation
 km.set("n", "<C-d>", "<C-d>zz")
 km.set("n", "<C-u>", "<C-u>zz")
 km.set("n", "n", "nzzzv")
