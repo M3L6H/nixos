@@ -35,6 +35,7 @@ local M = {
       "xml",
       "yaml",
       "yuck",
+      "zig",
     },
     indent = {
       enable = true,
