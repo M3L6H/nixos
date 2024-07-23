@@ -12,24 +12,22 @@ qss="${qss}categories=${CATEGORIES:-100}&"
 qss="${qss}purity=${PURITY:-100}&"
 qss="${qss}sorting=${SORTING:-toplist}&"
 qss="${qss}order=${ORDER:-desc}&"
-qss="${qss}topRange=${TOP_RANGE:-1Y}&"
+qss="${qss}topRange=${TOP_RANGE:-1y}&"
 qss="${qss}atleast=${AT_LEAST:-1920x1080}&"
 [ -n "$RESOLUTIONS" ] && qss="${qss}resolutions=${RESOLUTIONS}&"
-qss="${qss}ratios=${RATIOS:-16x9,16x10}&"
+qss="${qss}ratios=${RATIOS:-16x9%2C16x10}&"
 [ -n "$COLORS" ] && qss="${qss}colors=${COLORS}&"
 
 last_page="$(curl -s "https://wallhaven.cc/api/v1/search${qss}" | jq -r '.meta.last_page')"
 last_page="$((last_page - 1))"
 [ $last_page -lt 1 ] && last_page=1
-DEFAULT_PAGE_SEED="$(date +%N)"
-DEFAULT_PAGE_SEED="$((10#$DEFAULT_PAGE_SEED))"
+DEFAULT_PAGE_SEED="$RANDOM"
 
 [ -n "$PAGE" ] && qss="${qss}page=$(((PAGE % last_page) + 1))&" || qss="${qss}page=$(((DEFAULT_PAGE_SEED % last_page) + 1))&"
 
 [ -n "$SEED" ] && qss="${qss}seed=${SEED}"
 
-ITEM_INDEX_SEED="$(date +%N)"
-ITEM_INDEX_SEED="$((10#$ITEM_INDEX_SEED))"
+ITEM_INDEX_SEED="$RANDOM"
 ITEM_INDEX="$(((ITEM_INDEX_SEED % 24) + 1))" # Could break if the provided query params result in fewer items
 
 data="$(curl -s "https://wallhaven.cc/api/v1/search${qss}" | jq --arg INDEX "$ITEM_INDEX" '.data[$INDEX | tonumber]')"

@@ -15,7 +15,7 @@
       source = ./wallpaper-haven.sh;
     };
 
-    home.shellAliases.wh-reload = "$HOME/.local/bin/wallpaper-haven";
+    home.shellAliases.wp-random = "$HOME/.local/bin/wallpaper-haven";
   };
 }
 
