@@ -1,6 +1,4 @@
-{ config, lib, pkgs, ... }:
-
-{
+{ config, lib, pkgs, ... }: {
   imports = [
     ../../modules/home-manager/default.nix
   ];
