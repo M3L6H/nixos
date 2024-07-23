@@ -7,6 +7,14 @@
     # We require the c/c++ toolchain for fzf in telescope
     toolchains.c-cpp.enable = true;
 
+    # We require the following toolchains for Mason
+    toolchains.go.enable = true;
+    toolchains.node.enable = true;
+    toolchains.python.enable = true;
+
+    # We require the unzip utility for Mason
+    utils.unzip.enable = true;
+
     # Ripgrep is required for grep search in telescope
     utils.ripgrep.enable = true;
 

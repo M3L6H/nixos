@@ -17,6 +17,10 @@ Breakdown of the included modules.
 - [toolchains](/modules/home-manager/toolchains) - Toolchains submodule
   - [c-cpp](/modules/home-manager/toolchains/c-cpp.nix) - Install c/c++ toolchain
     - toolchains.c-cpp.enable `boolean` - Enables the module
+  - [go](/modules/home-manager/toolchains/go.nix) - Install go toolchain
+    - toolchains.go.enable `boolean` - Enables the module
+  - [node](/modules/home-manager/toolchains/node.nix) - Install node toolchain
+    - toolchains.node.enable `boolean` - Enables the module
   - [python](/modules/home-manager/toolchains/python.nix) - Install python toolchain
     - toolchains.python.enable `boolean` - Enables the module
 - [utils](/modules/home-manager/utils) - CLI utils submodule
@@ -30,6 +34,8 @@ Breakdown of the included modules.
     - utils.jq.enable `boolean` - Enables the module
   - [ripgrep](/modules/home-manager/utils/ripgrep.nix) - Install ripgrep
     - utils.ripgrep.enable `boolean` - Enables the module
+  - [unzip](/modules/home-manager/utils/unzip.nix) - Install unzip
+    - utils.unzip.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases
 - [terminal](/modules/home-manager/terminal.nix) - Configure terminal
   - terminal.enable `boolean` - Enables the module
@@ -41,6 +47,8 @@ Breakdown of the included modules.
 
 ## [nixos](/modules/nixos) - Nixos modules
 
+- [nix-ld](/modules/nixos/nix-ld.nix) - Enables nix-ld for executing arbitrary binaries
+  - nix-ld.enable `boolean` - Enables the module
 - [users](/modules/nixos/users.nix) - Create default user
   - users.enable `boolean` - Enables the module
   - users.zsh.enable `boolean` - Enables zsh as the default shell (must be done at the system level)
