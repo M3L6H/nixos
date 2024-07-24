@@ -23,6 +23,36 @@
       # Most wayland compositors need this
       nvidia.modesetting.enable = true;
     };
+
+    environment.systemPackages = with pkgs; [
+      eww
+
+      # Notifications
+      mako
+      libnotify
+
+      # Wallpaper engine
+      swww
+
+      # App launcher
+      rofi-wayland
+    ];
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    };
+
+    # Enable sound with pipewire
+    security.rtkit.enable = true;
+    services.pipewire = {
+      enable = true;
+
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      jack.enable = true;
+      pulse.enable = true;
+    };
   };
 }
 
