@@ -1,6 +1,7 @@
 { lib, ... }: {
   imports = [
     ./scripts
+    ./software
     ./toolchains
     ./utils
     ./aliases.nix

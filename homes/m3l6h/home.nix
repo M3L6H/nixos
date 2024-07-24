@@ -26,6 +26,9 @@
   # Enable wallpaper haven script
   scripts.wallpaper-haven.enable = true;
 
+  # Enable bazecor
+  software.bazecor.enable = true;
+
   # Enable file util
   utils.file.enable = true;
 }

@@ -19,7 +19,11 @@
     users.users.m3l6h = {
       isNormalUser = true;
       description = "Michael Hollingworth";
-      extraGroups = [ "networkmanager" "wheel" ];
+      extraGroups = [
+        "dialout" # Allow access to serial device
+        "networkmanager"
+        "wheel" # Enable 'sudo' for the user
+      ];
       packages = with pkgs; [
         kdePackages.kate
       ];
