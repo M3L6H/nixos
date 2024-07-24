@@ -50,6 +50,8 @@ Breakdown of the included modules.
 
 ## [nixos](/modules/nixos) - Nixos modules
 
+- [hyprland](/modules/nixos/hyprland.nix) - Enables hyprland window manager
+  - hyprland.enable `boolean` - Enables the module
 - [nix-ld](/modules/nixos/nix-ld.nix) - Enables nix-ld for executing arbitrary binaries
   - nix-ld.enable `boolean` - Enables the module
 - [users](/modules/nixos/users.nix) - Create default user
