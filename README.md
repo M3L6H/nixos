@@ -44,6 +44,8 @@ Breakdown of the included modules.
   - terminal.enable `boolean` - Enables the module
 - [tmux](/modules/home-manager/tmux.nix) - Configure tmux
   - tmux.enable `boolean` - Enables the module
+- [user-dirs](/modules/home-manager/user-dirs.nix) - Custom user dirs
+  - user-dirs.enable `boolean` - Enables the module
 - [zsh](/modules/home-manager/zsh.nix) - Configure zsh
   - zsh.enable `boolean` - Enables the module
   - zsh.zoxide.enable `boolean` - Enables zoxide

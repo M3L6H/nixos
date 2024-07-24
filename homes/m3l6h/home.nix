@@ -20,6 +20,9 @@
   # Enable tmux
   tmux.enable = true;
 
+  # Enable managed user dirs
+  user-dirs.enable = true;
+
   # Enable zsh
   zsh.enable = true;
 
