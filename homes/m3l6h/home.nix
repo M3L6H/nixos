@@ -32,6 +32,9 @@
   # Enable bazecor
   software.bazecor.enable = true;
 
+  # Enable digikam
+  software.digikam.enable = true;
+
   # Enable file util
   utils.file.enable = true;
 

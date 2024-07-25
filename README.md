@@ -17,6 +17,8 @@ Breakdown of the included modules.
 - [software](/modules/home-manager/software) - Software submodule
   - [bazecor](/modules/home-manager/software/bazecor.nix) - Graphical configurator for Dygma products
     - software.bazecor.enable `boolean` - Enables the module
+  - [digikam](/modules/home-manager/software/digikam) - Image management software
+    - software.digikam.enable `boolean` - Enables the module
 - [toolchains](/modules/home-manager/toolchains) - Toolchains submodule
   - [c-cpp](/modules/home-manager/toolchains/c-cpp.nix) - Install c/c++ toolchain
     - toolchains.c-cpp.enable `boolean` - Enables the module
