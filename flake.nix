@@ -32,7 +32,7 @@
       # Available through 'sudo nixos-rebuild switch --flake .#hostname'
       nixosConfigurations = {
         "${hostname}" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs username; };
           modules = [ ./configs/nixos/configuration.nix ];
         };
       };
@@ -42,9 +42,9 @@
       homeConfigurations = {
         "${username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-	  extraSpecialArgs = { inherit username inputs; };
+          extraSpecialArgs = { inherit inputs username; };
           modules = [ ./homes/m3l6h/home.nix ];
-	};
+        };
       };
     };
   };

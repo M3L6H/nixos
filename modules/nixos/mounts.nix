@@ -11,6 +11,7 @@
         "rw"
         "users" # Allow any user to mount and unmount
         "nofail" # Prevent the system from failing if the drive does not exist
+        "umask=0000" # Allow access for everybody
       ];
     };
   };
