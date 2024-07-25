@@ -1,6 +1,4 @@
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
@@ -55,4 +53,8 @@
   };
 
   programs.firefox.enable = true;
+
+  # Enable disk mounts
+  mounts.enable = true;
 }
+

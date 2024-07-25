@@ -34,5 +34,8 @@
 
   # Enable file util
   utils.file.enable = true;
+
+  # Enable parted util
+  utils.parted.enable = true;
 }
 

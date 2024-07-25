@@ -37,6 +37,8 @@ Breakdown of the included modules.
     - utils.jq.enable `boolean` - Enables the module
   - [ripgrep](/modules/home-manager/utils/ripgrep.nix) - Install ripgrep
     - utils.ripgrep.enable `boolean` - Enables the module
+  - [parted](/modules/home-manager/utils/parted.nix) - Install parted
+    - utils.parted.enable `boolean` - Enables the module
   - [unzip](/modules/home-manager/utils/unzip.nix) - Install unzip
     - utils.unzip.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases
@@ -56,6 +58,8 @@ Breakdown of the included modules.
   - hyprland.enable `boolean` - Enables the module
 - [nix-ld](/modules/nixos/nix-ld.nix) - Enables nix-ld for executing arbitrary binaries
   - nix-ld.enable `boolean` - Enables the module
+- [partition-manager](/modules/nixos/partition-manager.nix) - Install partition-manager
+  - partition-manager.enable `boolean` - Enables the module
 - [users](/modules/nixos/users.nix) - Create default user
   - users.enable `boolean` - Enables the module
   - users.zsh.enable `boolean` - Enables zsh as the default shell (must be done at the system level)
