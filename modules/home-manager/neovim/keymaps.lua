@@ -31,7 +31,7 @@ km.set("v", "<leader>d", "\"+d")
 km.set("n", "Q", "<nop>")
 
 -- format file
-km.set("n", "<leader>f", function()
+km.set("n", "<leader>F", function()
   vim.lsp.buf.format()
 end)
 
