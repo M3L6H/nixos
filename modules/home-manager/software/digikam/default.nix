@@ -6,6 +6,7 @@
   config = lib.mkIf config.software.digikam.enable {
     home.packages = with pkgs; [
       digikam
+      exiftool
     ];
   };
 }
