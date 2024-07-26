@@ -5,8 +5,8 @@ local M = {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   keys = {
-    { "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
-    { "<leader>ps", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('grep > ') })<cr>" },
+    { "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>" },
+    { "<leader>fs", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('grep > ') })<cr>" },
   },
   opts = function()
     local actions = require("telescope.actions")

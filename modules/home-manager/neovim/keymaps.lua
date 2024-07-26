@@ -16,6 +16,25 @@ km.set("n", "<C-u>", "<C-u>zz")
 km.set("n", "n", "nzzzv")
 km.set("n", "N", "Nzzzv")
 
+-- paste without overwriting buffer
+km.set("x", "<leader>p", "\"_dP")
+
+-- yank to clipboard
+km.set("n", "<leader>y", "\"+y")
+km.set("v", "<leader>y", "\"+y")
+km.set("n", "<leader>Y", "\"+Y")
+
+-- delete into void register
+km.set("n", "<leader>d", "\"+d")
+km.set("v", "<leader>d", "\"+d")
+
+km.set("n", "Q", "<nop>")
+
+-- format file
+km.set("n", "<leader>f", function()
+  vim.lsp.buf.format()
+end)
+
 -- navigate in insert mode
 km.set("i", "<A-h>", "<Left>")
 km.set("i", "<A-l>", "<Right>")
