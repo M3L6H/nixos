@@ -29,7 +29,7 @@
 
     fileSystems."/home/${username}/files" = lib.mkIf config.mounts.enable {
       device = "/mnt/files";
-      options = [ "bind" "rw" "umask=0000" ];
+      options = [ "bind" "rw" "nofail" ];
     };
   };
 }
