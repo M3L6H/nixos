@@ -24,6 +24,11 @@ km.set("n", "<leader>y", "\"+y")
 km.set("v", "<leader>y", "\"+y")
 km.set("n", "<leader>Y", "\"+Y")
 
+-- paste from clipboard
+km.set("n", "<leader>p", "\"+p")
+km.set("v", "<leader>p", "\"+p")
+km.set("n", "<leader>P", "\"+P")
+
 -- delete into void register
 km.set("n", "<leader>d", "\"+d")
 km.set("v", "<leader>d", "\"+d")
