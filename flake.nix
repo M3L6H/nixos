@@ -9,6 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Pinning to v0.39.1 for now, since v0.40.0 introduced submodules, and
+    # until https://github.com/NixOS/nix/pull/10125 is merged, flake does not
+    # appear to parse submodules args correctly
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?ref=refs%2Ftags%2Fv0.39.1";
+    hyprland-plugins = {
+      url = "git+https://github.com/hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
