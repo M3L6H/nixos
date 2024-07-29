@@ -18,7 +18,6 @@ local M = {
       "tsserver",
       "jsonls",
       "lua_ls",
-      "marksman",
       "pylsp",
       "ruby_lsp",
       "rust_analyzer",

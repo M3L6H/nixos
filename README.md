@@ -24,6 +24,8 @@ Breakdown of the included modules.
     - toolchains.c-cpp.enable `boolean` - Enables the module
   - [go](/modules/home-manager/toolchains/go.nix) - Install go toolchain
     - toolchains.go.enable `boolean` - Enables the module
+  - [markdown](/modules/home-manager/toolchains/markdown.nix) - Install markdown toolchain
+    - toolchains.markdown.enable `boolean` - Enables the module
   - [node](/modules/home-manager/toolchains/node.nix) - Install node toolchain
     - toolchains.node.enable `boolean` - Enables the module
   - [python](/modules/home-manager/toolchains/python.nix) - Install python toolchain

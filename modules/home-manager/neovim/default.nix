@@ -25,6 +25,9 @@
       vimAlias = true;
       vimdiffAlias = true;
       extraLuaConfig = ''
+      vim.g.lsps = {
+        ${if config.toolchains.markdown.enable then "'marksman'" else ""}
+      }
       ${builtins.readFile ./lazy-bootstrap.lua}
       ${builtins.readFile ./opts.lua}
       ${builtins.readFile ./keymaps.lua}

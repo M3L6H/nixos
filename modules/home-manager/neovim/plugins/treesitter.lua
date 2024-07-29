@@ -5,7 +5,7 @@ local M = {
   opts = {
     highlight = {
       enable = true,
-      disable = function(lang, buf)
+      disable = function(_, buf)
         local max_filesize = 1000 * 1024 -- 10 KB
         local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
         return ok and stats and stats.size > max_filesize

@@ -35,6 +35,9 @@
   # Enable digikam
   software.digikam.enable = true;
 
+  # Enable markdown toolchain
+  toolchains.markdown.enable = true;
+
   # Enable file util
   utils.file.enable = true;
 
