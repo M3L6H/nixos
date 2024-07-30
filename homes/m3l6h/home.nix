@@ -11,6 +11,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Enable management of hyprland through home-manager
+  hyprland.enable = true;
+
   # Enable neovim
   neovim.enable = true;
 

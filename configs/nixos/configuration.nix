@@ -33,7 +33,6 @@
 
   services.xserver.enable = true;
 
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   services.xserver.xkb = {
@@ -45,16 +44,13 @@
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   programs.firefox.enable = true;
 
   # Enable disk mounts
   mounts.enable = true;
+
+  # Enable nvidia module
+  nvidia.enable = true;
 }
 

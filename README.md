@@ -62,8 +62,12 @@ Breakdown of the included modules.
   - hyprland.enable `boolean` - Enables the module
 - [nix-ld](/modules/nixos/nix-ld.nix) - Enables nix-ld for executing arbitrary binaries
   - nix-ld.enable `boolean` - Enables the module
+- [nvidia](/modules/nixos/nvidia.nix) - Enables nvidia window manager
+  - nvidia.enable `boolean` - Enables the module
 - [partition-manager](/modules/nixos/partition-manager.nix) - Install partition-manager
   - partition-manager.enable `boolean` - Enables the module
+- [sddm](/modules/nixos/sddm.nix) - Enables sddm window manager
+  - sddm.enable `boolean` - Enables the module
 - [users](/modules/nixos/users.nix) - Create default user
   - users.enable `boolean` - Enables the module
   - users.zsh.enable `boolean` - Enables zsh as the default shell (must be done at the system level)
