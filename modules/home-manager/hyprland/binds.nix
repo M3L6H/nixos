@@ -6,7 +6,7 @@
         bind = [
           "$mainMod, F, exec, kitty"
           "$mainMod, D, exec, firefox"
-          "$mainMod SHIFT, K, exec, exit"
+          "$mainMod SHIFT, Q, exec, exit"
         ];
       };
     };
