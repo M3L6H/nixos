@@ -15,11 +15,11 @@
 	  esp = {
 	    size = "512M";
 	    type = "EF00";
-	    label = "esp";
+	    label = "ESP";
 	    content = {
 	      type = "filesystem";
 	      format = "vfat";
-	      extraArgs = [ "-n esp" ]; # Filesystem label
+	      extraArgs = [ "-n ESP" ]; # Filesystem label
 	      mountpoint = "/boot";
 	      mountOptions = [
 	        "defaults"
