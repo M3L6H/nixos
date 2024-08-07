@@ -9,17 +9,16 @@
 	  boot = {
 	    size = "1M";
 	    type = "EF02";
-	    label = "boot";
+	    name = "boot";
 	  };
 
 	  esp = {
 	    size = "512M";
 	    type = "EF00";
-	    label = "ESP";
+	    name = "ESP";
 	    content = {
 	      type = "filesystem";
 	      format = "vfat";
-	      extraArgs = [ "-n ESP" ]; # Filesystem label
 	      mountpoint = "/boot";
 	      mountOptions = [
 	        "defaults"
@@ -33,7 +32,7 @@
 
 	  luks = {
 	    size = "100%";
-	    label = "nixos";
+	    name = "nixos";
 	    content = {
 	      type = "luks";
 	      name = "root"; # Mapper name
