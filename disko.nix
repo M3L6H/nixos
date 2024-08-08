@@ -46,11 +46,11 @@
 
 		# Create initial blank snapshot
 		# Will later restore the root subvolume to this in order to clear it
-		postCreateHook = ''
-		  mount -o subvol=/ /dev/mapper/root /mnt
-		  btrfs subvolume snapshot -r /mnt/@ /mnt/@-blank
-		  umount /mnt
-		'';
+		# postCreateHook = ''
+		#   mount -o subvol=/ /dev/mapper/root /mnt
+		#   btrfs subvolume snapshot -r /mnt/@ /mnt/@-blank
+		#   umount /mnt
+		# '';
 
 		subvolumes = {
 		  # Root subvolume. Will be cleared on each reboot
