@@ -19,6 +19,7 @@
     users.users."${username}" = {
       isNormalUser = true;
       description = "Michael Hollingworth";
+      initialPassword = "0";
       extraGroups = [
         "dialout" # Allow access to serial device
         "networkmanager"

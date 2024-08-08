@@ -12,7 +12,7 @@
   programs.home-manager.enable = true;
 
   # Enable management of hyprland through home-manager
-  hyprland.enable = true;
+  hyprland.enable = false;
 
   # Enable neovim
   neovim.enable = true;
@@ -30,21 +30,21 @@
   zsh.enable = true;
 
   # Enable wallpaper haven script
-  scripts.wallpaper-haven.enable = true;
+  scripts.wallpaper-haven.enable = false;
 
   # Enable bazecor
-  software.bazecor.enable = true;
+  software.bazecor.enable = false;
 
   # Enable digikam
-  software.digikam.enable = true;
+  software.digikam.enable = false;
 
   # Enable markdown toolchain
   toolchains.markdown.enable = true;
 
   # Enable file util
-  utils.file.enable = true;
+  utils.file.enable = false;
 
   # Enable parted util
-  utils.parted.enable = true;
+  utils.parted.enable = false;
 }
 

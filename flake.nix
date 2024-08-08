@@ -4,6 +4,15 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +32,7 @@
 
   outputs = { nixpkgs, home-manager, flake-parts, ... }@inputs:
   let
+    device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_4TB_S757NS0X302547W";
     hostname = "nixos";
     system = "x86_64-linux";
     username = "m3l6h";
@@ -41,8 +51,15 @@
       # Available through 'sudo nixos-rebuild switch --flake .#hostname'
       nixosConfigurations = {
         "${hostname}" = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs username; };
-          modules = [ ./configs/nixos/configuration.nix ];
+          specialArgs = { inherit device inputs username; };
+          modules = [
+	    inputs.disko.nixosModules.default
+	    (import ./disko.nix { inherit device; })
+
+	    ./configs/nixos/configuration.nix
+
+	    inputs.impermanence.nixosModules.impermanence
+	  ];
         };
       };
 

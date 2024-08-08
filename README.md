@@ -46,6 +46,8 @@ Breakdown of the included modules.
   - [unzip](/modules/home-manager/utils/unzip.nix) - Install unzip
     - utils.unzip.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases
+- [impermanence](/modules/home-manager/impermanence.nix) - Enables impermanence at user level
+  - impermanence.enable `boolean` - Enables the module
 - [terminal](/modules/home-manager/terminal.nix) - Configure terminal
   - terminal.enable `boolean` - Enables the module
 - [tmux](/modules/home-manager/tmux.nix) - Configure tmux
@@ -60,6 +62,8 @@ Breakdown of the included modules.
 
 - [hyprland](/modules/nixos/hyprland.nix) - Enables hyprland window manager
   - hyprland.enable `boolean` - Enables the module
+- [impermanence](/modules/nixos/impermanence.nix) - Enables impermanence at system level
+  - impermanence.enable `boolean` - Enables the module
 - [nix-ld](/modules/nixos/nix-ld.nix) - Enables nix-ld for executing arbitrary binaries
   - nix-ld.enable `boolean` - Enables the module
 - [nvidia](/modules/nixos/nvidia.nix) - Enables nvidia window manager

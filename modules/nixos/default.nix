@@ -1,6 +1,7 @@
 { lib, ... }: {
   imports = [
     ./hyprland.nix
+    ./impermanence.nix
     ./mounts.nix
     ./nix-ld.nix
     ./nvidia.nix
@@ -11,6 +12,7 @@
   ];
 
   config.hyprland.enable = lib.mkDefault true;
+  config.impermanence.enable = lib.mkDefault true;
   config.mounts.enable = lib.mkDefault false;
   config.nix-ld.enable = lib.mkDefault true;
   config.nvidia.enable = lib.mkDefault false;

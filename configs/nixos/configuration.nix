@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, device, pkgs, username, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
@@ -6,9 +6,66 @@
 
   system.stateVersion = "24.05";
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sdd";
-  boot.loader.grub.useOSProber = true;
+  boot = {
+    loader = {
+      grub = {
+        enable = true;
+	device = "nodev";
+	efiInstallAsRemovable = true;
+	efiSupport = true;
+	useOSProber = true;
+      };
+    };
+
+    kernelParams = [
+      "resume_offset=533760" # Retrieved by running `btrfs inspect-internal map-swapfile -r /mnt/swap/swapfile`
+    ];
+
+    resumeDevice = device;
+
+    initrd = {
+      systemd = {
+        enable = true;
+
+	services.rollback = {
+	  description = "Nuke root volume";
+	  wantedBy = [ "initrd.target" ];
+	  after = [ "systemd-cryptsetup@root.service" ];
+	  before = [ "sysroot.mount" ];
+	  unitConfig.DefaultDependencies = "no";
+	  serviceConfig.Type = "oneshot";
+	  script = ''
+	    mkdir /btrfs_tmp
+
+	    mount -o subvol=/ /dev/mapper/root /btrfs_tmp
+
+	    if [[ -e /btrfs_tmp/@ ]]; then
+	      btrfs subvolume list -o /btrfs_tmp/@ |
+	      cut -f 9- -d ' ' |
+	      while read subvolume; do
+	        btrfs subvolume delete "/btrfs_tmp/$subvolume"
+	      done
+
+	      btrfs subvolume snapshot -r /btrfs_tmp/@ /btrfs_tmp/@-"$(date +%FT%TZ)"
+
+	      btrfs subvolume delete /btrfs_tmp/@
+	    fi
+
+	    btrfs subvolume snapshot /btrfs_tmp/@-blank /btrfs_tmp/@
+
+	    sync
+
+	    umount /btrfs_tmp
+	  '';
+	};
+      };
+    };
+  };
+
+  console = {
+    earlySetup = true;
+    keyMap = "us";
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -48,7 +105,7 @@
   programs.firefox.enable = true;
 
   # Enable disk mounts
-  mounts.enable = true;
+  mounts.enable = false;
 
   # Enable nvidia module
   nvidia.enable = true;
