@@ -43,46 +43,46 @@
 	    echo 'Failed to mount /dev/mapper/root'
 
 	    if [[ -e /btrfs_tmp/@ ]]; then
-	      mkdir -p /btrfs_tmp/old_roots
-	      timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
-	      mv /btrfs_tmp/@ "/btrfs_tmp/old_roots/$timestamp"
+	      # mkdir -p /btrfs_tmp/old_roots
+	      # timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/@)" "+%Y-%m-%-d_%H:%M:%S")
+	      # mv /btrfs_tmp/@ "/btrfs_tmp/old_roots/$timestamp"
 
-	      # btrfs subvolume list -o /btfs_tmp/@ |
-	      # cut -f 9- -d ' ' |
-	      # while read subvolume; do
-	      #   btrfs subvolume delete "/btrfs_tmp/$subvolume" &&
-	      #   echo "Successfully deleted subvolume $subvolume" ||
-	      #   echo "Failed to delete subvolume $subvolume"
-	      # done
+	      btrfs subvolume list -o /btrfs_tmp/@ |
+	      cut -f 9- -d ' ' |
+	      while read subvolume; do
+	        btrfs subvolume delete "/btrfs_tmp/$subvolume" &&
+	        echo "Successfully deleted subvolume $subvolume" ||
+	        echo "Failed to delete subvolume $subvolume"
+	      done
 
-	      # btrfs subvolume snapshot -r /btfs_tmp/@ /btrfs_tmp/@-"$(date +%FT%TZ)" &&
-	      # echo 'Successfully snapshotted root volume' ||
-	      # echo 'Failed to snapshot root volume'
+	      btrfs subvolume snapshot -r /btrfs_tmp/@ /btrfs_tmp/@-"$(date +%FT%TZ)" &&
+	      echo 'Successfully snapshotted root volume' ||
+	      echo 'Failed to snapshot root volume'
 
-	      # btrfs subvolume delete /btrfs_tmp/@ &&
-	      # echo 'Successfully deleted root volume' ||
-	      # echo 'Failed to delete root volume'
+	      btrfs subvolume delete /btrfs_tmp/@ &&
+	      echo 'Successfully deleted root volume' ||
+	      echo 'Failed to delete root volume'
 	    fi
 
-	    delete_subvolume_recursively() {
-	      IFS=$'\n'
-	      for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-	        delete_subvolume_recursively "/btrfs_tmp/$i"
-	      done
-	      btrfs subvolume delete "$1"
-	    }
+	    # delete_subvolume_recursively() {
+	    #   IFS=$'\n'
+	    #   for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+	    #     delete_subvolume_recursively "/btrfs_tmp/$i"
+	    #   done
+	    #   btrfs subvolume delete "$1"
+	    # }
 
-	    for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
-	      delete_subvolume_recursively "$i"
-	    done
+	    # for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
+	    #   delete_subvolume_recursively "$i"
+	    # done
 
-	    # btrfs subvolume snapshot /btrfs_tmp/@-blank /btrfs_tmp/@ &&
-	    # echo 'Successfully restored root volume to blank state' ||
-	    # echo 'Failed to restore root volume to blank state'
+	    btrfs subvolume snapshot /btrfs_tmp/@-blank /btrfs_tmp/@ &&
+	    echo 'Successfully restored root volume to blank state' ||
+	    echo 'Failed to restore root volume to blank state'
 
-	    # sync
+	    sync
 
-	    btrfs subvolume create /btrfs_tmp/root
+	    # btrfs subvolume create /btrfs_tmp/@
 
 	    umount /btrfs_tmp
 	  '';
