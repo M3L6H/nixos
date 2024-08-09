@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }: {
+{ config, inputs, lib, pkgs, username, ... }: {
   options = {
     impermanence.enable = lib.mkEnableOption "enables impermanence module";
   };
@@ -8,11 +8,11 @@
   ];
 
   config = lib.mkIf config.impermanence.enable {
-    home.persistence."/persist/home" = {
+    home.persistence."/persist/home/${username}" = {
       files = [
         # ssh files
-	".ssh/id_ed25519"
-	".ssh/id_ed25519.pub"
+        ".ssh/id_ed25519"
+        ".ssh/id_ed25519.pub"
         ".ssh/known_hosts"
         ".ssh/known_hosts.old"
       ];

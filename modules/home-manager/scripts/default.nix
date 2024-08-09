@@ -1,5 +1,6 @@
 { lib, ... }: {
   imports = [
+    ./fs-diff.nix
     ./wallpaper-haven.nix
   ];
 

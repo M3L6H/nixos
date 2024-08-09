@@ -53,13 +53,13 @@
         "${hostname}" = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit device inputs username; };
           modules = [
-	    inputs.disko.nixosModules.default
-	    (import ./disko.nix { inherit device; })
+            inputs.disko.nixosModules.default
+            (import ./disko.nix { inherit device; })
 
-	    ./configs/nixos/configuration.nix
+            ./configs/nixos/configuration.nix
 
-	    inputs.impermanence.nixosModules.impermanence
-	  ];
+            inputs.impermanence.nixosModules.impermanence
+          ];
         };
       };
 
@@ -69,7 +69,7 @@
         "${username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs username; };
-          modules = [ ./homes/m3l6h/home.nix ];
+          modules = [ ./homes/${username}/home.nix ];
         };
       };
     };

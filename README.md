@@ -11,6 +11,8 @@ Breakdown of the included modules.
 - [neovim](/modules/home-manager/neovim) - Add neovim (configured in lua using [Lazy](https://github.com/folke/lazy.nvim))
     - neovim.enable `boolean` - Enables the module
 - [scripts](/modules/home-manager/scripts) - Scripts submodule
+  - [fs-diff](/modules/home-manager/scripts/fs-diff.nix) - Use to find files needing to be persisted
+    - Will automatically be enabled if `impermanence.enable` is true
   - [wallpaper-haven](/modules/home-manager/scripts/wallpaper-haven.nix) - Sets a random wallpaper from wallpaper haven
     - scripts.wallpaper-haven.enable `boolean` - Enables the module
     - configure [api options](https://wallhaven.cc/help/api) with `~/.config/.wallhaven.ini`
@@ -60,6 +62,8 @@ Breakdown of the included modules.
 
 ## [nixos](/modules/nixos) - Nixos modules
 
+- [firefox](/modules/nixos/firefox.nix) - Enables firefox browser
+  - firefox.enable `boolean` - Enables the module
 - [hyprland](/modules/nixos/hyprland.nix) - Enables hyprland window manager
   - hyprland.enable `boolean` - Enables the module
 - [impermanence](/modules/nixos/impermanence.nix) - Enables impermanence at system level

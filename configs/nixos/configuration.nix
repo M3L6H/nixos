@@ -10,10 +10,10 @@
     loader = {
       grub = {
         enable = true;
-	device = "nodev";
-	efiInstallAsRemovable = true;
-	efiSupport = true;
-	useOSProber = true;
+        device = "nodev";
+        efiInstallAsRemovable = true;
+        efiSupport = true;
+        useOSProber = true;
       };
     };
 
@@ -27,37 +27,42 @@
       systemd = {
         enable = true;
 
-	services.rollback = {
-	  description = "Nuke root volume";
-	  wantedBy = [ "initrd.target" ];
-	  after = [ "systemd-cryptsetup@root.service" ];
-	  before = [ "sysroot.mount" ];
-	  unitConfig.DefaultDependencies = "no";
-	  serviceConfig.Type = "oneshot";
-	  script = ''
-	    mkdir /btrfs_tmp
+        services.rollback = {
+          description = "Nuke root & home subvolumes";
+          wantedBy = [ "initrd.target" ];
+          after = [ "systemd-cryptsetup@root.service" ];
+          before = [ "sysroot.mount" ];
+          unitConfig.DefaultDependencies = "no";
+          serviceConfig.Type = "oneshot";
+          script = ''
+            mkdir /btrfs_tmp
 
-	    mount -o subvol=/ /dev/mapper/root /btrfs_tmp
+            mount -o subvol=/ /dev/mapper/root /btrfs_tmp
 
-	    if [[ -e /btrfs_tmp/@ ]]; then
-	      btrfs subvolume list -o /btrfs_tmp/@ |
-	      cut -f 9- -d ' ' |
-	      while read subvolume; do
-	        btrfs subvolume delete "/btrfs_tmp/$subvolume"
-	      done
+            nuke_subvolume() {
+              if [[ -e "/btrfs_tmp/$1" ]]; then
+                btrfs subvolume list -o "/btrfs_tmp/$1" |
+                cut -f 9- -d ' ' |
+                while read subvolume; do
+                  btrfs subvolume delete "/btrfs_tmp/$subvolume"
+                done
 
-	      btrfs subvolume snapshot -r /btrfs_tmp/@ /btrfs_tmp/@-"$(date +%FT%TZ)"
+                btrfs subvolume snapshot -r "/btrfs_tmp/$1" "/btrfs_tmp/$1-$(date +%FT%TZ)"
 
-	      btrfs subvolume delete /btrfs_tmp/@
-	    fi
+                btrfs subvolume delete "/btrfs_tmp/$1"
+              fi
 
-	    btrfs subvolume snapshot /btrfs_tmp/@-blank /btrfs_tmp/@
+              btrfs subvolume snapshot "/btrfs_tmp/$1-blank" "/btrfs_tmp/$1"
+            }
 
-	    sync
+            nuke_subvolume '@'
+            nuke_subvolume '@home'
 
-	    umount /btrfs_tmp
-	  '';
-	};
+            sync
+
+            umount /btrfs_tmp
+          '';
+        };
       };
     };
   };
@@ -101,8 +106,6 @@
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-
-  programs.firefox.enable = true;
 
   # Enable disk mounts
   mounts.enable = false;
