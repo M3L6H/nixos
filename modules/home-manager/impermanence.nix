@@ -10,6 +10,9 @@
   config = lib.mkIf config.impermanence.enable {
     home.persistence."/persist/home/${username}" = {
       files = [
+        # .gitconfig
+        ".gitconfig"
+
         # ssh files
         ".ssh/id_ed25519"
         ".ssh/id_ed25519.pub"
