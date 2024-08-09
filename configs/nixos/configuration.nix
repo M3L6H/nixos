@@ -1,4 +1,4 @@
-{ config, device, pkgs, username, ... }: {
+{ config, device, inputs, pkgs, username, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
@@ -56,7 +56,6 @@
             }
 
             nuke_subvolume '@'
-            nuke_subvolume '@home'
 
             sync
 
@@ -114,5 +113,13 @@
 
   # Enable nvidia module
   nvidia.enable = true;
+
+  # Home manager
+  home-manager = {
+    extraSpecialArgs = { inherit inputs username; };
+    users = {
+      "${username}" = import ../../homes/${username}/home.nix;
+    };
+  };
 }
 

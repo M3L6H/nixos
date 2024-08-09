@@ -58,6 +58,7 @@
 
             ./configs/nixos/configuration.nix
 
+            inputs.home-manager.nixosModules.default
             inputs.impermanence.nixosModules.impermanence
           ];
         };

@@ -6,7 +6,6 @@
     };
 
     home.shellAliases.root-diff = "sudo $HOME/.local/bin/fs-diff /mnt/@";
-    home.shellAliases.home-diff = "sudo $HOME/.local/bin/fs-diff /mnt/@home";
   };
 }
 

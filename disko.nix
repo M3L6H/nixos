@@ -45,11 +45,10 @@
                 ];
 
                 # Create initial blank snapshot
-                # Will later restore the root/home subvolumes to this in order to clear it
+                # Will later restore the root subvolume to this in order to clear it
                 postCreateHook = ''
                   mount -o subvol=/ /dev/mapper/root /mnt
                   btrfs subvolume snapshot -r /mnt/@ /mnt/@-blank
-                  btrfs subvolume snapshot -r /mnt/@home /mnt/@home-blank
                   umount /mnt
                 '';
 
@@ -72,17 +71,6 @@
                       "nodev"
                       "nosuid"
                       "noexec"
-                    ];
-                  };
-
-                  # User home directories. Will also be cleared on reboot
-                  "/@home" = {
-                    mountpoint = "/home";
-                    mountOptions = [
-                      "compress-force=zstd"
-                      "noatime"
-                      "nodev"
-                      "nosuid"
                     ];
                   };
 
