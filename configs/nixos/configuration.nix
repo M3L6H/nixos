@@ -107,6 +107,8 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
+  programs.fuse.userAllowOther = true;
+
   # Enable disk mounts
   mounts.enable = false;
 

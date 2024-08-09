@@ -42,7 +42,7 @@
   toolchains.markdown.enable = true;
 
   # Enable file util
-  utils.file.enable = false;
+  utils.file.enable = true;
 
   # Enable parted util
   utils.parted.enable = false;

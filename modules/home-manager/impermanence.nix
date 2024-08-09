@@ -16,6 +16,8 @@
         ".ssh/known_hosts"
         ".ssh/known_hosts.old"
       ];
+
+      allowOther = true;
     };
   };
 }
