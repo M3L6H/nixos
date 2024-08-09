@@ -2,6 +2,34 @@
 
 My personal nixos configuration.
 
+## Installation
+
+Boot into NixOS installer.
+
+Close the installer.
+
+Open a terminal and run the following:
+
+```sh
+sudo su
+nix-shell -p git
+git clone https://github.com/m3l6h/nixos.git
+cd nixos
+ls /dev/disk/by-id # Identify the disk to install NixOS on
+nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./disko.nix --arg device '"/dev/disk/by-id/<disk from previous step>"'
+cd ..
+mkdir /mnt/etc
+mv nixos /mnt/etc/
+nixos-install --root /mnt --flake /mnt/etc/nixos#nixos
+reboot
+```
+
+Open a terminal and run the following:
+
+```sh
+home-manager switch --flake /etc/nixos#m3l6h
+```
+
 # [modules](/modules)
 
 Breakdown of the included modules.
