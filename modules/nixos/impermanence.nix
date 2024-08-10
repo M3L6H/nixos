@@ -15,7 +15,7 @@
           {
             # System config
             directory = "/etc/nixos";
-	    user = username;
+            user = username;
             group = "users";
             mode = "0755";
           }

@@ -51,6 +51,8 @@ Breakdown of the included modules.
     - software.bazecor.enable `boolean` - Enables the module
   - [digikam](/modules/home-manager/software/digikam) - Image management software
     - software.digikam.enable `boolean` - Enables the module
+  - [firefox](/modules/home-manager/software/firefox.nix) - Enables firefox browser
+    - software.firefox.enable `boolean` - Enables the module
 - [toolchains](/modules/home-manager/toolchains) - Toolchains submodule
   - [c-cpp](/modules/home-manager/toolchains/c-cpp.nix) - Install c/c++ toolchain
     - toolchains.c-cpp.enable `boolean` - Enables the module
@@ -92,8 +94,6 @@ Breakdown of the included modules.
 
 ## [nixos](/modules/nixos) - Nixos modules
 
-- [firefox](/modules/nixos/firefox.nix) - Enables firefox browser
-  - firefox.enable `boolean` - Enables the module
 - [hyprland](/modules/nixos/hyprland.nix) - Enables hyprland window manager
   - hyprland.enable `boolean` - Enables the module
 - [impermanence](/modules/nixos/impermanence.nix) - Enables impermanence at system level

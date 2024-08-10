@@ -9,15 +9,17 @@
 
   config = lib.mkIf config.impermanence.enable {
     home.persistence."/persist/home/${username}" = {
+      directories = [
+        # firefox
+        ".mozilla/firefox"
+
+        # ssh files
+        ".ssh"
+      ];
+
       files = [
         # .gitconfig
         ".gitconfig"
-
-        # ssh files
-        ".ssh/id_ed25519"
-        ".ssh/id_ed25519.pub"
-        ".ssh/known_hosts"
-        ".ssh/known_hosts.old"
       ];
 
       allowOther = true;

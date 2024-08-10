@@ -1,6 +1,5 @@
 { lib, ... }: {
   imports = [
-    ./firefox.nix
     ./hyprland.nix
     ./impermanence.nix
     ./mounts.nix
@@ -12,7 +11,6 @@
     ./vcs.nix
   ];
 
-  config.firefox.enable = lib.mkDefault true;
   config.hyprland.enable = lib.mkDefault true;
   config.impermanence.enable = lib.mkDefault true;
   config.mounts.enable = lib.mkDefault false;

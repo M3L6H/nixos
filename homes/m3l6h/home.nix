@@ -38,6 +38,9 @@
   # Enable digikam
   software.digikam.enable = false;
 
+  # Enable firefox
+  software.firefox.enable = true;
+
   # Enable markdown toolchain
   toolchains.markdown.enable = true;
 
