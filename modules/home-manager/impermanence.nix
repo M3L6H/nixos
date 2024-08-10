@@ -13,18 +13,11 @@
         # firefox
         ".mozilla/firefox"
 
-        # kde settings
-
         # ssh files
         ".ssh"
       ];
 
       files = [
-        # kde display settings
-        ".config/kwinoutputconfig.json"
-        ".config/plasma-org.kde.plasma.desktop-appletsrc"
-        ".local/share/systemsettings/systemsettingsstaterc"
-
         # .gitconfig
         ".gitconfig"
       ];
