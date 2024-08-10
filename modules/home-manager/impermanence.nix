@@ -14,7 +14,6 @@
         ".mozilla/firefox"
 
         # kde settings
-        ".local/share/systemsettings"
 
         # ssh files
         ".ssh"
@@ -24,6 +23,7 @@
         # kde display settings
         ".config/kwinoutputconfig.json"
         ".config/plasma-org.kde.plasma.desktop-appletsrc"
+        ".local/share/systemsettings/systemsettingsstaterc"
 
         # .gitconfig
         ".gitconfig"

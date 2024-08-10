@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, username, ... }: {
   options = {
     zsh.enable = lib.mkEnableOption "enables zsh module";
     zsh.zoxide.enable = lib.mkEnableOption "enables zoxide";
@@ -12,6 +12,10 @@
     zsh.zoxide.enable = lib.mkDefault true;
 
     programs.zoxide.enable = config.zsh.zoxide.enable;
+
+    home.persistence."/persist/home/${username}".files = lib.mkIf config.impermanence.enable [
+      ".local/share/zoxide/db.zo"
+    ];
 
     home.file.".zsh-custom/themes/spaceship.zsh-theme" = {
       recursive = true;
