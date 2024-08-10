@@ -12,7 +12,7 @@
   programs.home-manager.enable = true;
 
   # Enable management of hyprland through home-manager
-  hyprland.enable = false;
+  hyprland.enable = true;
 
   # Enable neovim
   neovim.enable = true;
