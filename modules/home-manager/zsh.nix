@@ -13,8 +13,8 @@
 
     programs.zoxide.enable = config.zsh.zoxide.enable;
 
-    home.persistence."/persist/home/${username}".files = lib.mkIf config.impermanence.enable [
-      ".local/share/zoxide/db.zo"
+    home.persistence."/persist/home/${username}".directories = lib.mkIf config.impermanence.enable [
+      ".local/share/zoxide"
     ];
 
     home.file.".zsh-custom/themes/spaceship.zsh-theme" = {

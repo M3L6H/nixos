@@ -5,15 +5,12 @@
 
   imports = [
     ./binds.nix
+    ./monitors.nix
   ];
 
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-
-      settings = {
-        "monitor" = ",preferred,auto,1";
-      };
 
       systemd.variables = [ "--all" ];
     };

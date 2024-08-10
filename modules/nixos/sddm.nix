@@ -6,7 +6,7 @@
   config = lib.mkIf config.sddm.enable {
     services.displayManager.sddm.enable = true;
 
-    services.displayManager.defaultSession = "plasma";
+    services.displayManager.defaultSession = "hyprland";
   };
 }
 
