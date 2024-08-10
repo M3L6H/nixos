@@ -21,6 +21,10 @@
       ];
 
       files = [
+        # kde display settings
+        ".config/kwinoutputconfig.json"
+        ".config/plasma-org.kde.plasma.desktop-appletsrc"
+
         # .gitconfig
         ".gitconfig"
       ];
