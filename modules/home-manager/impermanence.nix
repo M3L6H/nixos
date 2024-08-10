@@ -13,6 +13,9 @@
         # firefox
         ".mozilla/firefox"
 
+        # kde settings
+        ".local/share/systemsettings"
+
         # ssh files
         ".ssh"
       ];
