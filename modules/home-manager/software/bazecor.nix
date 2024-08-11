@@ -9,6 +9,7 @@
     ];
 
     home.persistence."/persist/home/${username}".directories = lib.mkIf config.impermanence.enable [
+      ".config/Bazecor"
       "Dygma"
     ];
   };
