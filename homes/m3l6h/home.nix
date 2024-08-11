@@ -33,7 +33,7 @@
   scripts.wallpaper-haven.enable = false;
 
   # Enable bazecor
-  software.bazecor.enable = false;
+  software.bazecor.enable = true;
 
   # Enable digikam
   software.digikam.enable = false;
