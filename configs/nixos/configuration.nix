@@ -109,7 +109,7 @@
   programs.fuse.userAllowOther = true;
 
   # Enable disk mounts
-  mounts.enable = false;
+  mounts.enable = true;
 
   # Enable nvidia module
   nvidia.enable = true;

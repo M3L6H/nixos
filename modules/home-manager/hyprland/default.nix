@@ -4,7 +4,10 @@
   };
 
   imports = [
+    ./rofi
     ./binds.nix
+    ./hypridle.nix
+    ./hyprlock.nix
     ./monitors.nix
   ];
 

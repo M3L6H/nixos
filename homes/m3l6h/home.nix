@@ -36,7 +36,7 @@
   software.bazecor.enable = true;
 
   # Enable digikam
-  software.digikam.enable = false;
+  software.digikam.enable = true;
 
   # Enable firefox
   software.firefox.enable = true;

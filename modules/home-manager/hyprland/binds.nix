@@ -6,7 +6,9 @@
         bind = [
           "$mainMod, F, exec, kitty"
           "$mainMod, D, exec, firefox"
+          "$mainMod, Space, exec, rofi -show run"
           "$mainMod, Q, killactive,"
+          "$mainMod ALT, L, exec, hyprlock"
           "$mainMod SHIFT, Q, exit,"
 
           # Navigation
@@ -64,6 +66,9 @@
           "$mainMod SHIFT, 0, movetoworkspacesilent, 0"
           "$mainMod SHIFT, bracketright, movetoworkspacesilent, +1"
           "$mainMod SHIFT, bracketleft, movetoworkspacesilent, -1"
+
+          # Dismiss notifications
+          "$mainMod, M, exec, makoctl dismiss -a"
         ];
       };
     };

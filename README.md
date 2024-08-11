@@ -36,6 +36,13 @@ Breakdown of the included modules.
 
 ## [home-manager](/modules/home-manager) - Home Manager modules
 
+- [hyprland](/modules/home-manager/hyprland) - Hyprland submodule
+  - hyprland.enable `boolean` - Enables the module and its submodules
+  - [rofi](/modules/home-manager/hyprland/rofi) - Configures rofi
+  - [binds](/modules/home-manager/hyprland/binds.nix) - Sets hyprland keybinds
+  - [hypridle](/modules/home-manager/hyprland/hypridle.nix) - Configures hypridle
+  - [hyprlock](/modules/home-manager/hyprland/hyprlock.nix) - Configures hyprlock
+  - [monitors](/modules/home-manager/hyprland/monitors.nix) - Configures monitors
 - [neovim](/modules/home-manager/neovim) - Add neovim (configured in lua using [Lazy](https://github.com/folke/lazy.nvim))
     - neovim.enable `boolean` - Enables the module
 - [scripts](/modules/home-manager/scripts) - Scripts submodule
