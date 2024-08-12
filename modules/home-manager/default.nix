@@ -7,6 +7,7 @@
     ./toolchains
     ./utils
     ./aliases.nix
+    ./gpg.nix
     ./impermanence.nix
     ./user-dirs.nix
     ./terminal.nix
@@ -15,6 +16,7 @@
   ];
 
   hyprland.enable = lib.mkDefault false;
+  gpg.enable = lib.mkDefault false;
   impermanence.enable = lib.mkDefault true;
   neovim.enable = lib.mkDefault false;
   user-dirs.enable = lib.mkDefault false;

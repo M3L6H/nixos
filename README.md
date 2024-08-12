@@ -87,6 +87,8 @@ Breakdown of the included modules.
   - [unzip](/modules/home-manager/utils/unzip.nix) - Install unzip
     - utils.unzip.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases
+- [gpg](/modules/home-manager/gpg.nix) - Enables gpg keys
+  - gpg.enable `boolean` - Enables the module
 - [impermanence](/modules/home-manager/impermanence.nix) - Enables impermanence at user level
   - impermanence.enable `boolean` - Enables the module
 - [terminal](/modules/home-manager/terminal.nix) - Configure terminal

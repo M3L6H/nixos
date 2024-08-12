@@ -11,6 +11,9 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Enable GPG keys
+  gpg.enable = true;
+
   # Enable management of hyprland through home-manager
   hyprland.enable = true;
 
