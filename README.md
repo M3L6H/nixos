@@ -24,12 +24,6 @@ nixos-install --root /mnt --flake /mnt/etc/nixos#nixos
 reboot
 ```
 
-Open a terminal and run the following:
-
-```sh
-home-manager switch --flake /etc/nixos#m3l6h
-```
-
 # [modules](/modules)
 
 Breakdown of the included modules.
