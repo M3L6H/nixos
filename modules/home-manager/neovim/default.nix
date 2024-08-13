@@ -1,22 +1,35 @@
-{ config, inputs, lib, ... }: {
+{ config, inputs, lib, username, ... }: {
   options = {
     neovim.enable = lib.mkEnableOption "enables neovim module";
   };
 
+  imports = [
+    ./plugins/colorscheme.nix
+    ./plugins/eyeliner.nix
+    ./plugins/harpoon.nix
+    ./plugins/lspconfig.nix
+    ./plugins/mason-lspconfig.nix
+    ./plugins/mason.nix
+    ./plugins/nvim-cmp.nix
+    ./plugins/oil.nix
+    ./plugins/telescope.nix
+    ./plugins/treesitter.nix
+    ./plugins/undotree.nix
+    ./plugins/zen-mode.nix
+  ];
+
   config = lib.mkIf config.neovim.enable {
-    # We require the c/c++ toolchain for fzf in telescope
-    toolchains.c-cpp.enable = true;
-
-    # We require the following toolchains for Mason
-    toolchains.go.enable = true;
-    toolchains.node.enable = true;
-    toolchains.python.enable = true;
-
-    # We require the unzip utility for Mason
-    utils.unzip.enable = true;
-
-    # Ripgrep is required for grep search in telescope
-    utils.ripgrep.enable = true;
+    neovim.plugins.colorscheme.enable = lib.mkDefault true;
+    neovim.plugins.eyeliner.enable = lib.mkDefault true;
+    neovim.plugins.harpoon.enable = lib.mkDefault true;
+    neovim.plugins.lspconfig.enable = lib.mkDefault true;
+    neovim.plugins.mason.enable = lib.mkDefault false;
+    neovim.plugins.nvim-cmp.enable = lib.mkDefault true;
+    neovim.plugins.oil.enable = lib.mkDefault true;
+    neovim.plugins.telescope.enable = lib.mkDefault true;
+    neovim.plugins.treesitter.enable = lib.mkDefault true;
+    neovim.plugins.undotree.enable = lib.mkDefault true;
+    neovim.plugins.zen-mode.enable = lib.mkDefault false;
 
     programs.neovim = {
       enable = true;
@@ -36,9 +49,18 @@
       '';
     };
 
-    home.file.".config/nvim/lua/plugins".source = ./plugins;
-
     home.shellAliases.v = "nvim";
+
+    home.persistence."/persist/home/${username}" = {
+      directories = lib.mkIf config.impermanence.enable [
+        ".local/share/nvim/lazy"
+        ".local/state/nvim/lazy"
+      ];
+
+      files = lib.mkIf config.impermanence.enable [
+        ".config/nvim/lazy-lock.json"
+      ];
+    };
   };
 }
 

@@ -9,7 +9,6 @@
       font = {
         package = (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; });
         name = "VictorMono Nerd Font";
-        size = 18;
       };
       settings = {
         enable_audio_bell = false;

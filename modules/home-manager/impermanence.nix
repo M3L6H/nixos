@@ -15,6 +15,9 @@
 
         # ssh files
         ".ssh"
+
+        # audio files
+        ".local/state/wireplumber"
       ];
 
       files = [

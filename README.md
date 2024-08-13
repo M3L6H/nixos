@@ -39,6 +39,30 @@ Breakdown of the included modules.
   - [monitors](/modules/home-manager/hyprland/monitors.nix) - Configures monitors
 - [neovim](/modules/home-manager/neovim) - Add neovim (configured in lua using [Lazy](https://github.com/folke/lazy.nvim))
     - neovim.enable `boolean` - Enables the module
+  - [colorscheme](/modules/home-manager/neovim/plugins/colorscheme.nix) - Sets the colorscheme of neovim
+    - neovim.plugins.colorscheme.enable `boolean` - Enables the module
+  - [eyeliner](/modules/home-manager/neovim/plugins/eyeliner.nix) - Configures eyeliner
+    - neovim.plugins.eyeliner.enable `boolean` - Enables the module
+  - [harpoon](/modules/home-manager/neovim/plugins/harpoon.nix) - Configures harpoon
+    - neovim.plugins.harpoon.enable `boolean` - Enables the module
+  - [lspconfig](/modules/home-manager/neovim/plugins/lspconfig.nix) - Configures lsps according to enabled toolchains
+    - neovim.plugins.lspconfig.enable `boolean` - Enables the module
+  - [mason-lspconfig](/modules/home-manager/neovim/plugins/mason-lspconfig.nix) - Configures mason-lspconfig
+    - neovim.plugins.mason-lspconfig.enable `boolean` - Enables the module
+  - [mason](/modules/home-manager/neovim/plugins/mason.nix) - Configures mason
+    - neovim.plugins.mason.enable `boolean` - Enables the module
+  - [nvim-cmp](/modules/home-manager/neovim/plugins/nvim-cmp.nix) - Configures nvim-cmp
+    - neovim.plugins.nvim-cmp.enable `boolean` - Enables the module
+  - [oil](/modules/home-manager/neovim/plugins/oil.nix) - Configures oil.nvim
+    - neovim.plugins.oil.enable `boolean` - Enables the module
+  - [telescope](/modules/home-manager/neovim/plugins/telescope.nix) - Configures telescope
+    - neovim.plugins.telescope.enable `boolean` - Enables the module
+  - [treesitter](/modules/home-manager/neovim/plugins/treesitter.nix) - Configures treesitter
+    - neovim.plugins.treesitter.enable `boolean` - Enables the module
+  - [undotree](/modules/home-manager/neovim/plugins/undotree.nix) - Configures undotree
+    - neovim.plugins.undotree.enable `boolean` - Enables the module
+  - [zen-mode](/modules/home-manager/neovim/plugins/zen-mode.nix) - Configures zen-mode
+    - neovim.plugins.zen-mode.enable `boolean` - Enables the module
 - [scripts](/modules/home-manager/scripts) - Scripts submodule
   - [fs-diff](/modules/home-manager/scripts/fs-diff.nix) - Use to find files needing to be persisted
     - Will automatically be enabled if `impermanence.enable` is true
