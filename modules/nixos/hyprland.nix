@@ -10,18 +10,18 @@
       xwayland.enable = true;
     };
 
-    services.hypridle.enable = true;
     programs.hyprlock.enable = true;
 
     environment.sessionVariables = {
-      # In case the cursor becomes invisible
-      WLR_NO_HARDWARE_CURSORS = "1";
-
       # Hint electron apps to use wayland
       NIXOS_OZONE_WL = "1";
     };
 
     environment.systemPackages = with pkgs; [
+      # Enable compatibility between the EGL API and the Wayland protocol
+      egl-wayland
+
+      # Custom widgets/bar
       eww
 
       # Notifications

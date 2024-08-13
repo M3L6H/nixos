@@ -15,6 +15,20 @@
     wayland.windowManager.hyprland = {
       enable = true;
 
+      settings = {
+        # Taken from https://wiki.hyprland.org/Nvidia/#environment-variables
+        "env" = [
+          "LIBVA_DRIVER_NAME,nvidia"
+          "XDG_SESSION_TYPE,wayland"
+          "GBM_BACKEND,nvidia-drm" # Remove this if firefox crashes
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        ];
+
+        "cursor" = {
+          "no_hardware_cursors" = "true";
+        };
+      };
+
       systemd.variables = [ "--all" ];
     };
   };

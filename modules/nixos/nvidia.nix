@@ -4,7 +4,13 @@
   };
 
   config = lib.mkIf config.nvidia.enable {
+    # Use proprietary drivers
     nixpkgs.config.allowUnfree = true;
+
+    # For suspend/wakeup
+    boot.kernelParams = [
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    ];
 
     # Load nvidia driver for xorg and wayland
     services.xserver.videoDrivers = ["nvidia"];
@@ -22,6 +28,14 @@
 
         # Nvidia driver
         package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+        # For suspend/wakeup
+        powerManagement = {
+          enable = true;
+        };
+
+        # Disable open-dkms due to this bug: https://github.com/NVIDIA/open-gpu-kernel-modules/issues/472
+        open = false;
       };
     };
   };
