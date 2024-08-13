@@ -1,5 +1,6 @@
 {
   home.shellAliases = {
+    arctis = "wpctl set-default \"$(wpctl status -n | grep -zoP '(?<=Sinks:)(?s).*?(?=├─)' | grep -a 'stereo-game' | awk '{print ($2+0)}')\"; pactl set-sink-volume @DEFAULT_SINK@ 100%";
     gds = "git diff --staged";
     gs = "git status";
     hms = "home-manager switch --flake .#m3l6h";
