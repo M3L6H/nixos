@@ -108,6 +108,11 @@
 
   programs.fuse.userAllowOther = true;
 
+  # Hide sudo lectures
+  security.sudo.extraConfig = ''
+    Defaults lecture = never
+  '';
+
   # Enable disk mounts
   mounts.enable = true;
 
