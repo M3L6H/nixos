@@ -3,34 +3,9 @@
     neovim.enable = lib.mkEnableOption "enables neovim module";
   };
 
-  imports = [
-    ./plugins/colorscheme.nix
-    ./plugins/eyeliner.nix
-    ./plugins/harpoon.nix
-    ./plugins/lspconfig.nix
-    ./plugins/mason-lspconfig.nix
-    ./plugins/mason.nix
-    ./plugins/nvim-cmp.nix
-    ./plugins/oil.nix
-    ./plugins/telescope.nix
-    ./plugins/treesitter.nix
-    ./plugins/undotree.nix
-    ./plugins/zen-mode.nix
-  ];
+  imports = [ ./plugins ];
 
   config = lib.mkIf config.neovim.enable {
-    neovim.plugins.colorscheme.enable = lib.mkDefault true;
-    neovim.plugins.eyeliner.enable = lib.mkDefault true;
-    neovim.plugins.harpoon.enable = lib.mkDefault true;
-    neovim.plugins.lspconfig.enable = lib.mkDefault true;
-    neovim.plugins.mason.enable = lib.mkDefault false;
-    neovim.plugins.nvim-cmp.enable = lib.mkDefault true;
-    neovim.plugins.oil.enable = lib.mkDefault true;
-    neovim.plugins.telescope.enable = lib.mkDefault true;
-    neovim.plugins.treesitter.enable = lib.mkDefault true;
-    neovim.plugins.undotree.enable = lib.mkDefault true;
-    neovim.plugins.zen-mode.enable = lib.mkDefault false;
-
     programs.neovim = {
       enable = true;
       defaultEditor = true;
