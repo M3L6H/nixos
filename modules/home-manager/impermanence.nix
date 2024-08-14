@@ -24,6 +24,7 @@
         # Audio
         ".local/state/wireplumber/default-nodes"
         ".local/state/wireplumber/default-routes"
+        ".local/state/wireplumber/stream-properties"
       ];
 
       allowOther = true;

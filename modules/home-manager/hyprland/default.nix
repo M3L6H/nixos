@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     hyprland.enable = lib.mkEnableOption "enables hyprland module";
   };
@@ -17,15 +17,19 @@
 
       settings = {
         # Taken from https://wiki.hyprland.org/Nvidia/#environment-variables
-        "env" = [
+        env = [
           "LIBVA_DRIVER_NAME,nvidia"
           "XDG_SESSION_TYPE,wayland"
           "GBM_BACKEND,nvidia-drm" # Remove this if firefox crashes
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         ];
 
-        "cursor" = {
-          "no_hardware_cursors" = "true";
+        cursor = {
+          no_hardware_cursors = "true";
+        };
+
+        misc = {
+          focus_on_activate = "true";
         };
       };
 
