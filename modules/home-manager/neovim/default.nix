@@ -1,4 +1,4 @@
-{ config, inputs, lib, username, ... }: {
+{ config, lib, username, ... }: {
   options = {
     neovim.enable = lib.mkEnableOption "enables neovim module";
   };
@@ -39,7 +39,8 @@
       vimdiffAlias = true;
       extraLuaConfig = ''
       vim.g.lsps = {
-        ${if config.toolchains.markdown.enable then "'marksman'" else ""}
+        ${if config.toolchains.markdown.enable then "'marksman'," else ""}
+        ${if config.toolchains.nix.enable then "'nil_ls'," else ""}
       }
       ${builtins.readFile ./lazy-bootstrap.lua}
       ${builtins.readFile ./opts.lua}

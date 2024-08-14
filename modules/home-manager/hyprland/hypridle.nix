@@ -16,21 +16,21 @@
 
         listener = [
           {
-            timeout = "60";
+            timeout = "90";
             on-timeout = "brightnessctl -s set 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor
             on-resume = "brightnessctl -r"; # monitor backlight restore
           }
           {
-            timeout = "90";
+            timeout = "180";
             on-timeout = "loginctl lock-session";
           }
           {
-            timeout = "180";
+            timeout = "360";
             on-timeout = "hyprctl dispatch dpms off"; # screen off when timeout has passed
             on-resume = "hyprctl dispatch dpms on"; # screen on when activity is detected after timeout has fired
           }
           {
-            timeout = "360";
+            timeout = "720";
             on-timeout = "systemctl suspend"; # suspend pc
           }
         ];

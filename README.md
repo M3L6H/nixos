@@ -85,6 +85,8 @@ Breakdown of the included modules.
     - toolchains.go.enable `boolean` - Enables the module
   - [markdown](/modules/home-manager/toolchains/markdown.nix) - Install markdown toolchain
     - toolchains.markdown.enable `boolean` - Enables the module
+  - [nix](/modules/home-manager/toolchains/nix.nix) - Install nix toolchain
+    - toolchains.nix.enable `boolean` - Enables the module
   - [node](/modules/home-manager/toolchains/node.nix) - Install node toolchain
     - toolchains.node.enable `boolean` - Enables the module
   - [python](/modules/home-manager/toolchains/python.nix) - Install python toolchain
