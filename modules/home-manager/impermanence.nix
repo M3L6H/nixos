@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, username, ... }: {
+{ config, inputs, lib, username, ... }: {
   options = {
     impermanence.enable = lib.mkEnableOption "enables impermanence module";
   };
@@ -15,14 +15,15 @@
 
         # ssh files
         ".ssh"
-
-        # audio files
-        ".local/state/wireplumber"
       ];
 
       files = [
         # .gitconfig
         ".gitconfig"
+
+        # Audio
+        ".local/state/wireplumber/default-nodes"
+        ".local/state/wireplumber/default-routes"
       ];
 
       allowOther = true;
