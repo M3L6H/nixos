@@ -12,7 +12,16 @@ local M = {
     local actions = require("telescope.actions")
     return {
       defaults = {
-        mappings = { i = { ["<esc>"] = actions.close } },
+        mappings = {
+          i = {
+            ["<C-f>"] = actions.move_selection_next,
+            ["<C-d>"] = actions.move_selection_previous,
+
+            ["<esc>"] = actions.close,
+
+            ["<C-g>"] = actions.select_default,
+          },
+        },
       },
       extensions = {
         fzf = {
