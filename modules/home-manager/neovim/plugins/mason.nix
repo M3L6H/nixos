@@ -12,7 +12,7 @@
     toolchains.python.enable = true;
 
     # We require the unzip utility for Mason
-    utils.unzip.enable = true;
+    utils.unp.enable = true;
   };
 }
 

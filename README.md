@@ -104,8 +104,8 @@ Breakdown of the included modules.
     - utils.ripgrep.enable `boolean` - Enables the module
   - [parted](/modules/home-manager/utils/parted.nix) - Install parted
     - utils.parted.enable `boolean` - Enables the module
-  - [unzip](/modules/home-manager/utils/unzip.nix) - Install unzip
-    - utils.unzip.enable `boolean` - Enables the module
+  - [unp](/modules/home-manager/utils/unp.nix) - Install unp & its requisite tools
+    - utils.unp.enable `boolean` - Enables the module
   - [wl-clipboard](/modules/home-manager/utils/wl-clipboard.nix) - Install wl-clipboard
     - utils.wl-clipboard.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases

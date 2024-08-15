@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ ... }: {
   imports = [
     ../../modules/home-manager/default.nix
   ];
@@ -52,5 +52,8 @@
 
   # Enable parted util
   utils.parted.enable = false;
+
+  # Enable unp util
+  utils.unp.enable = true;
 }
 

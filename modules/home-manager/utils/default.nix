@@ -6,7 +6,7 @@
     ./jq.nix
     ./parted.nix
     ./ripgrep.nix
-    ./unzip.nix
+    ./unp.nix
     ./wl-clipboard.nix
   ];
 
@@ -16,7 +16,7 @@
   utils.jq.enable = lib.mkDefault false;
   utils.ripgrep.enable = lib.mkDefault false;
   utils.parted.enable = lib.mkDefault false;
-  utils.unzip.enable = lib.mkDefault false;
+  utils.unp.enable = lib.mkDefault false;
   utils.wl-clipboard.enable = lib.mkDefault false;
 }
 
