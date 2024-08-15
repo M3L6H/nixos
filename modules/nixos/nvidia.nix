@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     nvidia.enable = lib.mkEnableOption "enables nvidia module";
   };
@@ -10,6 +10,7 @@
     # For suspend/wakeup
     boot.kernelParams = [
       "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
     ];
 
     # Load nvidia driver for xorg and wayland

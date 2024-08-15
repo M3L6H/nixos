@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     utils.jq.enable = lib.mkEnableOption "enables jq module";
   };
