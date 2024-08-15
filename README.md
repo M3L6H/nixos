@@ -106,6 +106,8 @@ Breakdown of the included modules.
     - utils.parted.enable `boolean` - Enables the module
   - [unzip](/modules/home-manager/utils/unzip.nix) - Install unzip
     - utils.unzip.enable `boolean` - Enables the module
+  - [wl-clipboard](/modules/home-manager/utils/wl-clipboard.nix) - Install wl-clipboard
+    - utils.wl-clipboard.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases
 - [gpg](/modules/home-manager/gpg.nix) - Enables gpg keys
   - gpg.enable `boolean` - Enables the module
@@ -117,9 +119,11 @@ Breakdown of the included modules.
   - tmux.enable `boolean` - Enables the module
 - [user-dirs](/modules/home-manager/user-dirs.nix) - Custom user dirs
   - user-dirs.enable `boolean` - Enables the module
-- [zsh](/modules/home-manager/zsh.nix) - Configure zsh
+- [zsh](/modules/home-manager/zsh/default.nix) - Configure zsh
   - zsh.enable `boolean` - Enables the module
   - zsh.zoxide.enable `boolean` - Enables zoxide
+  - [zsh-vi-mode](/modules/home-manager/zsh/zsh-vi-mode.nix) - Configures a better vi mode in zsh
+    - zsh.vi-mode.enable `boolean` - Enables zsh-vi-mode
 
 ## [nixos](/modules/nixos) - Nixos modules
 

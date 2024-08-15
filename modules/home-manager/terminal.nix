@@ -21,6 +21,7 @@
         tab_bar_edge = "top";
 
         # Color scheme
+        background_opacity = "0.85";
         background_tint = "0.98";
 
         # Required for dynamically changing the terminal background in kitty

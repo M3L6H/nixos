@@ -7,6 +7,7 @@
     ./parted.nix
     ./ripgrep.nix
     ./unzip.nix
+    ./wl-clipboard.nix
   ];
 
   utils.file.enable = lib.mkDefault false;
@@ -16,5 +17,6 @@
   utils.ripgrep.enable = lib.mkDefault false;
   utils.parted.enable = lib.mkDefault false;
   utils.unzip.enable = lib.mkDefault false;
+  utils.wl-clipboard.enable = lib.mkDefault false;
 }
 
