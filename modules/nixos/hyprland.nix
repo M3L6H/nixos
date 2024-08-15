@@ -29,6 +29,7 @@
       libnotify
 
       # Wallpaper engine
+      mpvpaper # For video wallpapers
       swww
 
       # App launcher
@@ -63,6 +64,20 @@
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.kdePackages.polkit-kde-agent-1}/libexec/polkit-kde-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+
+    systemd.user.services.swww-daemon = {
+      description = "swww-daemon";
+      wantedBy = [ "graphical-session.target" ];
+      wants = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.swww}/bin/swww-daemon";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;

@@ -9,6 +9,7 @@
     ./hypridle.nix
     ./hyprlock.nix
     ./monitors.nix
+    ./wallpaper.nix
   ];
 
   config = lib.mkIf config.hyprland.enable {

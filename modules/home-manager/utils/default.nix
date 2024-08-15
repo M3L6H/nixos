@@ -1,5 +1,6 @@
 { lib, ... }: {
   imports = [
+    ./ffmpeg.nix
     ./file.nix
     ./fzf.nix
     ./image-magick.nix
@@ -10,6 +11,7 @@
     ./wl-clipboard.nix
   ];
 
+  utils.ffmpeg.enable = lib.mkDefault false;
   utils.file.enable = lib.mkDefault false;
   utils.fzf.enable = lib.mkDefault false;
   utils.image-magick.enable = lib.mkDefault false;

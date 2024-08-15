@@ -37,6 +37,7 @@ Breakdown of the included modules.
   - [hypridle](/modules/home-manager/hyprland/hypridle.nix) - Configures hypridle
   - [hyprlock](/modules/home-manager/hyprland/hyprlock.nix) - Configures hyprlock
   - [monitors](/modules/home-manager/hyprland/monitors.nix) - Configures monitors
+  - [wallpaper](/modules/home-manager/hyprland/wallpaper.nix) - Configures wallpapers
 - [neovim](/modules/home-manager/neovim) - Add neovim (configured in lua using [Lazy](https://github.com/folke/lazy.nvim))
     - neovim.enable `boolean` - Enables the module
   - [colorscheme](/modules/home-manager/neovim/plugins/colorscheme.nix) - Sets the colorscheme of neovim
@@ -92,6 +93,8 @@ Breakdown of the included modules.
   - [python](/modules/home-manager/toolchains/python.nix) - Install python toolchain
     - toolchains.python.enable `boolean` - Enables the module
 - [utils](/modules/home-manager/utils) - CLI utils submodule
+  - [ffmpeg](/modules/home-manager/utils/ffmpeg.nix) - Install ffmpeg
+    - utils.ffmpeg.enable `boolean` - Enables the module
   - [file](/modules/home-manager/utils/file.nix) - Install file
     - utils.file.enable `boolean` - Enables the module
   - [fzf](/modules/home-manager/utils/fzf.nix) - Install fzf
