@@ -32,6 +32,9 @@
   # Enable zsh
   zsh.enable = true;
 
+  # Enable minecraft
+  games.minecraft.enable = true;
+
   # Enable wallpaper haven script
   scripts.wallpaper-haven.enable = false;
 

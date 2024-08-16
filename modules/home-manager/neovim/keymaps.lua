@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 local km = vim.keymap
 
 -- save with <leader>s
-km.set("n", "<leader>s", "<CMD>w<CR>");
+km.set("n", "<leader>s", "<CMD>wa<CR>");
 
 -- move lines in visual mode
 km.set("v", "J", ":m '>+1<CR>gv=gv")

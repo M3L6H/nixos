@@ -1,5 +1,6 @@
 { lib, ... }: {
   imports = [
+    ./games
     ./hyprland
     ./neovim
     ./scripts

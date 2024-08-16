@@ -30,6 +30,9 @@ Breakdown of the included modules.
 
 ## [home-manager](/modules/home-manager) - Home Manager modules
 
+- [games](/modules/home-manager/games) - Central module for all games
+  - [minecraft](/modules/home-manager/games/minecraft.nix) - Installs minecraft via prismlauncher
+    - games.minecraft.enable `boolean` - Enables the module
 - [hyprland](/modules/home-manager/hyprland) - Hyprland submodule
   - hyprland.enable `boolean` - Enables the module and its submodules
   - [rofi](/modules/home-manager/hyprland/rofi) - Configures rofi
