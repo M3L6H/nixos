@@ -10,6 +10,12 @@
   config = lib.mkIf config.impermanence.enable {
     home.persistence."/persist/home/${username}" = {
       directories = [
+        # Audio
+        {
+          directory = ".local/state/wireplumber";
+          method = "symlink";
+        }
+
         # firefox
         ".mozilla/firefox"
 
@@ -20,9 +26,6 @@
       files = [
         # .gitconfig
         ".gitconfig"
-
-        # Audio
-        ".local/state/wireplumber/default-nodes"
       ];
 
       allowOther = true;

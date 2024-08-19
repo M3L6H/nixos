@@ -35,6 +35,12 @@
   # Enable minecraft
   games.minecraft.enable = true;
 
+  # Enable steam
+  games.steam.enable = false;
+
+  # Enable factorio
+  games.steam.factorio.enable = false;
+
   # Enable wallpaper haven script
   scripts.wallpaper-haven.enable = false;
 

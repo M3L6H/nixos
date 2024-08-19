@@ -13,6 +13,11 @@
   ];
 
   config = lib.mkIf config.hyprland.enable {
+    home.file.".config/electron-flags.conf".text = ''
+      --enable-features=UseOzonePlatform
+      --ozone-platform=wayland
+    '';
+
     wayland.windowManager.hyprland = {
       enable = true;
 
@@ -20,9 +25,17 @@
         # Taken from https://wiki.hyprland.org/Nvidia/#environment-variables
         env = [
           "LIBVA_DRIVER_NAME,nvidia"
-          "XDG_SESSION_TYPE,wayland"
-          "GBM_BACKEND,nvidia-drm" # Remove this if firefox crashes
+
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "GBM_BACKEND,nvidia-drm" # Remove this if firefox crashes
+          "GDK_BACKEND,wayland,x11,*"
+          "QT_QPQ_PLATFORM,wayland;xcb"
+
+          "ELECTRON_OZONE_PLATFORM_HINT,wayland"
+
+          "XDG_CURRENT_DESKTOP,Hyprland"
+          "XDG_SESSION_DESKTOP,Hyprland"
+          "XDG_SESSION_TYPE,wayland"
         ];
 
         cursor = {
