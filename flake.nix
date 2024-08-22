@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-24.05";
 
     disko = {
       url = "github:nix-community/disko";
@@ -18,10 +19,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Pinning to v0.39.1 for now, since v0.40.0 introduced submodules, and
-    # until https://github.com/NixOS/nix/pull/10125 is merged, flake does not
-    # appear to parse submodules args correctly
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?ref=refs%2Ftags%2Fv0.39.1";
+    hyprcursor = {
+      url = "git+https://github.com/hyprwm/hyprcursor?ref=refs%2Fheads%2Fmain";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "git+https://github.com/hyprwm/Hyprland?ref=refs%2Fheads%2Fmain&submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprcursor.follows = "hyprcursor";
+    };
     hyprland-plugins = {
       url = "git+https://github.com/hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

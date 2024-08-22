@@ -14,10 +14,13 @@
       directories = [
         {
           directory = ".local/share/Steam";
-          method = "symlink";
+          method = "bindfs";
         }
 
-        ".steam"
+        {
+          directory = ".steam";
+          method = "bindfs";
+        }
       ];
 
       files = [

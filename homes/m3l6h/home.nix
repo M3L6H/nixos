@@ -36,7 +36,7 @@
   games.minecraft.enable = true;
 
   # Enable steam
-  games.steam.enable = false;
+  games.steam.enable = true;
 
   # Enable factorio
   games.steam.factorio.enable = false;

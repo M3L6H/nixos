@@ -120,7 +120,7 @@
   nvidia.enable = true;
 
   # Enable steam module
-  steam.enable = false;
+  steam.enable = true;
 
   # Home manager
   home-manager = {

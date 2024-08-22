@@ -27,7 +27,7 @@
           "LIBVA_DRIVER_NAME,nvidia"
 
           "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-          "GBM_BACKEND,nvidia-drm" # Remove this if firefox crashes
+          # "GBM_BACKEND,nvidia-drm" # Remove this if firefox crashes
           "GDK_BACKEND,wayland,x11,*"
           "QT_QPQ_PLATFORM,wayland;xcb"
 
