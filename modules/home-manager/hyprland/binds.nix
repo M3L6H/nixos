@@ -5,7 +5,8 @@
         "$mainMod" = "SUPER";
         bind = [
           "$mainMod, F, exec, kitty"
-          "$mainMod, D, exec, firefox"
+          "$mainMod, D, exec, firefox-esr"
+          "$mainMod, S, exec, steam"
           "$mainMod, Space, exec, rofi -show run"
           "$mainMod, Q, killactive,"
           "$mainMod ALT, L, exec, hyprlock"
@@ -31,13 +32,13 @@
 
           # Move windows between monitors
           "$mainMod ALT, 1, movewindow, mon:HDMI-A-1"
-          "$mainMod ALT, 2, movewindow, mon:DP-1"
-          "$mainMod ALT, 3, movewindow, mon:DP-2"
+          "$mainMod ALT, 2, movewindow, mon:DP-2"
+          "$mainMod ALT, 3, movewindow, mon:DP-1"
 
           # Focus monitors
           "$mainMod CTRL, 1, focusmonitor, HDMI-A-1"
-          "$mainMod CTRL, 2, focusmonitor, DP-1"
-          "$mainMod CTRL, 3, focusmonitor, DP-2"
+          "$mainMod CTRL, 2, focusmonitor, DP-2"
+          "$mainMod CTRL, 3, focusmonitor, DP-1"
 
           # Switch between workspaces
           "$mainMod, 1, workspace, 1"

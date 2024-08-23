@@ -36,7 +36,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { nixpkgs, home-manager, flake-parts, ... }@inputs:
+  outputs = { nixpkgs, stable, home-manager, flake-parts, ... }@inputs:
   let
     device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_4TB_S757NS0X302547W";
     hostname = "nixos";
@@ -75,7 +75,10 @@
       homeConfigurations = {
         "${username}" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = { inherit inputs username; };
+          extraSpecialArgs = {
+            inherit inputs username;
+            stable = import stable { inherit system; };
+          };
           modules = [ ./homes/${username}/home.nix ];
         };
       };

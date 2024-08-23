@@ -39,7 +39,7 @@
   games.steam.enable = true;
 
   # Enable factorio
-  games.steam.factorio.enable = false;
+  games.steam.factorio.enable = true;
 
   # Enable wallpaper haven script
   scripts.wallpaper-haven.enable = false;

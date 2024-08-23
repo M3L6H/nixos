@@ -157,3 +157,12 @@ Breakdown of the included modules.
 - [vcs](/modules/nixos/vcs.nix) - Install git
   - vcs.enable `boolean` - Enables the module
 
+# Credits
+
+Non-exhaustive list of sources I referenced/learned from while building this.
+
+In no particular order.
+
+- [Liassica/nixos-config](https://codeberg.org/Liassica/nixos-config)
+- [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
+

@@ -1,4 +1,4 @@
-{ config, device, inputs, pkgs, username, ... }: {
+{ device, inputs, username, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
