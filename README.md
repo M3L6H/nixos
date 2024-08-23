@@ -163,6 +163,16 @@ Non-exhaustive list of sources I referenced/learned from while building this.
 
 In no particular order.
 
+## People
+
+- [Vimjoyer](https://www.youtube.com/@vimjoyer)
+
+## Other people's configs
+
 - [Liassica/nixos-config](https://codeberg.org/Liassica/nixos-config)
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
+
+## Articles
+
+- [Impermanent NixOS: on a VM + tmpfs root + flakes + LUKS | Will Bush](https://willbush.dev/blog/impermanent-nixos/)
 
