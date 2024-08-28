@@ -53,6 +53,9 @@
   # Enable firefox
   software.firefox.enable = true;
 
+  # Enable krita
+  software.krita.enable = true;
+
   # Enable markdown toolchain
   toolchains.markdown.enable = true;
 
