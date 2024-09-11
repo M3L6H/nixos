@@ -374,6 +374,27 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/a5d394176e64ab29c852d03346c1fc9b0b7d33eb.tar.gz"
       }
     },
+    "protontweaks": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1724964436,
+        "narHash": "sha256-mbyLAYYnE8xuSHVmZzM+rMV+VgZBTk0JUqMpcOfR4EM=",
+        "owner": "rain-cafe",
+        "repo": "protontweaks",
+        "rev": "e4d35449773fb29670e43257e07a8858289bb575",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rain-cafe",
+        "ref": "main",
+        "repo": "protontweaks",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
@@ -384,6 +405,7 @@
         "hyprland-plugins": "hyprland-plugins",
         "impermanence": "impermanence",
         "nixpkgs": "nixpkgs",
+        "protontweaks": "protontweaks",
         "stable": "stable"
       }
     },

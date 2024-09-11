@@ -42,3 +42,19 @@ Process was killed by user.
 Set `__GL_THREADED_OPTIMIZATIONS=0` in the `Settings/Environment variables`
 section of the minecraft instance.
 
+# [Steam](/modules/home-manager/games/steam/default.nix)
+
+## Troubleshooting
+
+History of problems that have occurred and the solution to them.
+
+### steamwebhelper failed to start up
+
+**Solution**
+
+Run steam with `steam --reset`.
+
+### Proton game crashing/not opening
+
+Run with `PROTON_LOG=1` to get a log file created in the home directory.
+

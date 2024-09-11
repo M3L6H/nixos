@@ -1,4 +1,4 @@
-{ config, lib, pkgs, username, ... }: {
+{ config, lib, username, ... }: {
   options = {
     impermanence.enable = lib.mkEnableOption "enables impermanence module";
   };

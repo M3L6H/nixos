@@ -106,6 +106,24 @@
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
+  security.pam.loginLimits = [
+    {
+      domain = "*";
+      type = "-";
+      item = "memlock";
+      value = "infinity";
+    }
+    {
+      domain = "*";
+      type = "-";
+      item = "nofile";
+
+      # https://unix.stackexchange.com/a/626459
+      # https://github.com/ValveSoftware/Proton/wiki/File-Descriptors
+      value = "infinity";
+    }
+  ];
+
   programs.fuse.userAllowOther = true;
 
   # Hide sudo lectures

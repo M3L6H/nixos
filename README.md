@@ -35,7 +35,9 @@ Breakdown of the included modules.
     - games.minecraft.enable `boolean` - Enables the module
   - [steam](/modules/home-manager/games/steam) - Manages persistent files for steam
     - games.steam.enable `boolean` - Enables the module
-    - [factorio](/modules/home-manager/games/steam/factorio.nix) - Manages persistent files for factorio
+    - [bg3](/modules/home-manager/games/steam/bg3.nix) - Manages persistent files for Baldur's Gate 3
+      - games.bg3.enable `boolean` - Enables the module
+    - [factorio](/modules/home-manager/games/steam/factorio.nix) - Manages persistent files for Factorio
       - games.factorio.enable `boolean` - Enables the module
 - [hyprland](/modules/home-manager/hyprland) - Hyprland submodule
   - hyprland.enable `boolean` - Enables the module and its submodules
@@ -108,6 +110,8 @@ Breakdown of the included modules.
     - utils.file.enable `boolean` - Enables the module
   - [fzf](/modules/home-manager/utils/fzf.nix) - Install fzf
     - utils.fzf.enable `boolean` - Enables the module
+  - [glxinfo](/modules/home-manager/utils/glxinfo.nix) - Install glxinfo
+    - utils.glxinfo.enable `boolean` - Enables the module
   - [image-magick](/modules/home-manager/utils/image-magick.nix) - Install the image-magick suite
     - utils.image-magick.enable `boolean` - Enables the module
   - [jq](/modules/home-manager/utils/jq.nix) - Install jq
@@ -118,6 +122,8 @@ Breakdown of the included modules.
     - utils.parted.enable `boolean` - Enables the module
   - [unp](/modules/home-manager/utils/unp.nix) - Install unp & its requisite tools
     - utils.unp.enable `boolean` - Enables the module
+  - [vulkan](/modules/home-manager/utils/vulkan.nix) - Install vulkan-tools
+    - utils.vulkan.enable `boolean` - Enables the module
   - [wl-clipboard](/modules/home-manager/utils/wl-clipboard.nix) - Install wl-clipboard
     - utils.wl-clipboard.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases

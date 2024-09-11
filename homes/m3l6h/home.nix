@@ -39,6 +39,9 @@
   games.steam.enable = true;
 
   # Enable factorio
+  games.steam.bg3.enable = true;
+
+  # Enable factorio
   games.steam.factorio.enable = true;
 
   # Enable wallpaper haven script
@@ -65,10 +68,16 @@
   # Enable file util
   utils.file.enable = true;
 
+  # Enable glxinfo util
+  utils.glxinfo.enable = true;
+
   # Enable parted util
   utils.parted.enable = false;
 
   # Enable unp util
   utils.unp.enable = true;
+
+  # Enable vulkan tools
+  utils.vulkan.enable = true;
 }
 

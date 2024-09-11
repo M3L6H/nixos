@@ -34,6 +34,11 @@
     };
 
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    protontweaks = {
+      url = "github:rain-cafe/protontweaks/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, stable, home-manager, flake-parts, ... }@inputs:
@@ -77,7 +82,13 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs username;
-            stable = import stable { inherit system; };
+            stable = import stable {
+              inherit system;
+
+              config = {
+                allowUnfree = true;
+              };
+            };
           };
           modules = [ ./homes/${username}/home.nix ];
         };
