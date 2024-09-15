@@ -5,6 +5,7 @@
 
   config = lib.mkIf config.utils.unp.enable {
     home.packages = with pkgs; [
+      p7zip # For unpacking 7z archives
       unrar-free # For unpacking rar archives
       unp # Super unpacker
       unzip # For unpacking zip archives

@@ -14,22 +14,17 @@
 
     home.persistence."/persist/home/${username}" = lib.mkIf config.impermanence.enable {
       directories = [
+        ".config/steamtinkerlaunch"
         ".local/share/Steam"
-        ".steam-compatibility-tools"
       ];
     };
 
     # We install proton GE imperatively with protonup b/c Steam will update its
     # components anyway
-    # Install with protonup -d $HOME/.steam-compatibility-tools
+    # Install with protonup
     home.packages = with pkgs; [
       protonup
     ];
-
-    # Inform steam where proton will be installed
-    home.sessionVariables = {
-      STEAM_EXTRA_COMPAT_TOOLS_PATHS =  "/home/${username}/.steam-compatibility-tools";
-    };
   };
 }
 

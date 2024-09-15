@@ -6,6 +6,8 @@
     ./glxinfo.nix
     ./image-magick.nix
     ./jq.nix
+    ./killall.nix
+    ./lsof.nix
     ./parted.nix
     ./ripgrep.nix
     ./unp.nix
@@ -19,6 +21,8 @@
   utils.glxinfo.enable = lib.mkDefault false;
   utils.image-magick.enable = lib.mkDefault false;
   utils.jq.enable = lib.mkDefault false;
+  utils.killall.enable = lib.mkDefault false;
+  utils.lsof.enable = lib.mkDefault false;
   utils.ripgrep.enable = lib.mkDefault false;
   utils.parted.enable = lib.mkDefault false;
   utils.unp.enable = lib.mkDefault false;

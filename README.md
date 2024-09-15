@@ -116,6 +116,10 @@ Breakdown of the included modules.
     - utils.image-magick.enable `boolean` - Enables the module
   - [jq](/modules/home-manager/utils/jq.nix) - Install jq
     - utils.jq.enable `boolean` - Enables the module
+  - [killall](/modules/home-manager/utils/killall.nix) - Install killall
+    - utils.killall.enable `boolean` - Enables the module
+  - [lsof](/modules/home-manager/utils/lsof.nix) - Install lsof
+    - utils.lsof.enable `boolean` - Enables the module
   - [ripgrep](/modules/home-manager/utils/ripgrep.nix) - Install ripgrep
     - utils.ripgrep.enable `boolean` - Enables the module
   - [parted](/modules/home-manager/utils/parted.nix) - Install parted

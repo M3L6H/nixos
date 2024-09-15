@@ -71,8 +71,8 @@
   # Enable glxinfo util
   utils.glxinfo.enable = true;
 
-  # Enable parted util
-  utils.parted.enable = false;
+  # Enable lsof util
+  utils.lsof.enable = true;
 
   # Enable unp util
   utils.unp.enable = true;

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     utils.fzf.enable = lib.mkEnableOption "enables fzf module";
   };

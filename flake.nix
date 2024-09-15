@@ -57,6 +57,7 @@
     };
   in flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ system ];
+
     flake = {
       # NixOS configuration entrypoint
       # Available through 'sudo nixos-rebuild switch --flake .#hostname'
