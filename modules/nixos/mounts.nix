@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     mounts.enable = lib.mkEnableOption "enables mounts module";
   };

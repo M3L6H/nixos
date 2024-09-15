@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     partition-manager.enable = lib.mkEnableOption "enables partition-manager module";
   };
