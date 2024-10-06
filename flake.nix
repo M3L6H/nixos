@@ -34,11 +34,6 @@
     };
 
     flake-parts.url = "github:hercules-ci/flake-parts";
-
-    protontweaks = {
-      url = "github:rain-cafe/protontweaks/main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { nixpkgs, stable, home-manager, flake-parts, ... }@inputs:

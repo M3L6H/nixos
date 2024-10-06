@@ -32,18 +32,6 @@
   # Enable zsh
   zsh.enable = true;
 
-  # Enable minecraft
-  games.minecraft.enable = true;
-
-  # Enable steam
-  games.steam.enable = true;
-
-  # Enable factorio
-  games.steam.bg3.enable = true;
-
-  # Enable factorio
-  games.steam.factorio.enable = true;
-
   # Enable wallpaper haven script
   scripts.wallpaper-haven.enable = false;
 

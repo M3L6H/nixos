@@ -152,9 +152,6 @@
   # Enable nvidia module
   nvidia.enable = true;
 
-  # Enable steam module
-  steam.enable = true;
-
   # Home manager
   home-manager = {
     extraSpecialArgs = { inherit inputs username; };

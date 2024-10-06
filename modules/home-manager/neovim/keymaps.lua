@@ -5,6 +5,8 @@ local km = vim.keymap
 
 -- save with <leader>s
 km.set("n", "<leader>s", "<CMD>wa<CR>");
+km.set("n", "<leader>q", "<CMD>wqa<CR>");
+km.set("n", "<leader>Q", "<CMD>q!<CR>");
 
 -- move lines in visual mode
 km.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -36,7 +38,9 @@ km.set("n", "<leader>P", "\"+P")
 km.set("n", "<leader>d", "\"+d")
 km.set("v", "<leader>d", "\"+d")
 
+-- we don't like q
 km.set("n", "Q", "<nop>")
+km.set("n", "q", "<nop>")
 
 -- format file
 km.set("n", "<leader>F", function()

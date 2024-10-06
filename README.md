@@ -30,15 +30,6 @@ Breakdown of the included modules.
 
 ## [home-manager](/modules/home-manager) - Home Manager modules
 
-- [games](/modules/home-manager/games) - Central module for all games
-  - [minecraft](/modules/home-manager/games/minecraft.nix) - Installs minecraft via prismlauncher
-    - games.minecraft.enable `boolean` - Enables the module
-  - [steam](/modules/home-manager/games/steam) - Manages persistent files for steam
-    - games.steam.enable `boolean` - Enables the module
-    - [bg3](/modules/home-manager/games/steam/bg3.nix) - Manages persistent files for Baldur's Gate 3
-      - games.bg3.enable `boolean` - Enables the module
-    - [factorio](/modules/home-manager/games/steam/factorio.nix) - Manages persistent files for Factorio
-      - games.factorio.enable `boolean` - Enables the module
 - [hyprland](/modules/home-manager/hyprland) - Hyprland submodule
   - hyprland.enable `boolean` - Enables the module and its submodules
   - [rofi](/modules/home-manager/hyprland/rofi) - Configures rofi
@@ -161,8 +152,6 @@ Breakdown of the included modules.
   - partition-manager.enable `boolean` - Enables the module
 - [sddm](/modules/nixos/sddm.nix) - Enables sddm window manager
   - sddm.enable `boolean` - Enables the module
-- [steam](/modules/nixos/steam.nix) - Enables the steam program and some utils
-  - steam.enable `boolean` - Enables the module
 - [users](/modules/nixos/users.nix) - Create default user
   - users.enable `boolean` - Enables the module
   - users.zsh.enable `boolean` - Enables zsh as the default shell (must be done at the system level)

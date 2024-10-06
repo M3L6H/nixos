@@ -7,7 +7,6 @@
     ./nvidia.nix
     ./partition-manager.nix
     ./sddm.nix
-    ./steam.nix
     ./users.nix
     ./vcs.nix
   ];
@@ -19,7 +18,6 @@
   config.nvidia.enable = lib.mkDefault false;
   config.partition-manager.enable = lib.mkDefault false;
   config.sddm.enable = lib.mkDefault true;
-  config.steam.enable = lib.mkDefault false;
   config.users.enable = lib.mkDefault true;
   config.vcs.enable = lib.mkDefault true;
 }
