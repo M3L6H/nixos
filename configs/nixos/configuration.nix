@@ -1,4 +1,4 @@
-{ device, inputs, username, ... }: {
+{ device, inputs, pkgs, username, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
@@ -155,6 +155,7 @@
   # Home manager
   home-manager = {
     extraSpecialArgs = { inherit inputs username; };
+    useGlobalPkgs = true;
     users = {
       "${username}" = import ../../homes/${username}/home.nix;
     };

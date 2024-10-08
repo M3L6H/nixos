@@ -81,6 +81,8 @@ Breakdown of the included modules.
     - software.firefox.enable `boolean` - Enables the module
   - [krita](/modules/home-manager/software/krita.nix) - Enables krita
     - software.krita.enable `boolean` - Enables the module
+  - [vivaldi](/modules/home-manager/software/vivaldi.nix) - Enables vivaldi browser
+    - software.vivaldi.enable `boolean` - Enables the module
 - [toolchains](/modules/home-manager/toolchains) - Toolchains submodule
   - [c-cpp](/modules/home-manager/toolchains/c-cpp.nix) - Install c/c++ toolchain
     - toolchains.c-cpp.enable `boolean` - Enables the module

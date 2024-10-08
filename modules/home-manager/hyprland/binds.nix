@@ -5,7 +5,7 @@
         "$mainMod" = "SUPER";
         bind = [
           "$mainMod, F, exec, kitty"
-          "$mainMod, D, exec, firefox-esr"
+          "$mainMod, D, exec, vivaldi"
           "$mainMod, S, exec, steam"
           "$mainMod, Space, exec, rofi -show run"
           "$mainMod, Q, killactive,"

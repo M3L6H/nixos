@@ -46,9 +46,7 @@
     pkgs = import nixpkgs {
       inherit system;
 
-      config = {
-        allowUnfree = true;
-      };
+      config.allowUnfree = true;
     };
   in flake-parts.lib.mkFlake { inherit inputs; } {
     systems = [ system ];
@@ -78,13 +76,6 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs username;
-            stable = import stable {
-              inherit system;
-
-              config = {
-                allowUnfree = true;
-              };
-            };
           };
           modules = [ ./homes/${username}/home.nix ];
         };
