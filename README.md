@@ -121,6 +121,8 @@ Breakdown of the included modules.
     - utils.unp.enable `boolean` - Enables the module
   - [vulkan](/modules/home-manager/utils/vulkan.nix) - Install vulkan-tools
     - utils.vulkan.enable `boolean` - Enables the module
+  - [wget](/modules/home-manager/utils/wget.nix) - Install wget
+    - utils.wget.enable `boolean` - Enables the module
   - [wl-clipboard](/modules/home-manager/utils/wl-clipboard.nix) - Install wl-clipboard
     - utils.wl-clipboard.enable `boolean` - Enables the module
 - [aliases](/modules/home-manager/aliases.nix) - Define shell aliases

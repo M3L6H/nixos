@@ -12,6 +12,7 @@
     ./ripgrep.nix
     ./unp.nix
     ./vulkan.nix
+    ./wget.nix
     ./wl-clipboard.nix
   ];
 
@@ -27,6 +28,7 @@
   utils.parted.enable = lib.mkDefault false;
   utils.unp.enable = lib.mkDefault false;
   utils.vulkan.enable = lib.mkDefault false;
+  utils.wget.enable = lib.mkDefault false;
   utils.wl-clipboard.enable = lib.mkDefault false;
 }
 

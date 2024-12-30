@@ -47,6 +47,9 @@
   # Enable vivaldi
   software.vivaldi.enable = true;
 
+  # Enable cpp toolchain
+  toolchains.c-cpp.enable = true;
+
   # Enable markdown toolchain
   toolchains.markdown.enable = true;
 
@@ -65,7 +68,7 @@
   # Enable unp util
   utils.unp.enable = true;
 
-  # Enable vulkan tools
-  utils.vulkan.enable = true;
+  # Enable wget
+  utils.wget.enable = true;
 }
 

@@ -5,6 +5,7 @@
 
   config = lib.mkIf config.toolchains.c-cpp.enable {
     home.packages = with pkgs; [
+      cmake
       gcc14
       gnumake
     ];

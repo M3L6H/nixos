@@ -10,7 +10,7 @@
       "windowrule" = [
         "workspace 1, steam"
         "workspace 2, kitty"
-        "workspace 3, firefox"
+        "workspace 3, vivaldi"
       ];
     };
   };

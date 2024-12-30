@@ -14,7 +14,9 @@
     zsh.vi-mode.enable = lib.mkDefault true;
     zsh.zoxide.enable = lib.mkDefault true;
 
-    home.packages = [ pkgs.spaceship-prompt ];
+    home.packages = [
+      pkgs.spaceship-prompt
+    ];
 
     programs.zoxide.enable = config.zsh.zoxide.enable;
 
@@ -57,6 +59,7 @@
         inherit custom;
         plugins = [
           "git"
+          "nix-shell"
         ] ++ lib.optionals (config.tmux.enable) [
           "tmux"
         ] ++ lib.optionals (config.zsh.zoxide.enable) [
