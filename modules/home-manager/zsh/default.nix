@@ -59,7 +59,6 @@
         inherit custom;
         plugins = [
           "git"
-          "nix-shell"
         ] ++ lib.optionals (config.tmux.enable) [
           "tmux"
         ] ++ lib.optionals (config.zsh.zoxide.enable) [
