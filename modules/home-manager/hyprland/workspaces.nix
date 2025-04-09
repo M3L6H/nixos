@@ -8,9 +8,8 @@
       ];
 
       "windowrule" = [
-        "workspace 1, steam"
-        "workspace 2, kitty"
-        "workspace 3, vivaldi"
+        "workspace 2, title:.*tty"
+        "workspace 3, title:vivaldi"
       ];
     };
   };

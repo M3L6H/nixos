@@ -8,7 +8,7 @@
       enable = true;
 
       font = {
-        package = (pkgs.nerdfonts.override { fonts = [ "VictorMono" ]; });
+        package = pkgs.nerd-fonts.victor-mono;
         name = "VictorMono Nerd Font";
       };
 
@@ -29,7 +29,7 @@
         listen_on = "${if config.scripts.wallpaper-haven.enable then "unix:/tmp/kitty" else "none"}";
       };
 
-      theme = "Tokyo Night";
+      themeFile = "tokyo_night_night";
     };
 
     # Required for dynamically changing the terminal background in kitty
