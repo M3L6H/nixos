@@ -150,7 +150,7 @@ Breakdown of the included modules.
   - impermanence.enable `boolean` - Enables the module
 - [nix-ld](/modules/nixos/nix-ld.nix) - Enables nix-ld for executing arbitrary binaries
   - nix-ld.enable `boolean` - Enables the module
-- [nvidia](/modules/nixos/nvidia.nix) - Enables nvidia window manager
+- [nvidia](/modules/nixos/nvidia.nix) - Enables nvidia configurations
   - nvidia.enable `boolean` - Enables the module
 - [partition-manager](/modules/nixos/partition-manager.nix) - Install partition-manager
   - partition-manager.enable `boolean` - Enables the module

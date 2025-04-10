@@ -36,13 +36,13 @@
   scripts.wallpaper-haven.enable = false;
 
   # Enable bazecor
-  software.bazecor.enable = true;
+  software.bazecor.enable = false;
 
   # Enable digikam
-  software.digikam.enable = true;
+  software.digikam.enable = false;
 
   # Enable krita
-  software.krita.enable = true;
+  software.krita.enable = false;
 
   # Enable vivaldi
   software.vivaldi.enable = true;
