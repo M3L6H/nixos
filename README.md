@@ -150,6 +150,8 @@ Breakdown of the included modules.
   - impermanence.enable `boolean` - Enables the module
 - [nix-ld](/modules/nixos/nix-ld.nix) - Enables nix-ld for executing arbitrary binaries
   - nix-ld.enable `boolean` - Enables the module
+- [nixos-rebuild-ng](/modules/nixos/nixos-rebuild-ng.nix) - Enables nixos-rebuild-ng as a replacement to nixos-rebuild
+  - nixos-rebuild-ng.enable `boolean` - Enables the module
 - [nvidia](/modules/nixos/nvidia.nix) - Enables nvidia configurations
   - nvidia.enable `boolean` - Enables the module
 - [partition-manager](/modules/nixos/partition-manager.nix) - Install partition-manager
@@ -161,6 +163,20 @@ Breakdown of the included modules.
   - users.zsh.enable `boolean` - Enables zsh as the default shell (must be done at the system level)
 - [vcs](/modules/nixos/vcs.nix) - Install git
   - vcs.enable `boolean` - Enables the module
+
+# Troubleshooting
+
+To clean the store:
+
+```sh
+nix-delete-store
+```
+
+To verify/repair the store:
+
+```sh
+sudo nix-store --verify --check-contents --repair
+```
 
 # Credits
 

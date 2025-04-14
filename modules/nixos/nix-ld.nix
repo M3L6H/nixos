@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     nix-ld.enable = lib.mkEnableOption "enables nix-ld module";
   };

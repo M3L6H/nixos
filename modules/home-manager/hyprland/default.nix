@@ -50,7 +50,7 @@
         };
       };
 
-      systemd.variables = [ "--all" ];
+      systemd.enable = false;
     };
   };
 }

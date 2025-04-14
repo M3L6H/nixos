@@ -9,7 +9,7 @@
 
       "windowrule" = [
         "workspace 2, title:.*tty"
-        "workspace 3, title:vivaldi"
+        "workspace 3, title:vivaldi*"
       ];
     };
   };

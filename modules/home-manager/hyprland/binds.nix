@@ -4,9 +4,8 @@
       settings = {
         "$mainMod" = "SUPER";
         bind = [
-          "$mainMod, F, exec, kitty"
-          "$mainMod, D, exec, vivaldi"
-          "$mainMod, S, exec, steam"
+          "$mainMod, F, exec, uwsm app -- kitty"
+          "$mainMod, D, exec, uwsm app -- vivaldi"
           "$mainMod, Space, exec, rofi -show run"
           "$mainMod, Q, killactive,"
           "$mainMod ALT, L, exec, hyprlock"

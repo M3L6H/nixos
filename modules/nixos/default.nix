@@ -4,6 +4,7 @@
     ./impermanence.nix
     ./mounts.nix
     ./nix-ld.nix
+    ./nixos-rebuild-ng.nix
     ./nvidia.nix
     ./partition-manager.nix
     ./sddm.nix
@@ -15,6 +16,7 @@
   config.impermanence.enable = lib.mkDefault true;
   config.mounts.enable = lib.mkDefault false;
   config.nix-ld.enable = lib.mkDefault true;
+  config.nixos-rebuild-ng.enable = lib.mkDefault true;
   config.nvidia.enable = lib.mkDefault false;
   config.partition-manager.enable = lib.mkDefault false;
   config.sddm.enable = lib.mkDefault true;

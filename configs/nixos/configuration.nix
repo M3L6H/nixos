@@ -1,4 +1,4 @@
-{ device, inputs, pkgs, username, ... }: {
+{ device, inputs, username, ... }: {
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
@@ -43,7 +43,7 @@
               seven_days_ago="$(date +%s -d '7 days ago')"
               date_expr='[0-9]{4,4}-[0-9]{2,2}-[0-9]{2,2}T[0-9]{2,2}:[0-9]{2,2}:[0-9]{2,2}Z'
 
-              ls /btrfs_tmp |
+              btrfs subvolume list -o "/btrfs_tmp" |
               grep -E "$1-$date_expr" |
               head -n -7 |
               while read subvolume; do
@@ -126,15 +126,6 @@
       domain = "*";
       type = "-";
       item = "memlock";
-      value = "infinity";
-    }
-    {
-      domain = "*";
-      type = "-";
-      item = "nofile";
-
-      # https://unix.stackexchange.com/a/626459
-      # https://github.com/ValveSoftware/Proton/wiki/File-Descriptors
       value = "infinity";
     }
   ];
