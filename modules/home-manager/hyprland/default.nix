@@ -50,6 +50,8 @@
           # 1 - don't use hw cursors
           # 2 - auto (disable when tearing) (default)
           no_hardware_cursors = "0";
+
+          hide_on_key_press = "true";
         };
 
         ecosystem = {

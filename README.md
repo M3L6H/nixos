@@ -144,6 +144,9 @@ Breakdown of the included modules.
 
 ## [nixos](/modules/nixos) - Nixos modules
 
+- [services](/modules/nixos/services) - Systemd services submodule
+  - [clean-old-generations](/modules/nixos/services/clean-old-generations.nix) - Systemd service to clean old nixos generations
+    - services.clean-old-generations.enable `boolean` - Enables the module
 - [hyprland](/modules/nixos/hyprland.nix) - Enables hyprland window manager
   - hyprland.enable `boolean` - Enables the module
 - [impermanence](/modules/nixos/impermanence.nix) - Enables impermanence at system level
@@ -164,7 +167,17 @@ Breakdown of the included modules.
 - [vcs](/modules/nixos/vcs.nix) - Install git
   - vcs.enable `boolean` - Enables the module
 
-# Troubleshooting
+# Cheatsheet
+
+NixOS cheatsheet.
+
+To list generations:
+
+```sh
+nixos-rebuild list-generations
+```
+
+## Troubleshooting
 
 To clean the store:
 

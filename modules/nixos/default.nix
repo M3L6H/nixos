@@ -1,5 +1,7 @@
 { lib, ... }: {
   imports = [
+    ./services
+
     ./hyprland.nix
     ./impermanence.nix
     ./mounts.nix
