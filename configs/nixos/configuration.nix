@@ -40,20 +40,27 @@
             mount -o subvol=/ /dev/mapper/root /btrfs_tmp
 
             delete_old_snapshots() {
+              echo 'BEGIN delete_old_snapshots'
               seven_days_ago="$(date +%s -d '7 days ago')"
-              date_expr='[0-9]{4,4}-[0-9]{2,2}-[0-9]{2,2}T[0-9]{2,2}:[0-9]{2,2}:[0-9]{2,2}Z'
+              echo "Seven days ago: $seven_days_ago"
 
               btrfs subvolume list -o "/btrfs_tmp" |
-              grep -E "$1-$date_expr" |
+              cut -f 9- -d ' ' |
+              cut -f 2- -d '-' |
+              while read s; do date +%s -d "$s" >/dev/null 2>&1 && echo "$s"; done |
               head -n -7 |
-              while read subvolume; do
-                if [ "$(date +%s -d "$(grep -Eo "$date_expr" <<<"$subvolume")")" -lt "$seven_days_ago" ]; then
+              while read timestamp; do
+                if [ "$(date +%s -d "$timestamp")" -lt "$seven_days_ago" ]; then
+                  subvolume="@-$timestamp"
+                  echo "Deleting $subvolume"
                   btrfs subvolume delete "/btrfs_tmp/$subvolume"
                 fi
               done
+              echo 'END delete_old_snapshots'
             }
 
             nuke_subvolume() {
+              echo 'BEGIN nuke_subvolume'
               if [[ -e "/btrfs_tmp/$1" ]]; then
                 btrfs subvolume list -o "/btrfs_tmp/$1" |
                 cut -f 9- -d ' ' |
@@ -67,9 +74,10 @@
               fi
 
               btrfs subvolume snapshot "/btrfs_tmp/$1-blank" "/btrfs_tmp/$1"
+              echo 'END nuke_subvolume'
             }
 
-            delete_old_snapshots '@'
+            delete_old_snapshots
             nuke_subvolume '@'
 
             sync
