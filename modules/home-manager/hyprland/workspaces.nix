@@ -8,8 +8,8 @@
       ];
 
       "windowrule" = [
-        "workspace 2, title:.*tty"
-        "workspace 3, title:vivaldi*"
+        "workspace 2, class:.*tty"
+        "workspace 3, class:vivaldi.*"
       ];
     };
   };

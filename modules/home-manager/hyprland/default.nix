@@ -41,12 +41,20 @@
           "XDG_SESSION_TYPE,wayland"
         ];
 
-        cursor = {
-          no_hardware_cursors = "true";
-        };
-
         misc = {
           focus_on_activate = "true";
+        };
+
+        cursor = {
+          # 0 - use hw cursors if possible
+          # 1 - don't use hw cursors
+          # 2 - auto (disable when tearing) (default)
+          no_hardware_cursors = "0";
+        };
+
+        ecosystem = {
+          no_update_news = "true";
+          no_donation_nag = "true";
         };
       };
 
