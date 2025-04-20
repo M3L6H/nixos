@@ -4,6 +4,25 @@
   };
 
   config = lib.mkIf config.software.vivaldi.enable {
+    nixpkgs.overlays = [
+      (final: prev: {
+        vivaldi =
+          (prev.vivaldi.overrideAttrs (oldAttrs: {
+            dontWrapQtApps = false;
+            dontPatchELF = true;
+            nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
+          }))
+          .override {
+            commandLineArgs = ''
+              --enable-features=UseOzonePlatform
+              --ozone-platform=wayland
+              --ozone-platform-hint=auto
+              --enable-features=WaylandWindowDecorations
+            '';
+          };
+      })
+    ];
+
     home.packages = with pkgs; [
       vivaldi
     ];
@@ -12,9 +31,6 @@
       directories = [
         ".config/vivaldi"
         ".local/lib/vivaldi"
-      ];
-      files = [
-        ".local/share/.vivaldi_reporting_data"
       ];
     };
 
