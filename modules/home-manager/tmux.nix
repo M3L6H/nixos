@@ -24,7 +24,8 @@
       baseIndex = 1;
 
       extraConfig = ''
-        set-option -sa terminal-overrides ",xterm*:Tc"
+        set -g default-terminal "tmux-256color"
+        set -ga terminal-overrides ",xterm-256color:Tc"
 
         # Shift-Alt- vim keys to switch windows
         bind -n M-H previous-window

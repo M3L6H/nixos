@@ -487,6 +487,21 @@
         "type": "github"
       }
     },
+    "nixCats": {
+      "locked": {
+        "lastModified": 1745111484,
+        "narHash": "sha256-p7R6KSgylO2DME+fELPRQ6TZnsKg9jOWWNpN0xZVyYM=",
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "rev": "35da282c2f9bb76790700897ec9658848cff8aeb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BirdeeHub",
+        "repo": "nixCats-nvim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1744098102,
@@ -550,6 +565,7 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "impermanence": "impermanence",
+        "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
         "stable": "stable"
       }
