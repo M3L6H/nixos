@@ -10,9 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    impermanence = {
-      url = "github:nix-community/impermanence";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -33,7 +31,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
+
+    nixCats.url = "github:BirdeeHub/nixCats-nvim";
   };
 
   outputs = { nixpkgs, stable, home-manager, flake-parts, ... }@inputs:
@@ -77,7 +79,9 @@
           extraSpecialArgs = {
             inherit inputs username;
           };
-          modules = [ ./homes/${username}/home.nix ];
+          modules = [
+            ./homes/${username}/home.nix
+          ];
         };
       };
     };

@@ -20,6 +20,9 @@
   # Enable neovim
   neovim.enable = true;
 
+  # Enable neovim configured with nixCats-nvim
+  nixcats.enable = true;
+
   # Enable kitty
   terminal.enable = true;
 

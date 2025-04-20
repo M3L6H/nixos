@@ -2,6 +2,7 @@
   imports = [
     ./hyprland
     ./neovim
+    ./nixcats
     ./scripts
     ./software
     ./toolchains
