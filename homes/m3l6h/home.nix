@@ -18,7 +18,7 @@
   hyprland.enable = true;
 
   # Enable neovim
-  neovim.enable = true;
+  neovim.enable = false;
 
   # Enable neovim configured with nixCats-nvim
   nixcats.enable = true;
