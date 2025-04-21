@@ -26,7 +26,7 @@ in {
           lua = with pkgs; [
             fzf
             lua-language-server
-            nil
+            nixd
             ripgrep
             stylua
           ];
@@ -35,7 +35,9 @@ in {
         startupPlugins = {
           general = with pkgs.vimPlugins; [
             lazy-nvim
+            mini-icons
             nvim-treesitter.withAllGrammars
+            oil-nvim
             which-key-nvim
           ];
         };
