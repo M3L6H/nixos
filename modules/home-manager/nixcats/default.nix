@@ -1,4 +1,4 @@
-{ config, lib, inputs, ... }: let
+{ config, lib, inputs, username, ... }: let
   utils = inputs.nixCats.utils;
 in {
   options = {
@@ -21,7 +21,7 @@ in {
 
       luaPath = ./.;
 
-      categoryDefinitions.replace = ({ pkgs, settings, categories, extra, name, mkPlugin, ... }@packageDef: {
+      categoryDefinitions.replace = ({ pkgs, settings, categories, extra, name, mkPlugin, ... }: {
         lspsAndRuntimeDeps = {
           lua = with pkgs; [
             fzf
@@ -34,6 +34,7 @@ in {
 
         startupPlugins = {
           general = with pkgs.vimPlugins; [
+            cyberdream-nvim
             lazy-nvim
             mini-icons
             nvim-treesitter.withAllGrammars
@@ -67,6 +68,12 @@ in {
           };
         };
       };
+    };
+
+    home.persistence."/persist/home/${username}" = {
+      directories = lib.mkIf config.impermanence.enable [
+        ".vim/undodir"
+      ];
     };
   };
 }

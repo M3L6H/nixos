@@ -154,7 +154,6 @@
   # Home manager
   home-manager = {
     extraSpecialArgs = { inherit inputs username; };
-    useGlobalPkgs = true;
     users = {
       "${username}" = import ../../homes/${username}/home.nix;
     };

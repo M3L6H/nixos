@@ -19,16 +19,17 @@ end
 
 local lazyOptions = {
   defaults = {
-    lazy = true
+    lazy = true,
   },
   lockfile = getlockfilepath(),
   install = {
     -- Don't install plugins in a Nix environment
-    missing = utils.lazyAdd(true, false)
+    missing = utils.lazyAdd(true, false),
+    colorscheme = { "cyberdream" },
   },
   checker = {
     -- Don't check for updates in a Nix environment
-    enabled = utils.lazyAdd(true, false)
+    enabled = utils.lazyAdd(true, false),
   },
 }
 

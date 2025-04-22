@@ -35,6 +35,7 @@
       autosuggestion.enable = true;
 
       envExtra = ''
+      ${if config.nixcats.enable then "export EDITOR='nvim'" else ""}
       ${if config.tmux.enable then "export ZSH_TMUX_AUTOSTART=true" else ""}
       ${if config.zsh.vi-mode.enable then "ZVM_VI_SURROUND_BINDKEY='s-prefix'" else ""}
       ${if config.zsh.zoxide.enable then "export ZOXIDE_CMD_OVERRIDE='cd'" else ""}
