@@ -4,6 +4,7 @@
   };
 
   config = lib.mkIf config.software.vivaldi.enable {
+    nixpkgs.config.allowUnfree = true;
     nixpkgs.overlays = [
       (final: prev: {
         vivaldi =

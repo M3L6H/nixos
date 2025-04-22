@@ -191,6 +191,35 @@ To verify/repair the store:
 sudo nix-store --verify --check-contents --repair
 ```
 
+# Development
+
+This project is broken up into NixOS and home-manager configuration. The NixOS
+configuration lives in
+[configs/nixos/configuration.nix](configs/nixos/configuration.nix)
+and [modules/nixos](modules/nixos). While the home-manager configuration lives
+in [homes/m3l6h/home.nix](homes/m3l6h/home.nix) and
+[modules/home-manager](modules/home-manager).
+
+Although the configuration has been separated, the home-manager side of the
+house ultimately is built as a part of the NixOS config. The advantage of
+separating it is that during _development_ the home-manager configuration can
+be built by itself, but **to persist any changes after reboot, the NixOS
+configuration will have to be built.**
+
+## Commands
+
+To build the NixOS configuration, run
+
+```sh
+nxs
+```
+
+To build the home-manager configuration, run
+
+```sh
+hms
+```
+
 # Credits
 
 Non-exhaustive list of sources I referenced/learned from while building this.
