@@ -17,6 +17,9 @@ local function getlockfilepath()
   end
 end
 
+-- Colorscheme
+vim.g.colorscheme = utils.lazyAdd("kanagawa", nixCats.settings.colorscheme)
+
 local lazyOptions = {
   defaults = {
     lazy = true,
@@ -25,7 +28,10 @@ local lazyOptions = {
   install = {
     -- Don't install plugins in a Nix environment
     missing = utils.lazyAdd(true, false),
-    colorscheme = { "cyberdream" },
+    colorscheme = { vim.g.colorscheme },
+  },
+  ui = {
+    border = vim.g.border,
   },
   checker = {
     -- Don't check for updates in a Nix environment
@@ -35,18 +41,6 @@ local lazyOptions = {
 
 -- Lazy wrapper which uses the nixCats version in a nix environment
 require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 'lazy.nvim' }, {
-  -- TODO: Move this to its own plugin file
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = utils.lazyAdd ':TSUpdate',
-    opts_extend = utils.lazyAdd(nil, false),
-    opts = {
-      -- nix already ensured they were installed, and we would need to change the parser_install_dir if we wanted to use it instead.
-      -- so we just disable install and do it via nix.
-      ensure_installed = utils.lazyAdd({ 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' }, false),
-      auto_install = utils.lazyAdd(true, false),
-    },
-  },
   { import = 'plugins' },
 }, lazyOptions)
 

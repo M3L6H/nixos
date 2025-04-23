@@ -29,7 +29,7 @@
         listen_on = "${if config.scripts.wallpaper-haven.enable then "unix:/tmp/kitty" else "none"}";
       };
 
-      themeFile = "tokyo_night_night";
+      themeFile = "kanagawa_dragon";
     };
 
     # Required for dynamically changing the terminal background in kitty

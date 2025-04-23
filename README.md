@@ -36,6 +36,7 @@ Breakdown of the included modules.
   - [binds](/modules/home-manager/hyprland/binds.nix) - Sets hyprland keybinds
   - [hypridle](/modules/home-manager/hyprland/hypridle.nix) - Configures hypridle
   - [hyprlock](/modules/home-manager/hyprland/hyprlock.nix) - Configures hyprlock
+  - [hyprshot](/modules/home-manager/hyprland/hyprshot.nix) - Configures hyprshot
   - [monitors](/modules/home-manager/hyprland/monitors.nix) - Configures monitors
   - [wallpaper](/modules/home-manager/hyprland/wallpaper.nix) - Configures wallpapers
 - [neovim](/modules/home-manager/neovim) - Add neovim (configured in lua using [Lazy](https://github.com/folke/lazy.nvim))

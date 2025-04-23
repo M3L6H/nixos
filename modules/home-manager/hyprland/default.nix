@@ -8,6 +8,7 @@
     ./binds.nix
     ./hypridle.nix
     ./hyprlock.nix
+    ./hyprshot.nix
     ./monitors.nix
     ./wallpaper.nix
     ./workspaces.nix

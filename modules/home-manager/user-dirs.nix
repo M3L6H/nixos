@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     user-dirs.enable = lib.mkEnableOption "enables user dirs module";
   };

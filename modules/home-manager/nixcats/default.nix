@@ -1,4 +1,5 @@
 { config, lib, inputs, username, ... }: let
+  colorscheme = "kanagawa";
   utils = inputs.nixCats.utils;
 in {
   options = {
@@ -21,7 +22,7 @@ in {
 
       luaPath = ./.;
 
-      categoryDefinitions.replace = ({ pkgs, settings, categories, extra, name, mkPlugin, ... }: {
+      categoryDefinitions.replace = ({ pkgs, ... }: {
         lspsAndRuntimeDeps = {
           lua = with pkgs; [
             fzf
@@ -34,12 +35,18 @@ in {
 
         startupPlugins = {
           general = with pkgs.vimPlugins; [
-            cyberdream-nvim
             lazy-nvim
+            mini-diff
             mini-icons
+            mini-statusline
+            nvim-lspconfig
             nvim-treesitter.withAllGrammars
             oil-nvim
+            smartcolumn-nvim
+            vim-tmux-navigator
             which-key-nvim
+          ] ++ [
+            pkgs.vimPlugins."${colorscheme}-nvim"
           ];
         };
 
@@ -48,15 +55,16 @@ in {
       });
 
       packageDefinitions.replace = {
-        neovim = {pkgs, name, ... }: {
+        neovim = {pkgs, ... }: {
           settings = {
+            colorscheme = colorscheme;
             suffix-path = true;
             suffix-LD = true;
             wrapRc = true;
             aliases = [ "v" "vi" "vim" "nvim" ];
             hosts.python3.enable = true;
             hosts.node.enable = true;
-            unwrappedCfgPath = builtins.toString ./.;
+            unwrappedCfgPath = "${config.home.homeDirectory}/.local/state/nvim/lazy";
           };
           categories = {
             general = true;
@@ -72,6 +80,8 @@ in {
 
     home.persistence."/persist/home/${username}" = {
       directories = lib.mkIf config.impermanence.enable [
+        ".local/share/nvim"
+        ".local/state/nvim"
         ".vim/undodir"
       ];
     };

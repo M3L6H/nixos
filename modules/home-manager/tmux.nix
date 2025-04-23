@@ -3,20 +3,7 @@
     tmux.enable = lib.mkEnableOption "enables tmux module";
   };
 
-  config = let
-    tokyo-night-tmux = pkgs.tmuxPlugins.mkTmuxPlugin {
-      pluginName = "tokyo-night-tmux";
-      rtpFilePath = "tokyo-night.tmux";
-      version = "1.0";
-      src = pkgs.fetchFromGitHub {
-        owner = "janoamaral";
-        repo = "tokyo-night-tmux";
-        rev = "b45b742eb3fdc01983c21b1763594b549124d065";
-        sha256 = "sha256-k4CbfWdyk7m/T97ytxLOEMUKrkU5iJSIu3lvyT1B1jU=";
-      };
-    };
-  in
-  lib.mkIf config.tmux.enable {
+  config = lib.mkIf config.tmux.enable {
     utils.wl-clipboard.enable = true; # Used by yank plugin
 
     programs.tmux = {
@@ -47,8 +34,8 @@
       mouse = true;
 
       plugins = with pkgs.tmuxPlugins; [
+        kanagawa
         sensible
-        tokyo-night-tmux
         vim-tmux-navigator
         yank
       ];
