@@ -16,7 +16,7 @@ local M = {
       theme = {
         all = {
           ui = {
-            bg_dim = "none",
+            bg_dim = "#12120f", -- Dragon black 1
             bg_gutter = "none",
           },
         },
