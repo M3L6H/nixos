@@ -42,6 +42,9 @@ local M = {
       end
     },
   },
+  init = function()
+    vim.cmd("hi clear MiniStatuslineFilename") -- Transparent statusline
+  end,
 }
 
 return M

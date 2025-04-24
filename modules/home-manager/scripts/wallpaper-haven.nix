@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   options = {
     scripts.wallpaper-haven.enable = lib.mkEnableOption "enables wallpaper haven module";
   };

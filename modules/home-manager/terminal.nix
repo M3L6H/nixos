@@ -23,6 +23,8 @@
         # Color scheme
         background_opacity = "0.85";
         background_tint = "0.98";
+        # Kanagawa colors
+        transparent_background_colors = "#12120f #16161D #181820 #1a1a22 #1F1F28 #2A2A37 #363646";
 
         # Required for dynamically changing the terminal background in kitty
         allow_remote_control = "${if config.scripts.wallpaper-haven.enable then "socket-only" else "no"}";
