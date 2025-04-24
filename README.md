@@ -108,6 +108,8 @@ Breakdown of the included modules.
     - utils.glxinfo.enable `boolean` - Enables the module
   - [image-magick](/modules/home-manager/utils/image-magick.nix) - Install the image-magick suite
     - utils.image-magick.enable `boolean` - Enables the module
+  - [iw](/modules/home-manager/utils/iw.nix) - Install iw
+    - utils.iw.enable `boolean` - Enables the module
   - [jq](/modules/home-manager/utils/jq.nix) - Install jq
     - utils.jq.enable `boolean` - Enables the module
   - [killall](/modules/home-manager/utils/killall.nix) - Install killall
@@ -118,6 +120,8 @@ Breakdown of the included modules.
     - utils.ripgrep.enable `boolean` - Enables the module
   - [parted](/modules/home-manager/utils/parted.nix) - Install parted
     - utils.parted.enable `boolean` - Enables the module
+  - [playerctl](/modules/home-manager/utils/playerctl.nix) - Install playerctl
+    - utils.playerctl.enable `boolean` - Enables the module
   - [unp](/modules/home-manager/utils/unp.nix) - Install unp & its requisite tools
     - utils.unp.enable `boolean` - Enables the module
   - [vulkan](/modules/home-manager/utils/vulkan.nix) - Install vulkan-tools
