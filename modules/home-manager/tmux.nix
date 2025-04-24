@@ -4,6 +4,7 @@
   };
 
   config = lib.mkIf config.tmux.enable {
+    utils.playerctl.enable = true; # Used by playerctl plugin
     utils.wl-clipboard.enable = true; # Used by yank plugin
 
     programs.tmux = {
@@ -21,6 +22,12 @@
         # Enter copy mode with Alt-v
         bind-key -n 'M-v' copy-mode
 
+        # Disable confirmation for closing pane
+        bind x kill-pane
+
+        # Close all panes except current
+        bind X kill-pane -a
+
         # Proper vim select
         bind-key -T copy-mode-vi 'v' send -X begin-selection
         bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
@@ -28,6 +35,12 @@
         # Open panes in current directory
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
+
+        # Set status right length to handle playerctl
+        set -g status-right-length 150
+
+        # No auto renaming
+        set-option -g allow-rename off
       '';
 
       keyMode = "vi";
@@ -44,17 +57,32 @@
 
             # Powerline
             set -g @kanagawa-show-powerline true
+            set-option -g status-position top
 
-            # Widgets
+            # Plugins
+            set -g @kanagawa-plugins "playerctl cpu-usage gpu-usage ram-usage weather time"
             set -g @kanagawa-military-time true
-            set -g @kanagawa-left-icon 󱚝
-            set -g @kanagawa-show-battery false
-            set -g @kanagawa-show-farenheit true
+            set -g @kanagawa-left-icon "󱚝 "
+            set -g @kanagawa-show-fahrenheit true
             set -g @kanagawa-show-location false
             set -g @kanagawa-show-timezone false
             set -g @kanagawa-show-empty-plugins false
             set -g @kanagawa-show-left-sep 
             set -g @kanagawa-show-right-sep 
+
+            set -g @kanagawa-cpu-usage-label " "
+            set -g @kanagawa-gpu-usage-label "󰢮 "
+            set -g @kanagawa-ram-usage-label " "
+
+            set -g @kanagawa-playerctl-format " {{ artist }} - {{ title }}"
+
+            # Colors
+            set -g @kanagawa-playerctl-colors "dark_purple white"
+            set -g @kanagawa-cpu-usage-colors "dark_gray white"
+            set -g @kanagawa-gpu-usage-colors "dark_purple white"
+            set -g @kanagawa-ram-usage-colors "dark_gray white"
+            set -g @kanagawa-weather-colors "dark_purple white"
+            set -g @kanagawa-time-colors "dark_gray white"
           '';
         }
         sensible
