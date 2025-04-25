@@ -3,7 +3,13 @@
     tmux.enable = lib.mkEnableOption "enables tmux module";
   };
 
+  imports = [
+    ./tmuxinator.nix
+  ];
+
   config = lib.mkIf config.tmux.enable {
+    tmux.tmuxinator.enable = lib.mkDefault true;
+
     utils.playerctl.enable = true; # Used by playerctl plugin
     utils.wl-clipboard.enable = true; # Used by yank plugin
 
@@ -86,7 +92,7 @@
             set -g @kanagawa-gpu-usage-label "󰢮 "
             set -g @kanagawa-ram-usage-label " "
 
-            set -g @kanagawa-playerctl-format "  [ {{ trunc(artist, 12) }} ][ {{ trunc(title, 36) }} ][ {{ duration(position) }} ]"
+            set -g @kanagawa-playerctl-format "  [ {{ trunc(artist, 24) }} ][ {{ trunc(title, 36) }} ][ {{ duration(position) }} ]  "
 
             # Colors
             set -g @kanagawa-playerctl-colors "dark_purple white"
