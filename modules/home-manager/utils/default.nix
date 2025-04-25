@@ -9,6 +9,7 @@
     ./jq.nix
     ./killall.nix
     ./lsof.nix
+    ./neovim-remote.nix
     ./parted.nix
     ./playerctl.nix
     ./ripgrep.nix
@@ -27,6 +28,7 @@
   utils.jq.enable = lib.mkDefault false;
   utils.killall.enable = lib.mkDefault false;
   utils.lsof.enable = lib.mkDefault false;
+  utils.nvr.enable = lib.mkDefault false;
   utils.ripgrep.enable = lib.mkDefault false;
   utils.parted.enable = lib.mkDefault false;
   utils.playerctl.enable = lib.mkDefault false;

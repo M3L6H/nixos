@@ -36,7 +36,7 @@
 
       envExtra = ''
       ${if config.nixcats.enable then "export EDITOR='nvim'" else ""}
-      ${if config.tmux.enable then "export ZSH_TMUX_AUTOSTART=true" else ""}
+      ${if config.tmux.enable then "export ZSH_TMUX_AUTOSTART=false" else ""}
       ${if config.zsh.vi-mode.enable then "ZVM_VI_SURROUND_BINDKEY='s-prefix'" else ""}
       ${if config.zsh.zoxide.enable then "export ZOXIDE_CMD_OVERRIDE='cd'" else ""}
       '';
@@ -46,9 +46,6 @@
       };
 
       initExtra = ''
-      # Allow execution of arbitrary binaries downloaded through channels such as mason
-      # export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents "${pkgs.stdenv.cc}/nix-support/dynamic-linker"; in NIX_LD')
-
       ${if config.zsh.vi-mode.enable then "source $HOME/.zsh-custom/my-custom/zsh-vi-mode.sh" else ""}
 
       ${if config.scripts.wallpaper-haven.enable then "# Load a random wallpaper from wallpaper haven" else ""}

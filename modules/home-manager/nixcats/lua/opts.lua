@@ -60,3 +60,6 @@ o.updatetime = 50
 -- Border
 vim.g.border = { "🭽", "▔", "🭾", "▕", "🭿", "▁", "🭼", "▏" }
 
+-- Terminal window
+vim.g.terminalwindow = "2"
+

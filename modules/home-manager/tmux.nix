@@ -28,6 +28,15 @@
         # Close all panes except current
         bind X kill-pane -a
 
+        # Kill session
+        bind Q confirm-before -p "kill-session #S? (y/n)" kill-session
+
+        # Quick window jumping
+        bind f select-window -t 1
+        bind d select-window -t 2
+        bind s select-window -t 3
+        bind a select-window -t 4
+
         # Proper vim select
         bind-key -T copy-mode-vi 'v' send -X begin-selection
         bind-key -T copy-mode-vi 'C-v' send -X rectangle-toggle
@@ -35,6 +44,9 @@
         # Open panes in current directory
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
+
+        # Increase scrollback buffer size
+        set-option -g history-limit 100000
 
         # Set status right length to handle playerctl
         set -g status-right-length 150
@@ -74,7 +86,7 @@
             set -g @kanagawa-gpu-usage-label "󰢮 "
             set -g @kanagawa-ram-usage-label " "
 
-            set -g @kanagawa-playerctl-format " {{ artist }} - {{ title }}"
+            set -g @kanagawa-playerctl-format "  [ {{ trunc(artist, 12) }} ][ {{ trunc(title, 36) }} ][ {{ duration(position) }} ]"
 
             # Colors
             set -g @kanagawa-playerctl-colors "dark_purple white"

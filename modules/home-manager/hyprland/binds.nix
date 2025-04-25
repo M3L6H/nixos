@@ -1,4 +1,4 @@
-{ config, lib, ... }: {
+{ config, lib, username, ... }: {
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland = {
       settings = {
@@ -69,6 +69,14 @@
 
           # Dismiss notifications
           "$mainMod, M, exec, makoctl dismiss -a"
+
+          # Media keys
+          ", XF86AudioLowerVolume, exec, playerctl volume 0.10-"
+          ", XF86AudioMute, exec, /home/${username}/.local/bin/toggle-mute"
+          ", XF86AudioRaiseVolume, exec, playerctl volume 0.10+"
+          ", XF86AudioPlay, exec, playerctl play-pause"
+          ", XF86AudioPrev, exec, playerctl previous"
+          ", XF86AudioNext, exec, playerctl next"
         ];
       };
     };

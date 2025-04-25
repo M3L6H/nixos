@@ -1,11 +1,11 @@
 { config, lib, username, ... }: {
   options = {
-    neovim.enable = lib.mkEnableOption "enables neovim module";
+    neovim.enable = lib.mkEnableOption "DEPRECATED. Use nixcats module instead";
   };
 
   imports = [ ./plugins ];
 
-  config = lib.mkIf config.neovim.enable {
+  config = lib.mkIf false { # Deprecated
     programs.neovim = {
       enable = true;
       defaultEditor = true;

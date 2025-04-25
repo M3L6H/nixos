@@ -61,7 +61,13 @@ in {
             suffix-path = true;
             suffix-LD = true;
             wrapRc = true;
-            aliases = [ "v" "vi" "vim" "nvim" ];
+            aliases = [
+              "nvim"
+            ] ++ lib.optionals (!config.utils.nvr.enable) [ # nvr module defines these aliases
+              "v"
+              "vi"
+              "vim"
+            ];
             hosts.python3.enable = true;
             hosts.node.enable = true;
             unwrappedCfgPath = "${config.home.homeDirectory}/.local/state/nvim/lazy";

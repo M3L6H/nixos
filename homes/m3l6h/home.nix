@@ -17,9 +17,6 @@
   # Enable management of hyprland through home-manager
   hyprland.enable = true;
 
-  # Enable neovim
-  neovim.enable = false;
-
   # Enable neovim configured with nixCats-nvim
   nixcats.enable = true;
 
@@ -67,6 +64,9 @@
 
   # Enable lsof util
   utils.lsof.enable = true;
+
+  # Enable neovim-remote
+  utils.nvr.enable = true;
 
   # Enable unp util
   utils.unp.enable = true;
