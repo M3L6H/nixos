@@ -139,8 +139,10 @@ Breakdown of the included modules.
   - impermanence.enable `boolean` - Enables the module
 - [terminal](/modules/home-manager/terminal.nix) - Configure terminal
   - terminal.enable `boolean` - Enables the module
-- [tmux](/modules/home-manager/tmux.nix) - Configure tmux
+- [tmux](/modules/home-manager/tmux/default.nix) - Configure tmux
   - tmux.enable `boolean` - Enables the module
+  - [tmuxinator](/modules/home-manager/tmux/tmuxinator.nix) - Configure tmuxinator
+    - tmux.tmuxinator.enable `boolean` - Enables tmuxinator
 - [user-dirs](/modules/home-manager/user-dirs.nix) - Custom user dirs
   - user-dirs.enable `boolean` - Enables the module
 - [zsh](/modules/home-manager/zsh/default.nix) - Configure zsh

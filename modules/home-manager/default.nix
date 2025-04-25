@@ -5,6 +5,7 @@
     ./nixcats
     ./scripts
     ./software
+    ./tmux
     ./toolchains
     ./utils
     ./zsh
@@ -14,7 +15,6 @@
     ./impermanence.nix
     ./user-dirs.nix
     ./terminal.nix
-    ./tmux.nix
   ];
 
   hyprland.enable = lib.mkDefault false;
