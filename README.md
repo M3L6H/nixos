@@ -70,6 +70,8 @@ Breakdown of the included modules.
     - Will automatically be enabled if `impermanence.enable` is true
   - [persist](/modules/home-manager/scripts/persist.nix) - Util to persist files/directories
     - Will automatically be enabled if `impermanence.enable` is true
+  - [toggle-mute](/modules/home-manager/scripts/toggle-mute.nix) - Util to toggle-mute in playerctl
+    - Will automatically be enabled if `utils.playerctl.enable` is true
   - [wallpaper-haven](/modules/home-manager/scripts/wallpaper-haven.nix) - Sets a random wallpaper from wallpaper haven
     - scripts.wallpaper-haven.enable `boolean` - Enables the module
     - configure [api options](https://wallhaven.cc/help/api) with `~/.config/.wallhaven.ini`

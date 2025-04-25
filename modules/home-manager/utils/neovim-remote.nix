@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, pkgs, username, ... }: {
   options = {
     utils.nvr.enable = lib.mkEnableOption "enables neovim-remote module";
   };
@@ -8,9 +8,19 @@
       neovim-remote
     ];
 
-    home.shellAliases.v   = "nvr -s --remote";
-    home.shellAliases.vi  = "nvr -s --remote";
-    home.shellAliases.vim = "nvr -s --remote";
+    home.file.".local/bin/nvr-wrapper.sh" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env sh
+
+        nvr -s --remote "$@" \
+        && tmux select-window -t 1
+      '';
+    };
+
+    home.shellAliases.v   = "/home/${username}/.local/bin/nvr-wrapper.sh";
+    home.shellAliases.vi  = "/home/${username}/.local/bin/nvr-wrapper.sh";
+    home.shellAliases.vim = "/home/${username}/.local/bin/nvr-wrapper.sh";
   };
 }
 

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
   config = lib.mkIf config.impermanence.enable {
     home.file.".local/bin/fs-diff" = {
       executable = true;
