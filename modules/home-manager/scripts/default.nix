@@ -2,6 +2,7 @@
   imports = [
     ./fs-diff.nix
     ./persist.nix
+    ./toggle-mute.nix
     ./wallpaper-haven.nix
   ];
 

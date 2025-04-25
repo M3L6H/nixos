@@ -13,6 +13,9 @@
       };
 
       settings = {
+        # We use tmux for scrollback
+        scrollback_lines = 0;
+
         # Copy to clipboard rather than private buffer
         copy_on_select = "clipboard";
 
@@ -23,6 +26,7 @@
         # Color scheme
         background_opacity = "0.85";
         background_tint = "0.98";
+
         # Kanagawa colors
         transparent_background_colors = "#12120f #16161D #181820 #1a1a22 #1F1F28 #2A2A37 #363646";
 

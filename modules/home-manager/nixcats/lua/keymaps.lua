@@ -5,9 +5,43 @@ local km = vim.keymap
 
 km.set("n", "<leader>x", "<CMD>close<CR>", { desc = "Close split" })
 km.set("n", "<leader>X", "<CMD>only<CR>", { desc = "Close all other splits" })
+
+local function switch_window()
+  if vim.fn.exists("$TMUX") and vim.g.terminalwindow ~= nil then
+    -- Switch to terminal window if in tmux session
+    os.execute("tmux select-window -t " .. vim.g.terminalwindow)
+    return true
+  end
+  return false
+end
+
+local function close_all()
+  vim.cmd("bufdo! bwipeout!") -- Close all buffers
+  if not switch_window() then
+    vim.cmd("q") -- Quit vim if we are not in a tmux session
+  end
+end
+
 km.set("n", "<leader>s", "<CMD>wa<CR>", { desc = "Save all" })
-km.set("n", "<leader>q", "<CMD>wqa<CR>", { desc = "Save and quit all" })
-km.set("n", "<leader>Q", "<CMD>qa!<CR>", { desc = "Quit all w/o saving" })
+km.set(
+  "n",
+  "<leader>S",
+  function()
+    vim.cmd("wa") -- Save all
+    switch_window()
+  end,
+  { desc = "Save all and switch to terminal" }
+)
+km.set(
+  "n",
+  "<leader>q",
+  function ()
+    vim.cmd("wa") -- Save all
+    close_all()
+  end,
+  { desc = "Save and quit all" }
+)
+km.set("n", "<leader>Q", close_all, { desc = "Quit all w/o saving" })
 
 km.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 km.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
