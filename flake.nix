@@ -36,9 +36,11 @@
     };
 
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+
+    tmux-sessionx.url = "github:omerxx/tmux-sessionx";
   };
 
-  outputs = { nixpkgs, stable, home-manager, flake-parts, ... }@inputs:
+  outputs = { nixpkgs, home-manager, flake-parts, ... }@inputs:
   let
     device = "/dev/disk/by-id/ata-Samsung_SSD_870_EVO_4TB_S757NS0X302547W";
     hostname = "nixos";
