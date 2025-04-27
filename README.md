@@ -100,6 +100,8 @@ Breakdown of the included modules.
   - [python](/modules/home-manager/toolchains/python.nix) - Install python toolchain
     - toolchains.python.enable `boolean` - Enables the module
 - [utils](/modules/home-manager/utils) - CLI utils submodule
+  - [bat](/modules/home-manager/utils/bat.nix) - Install bat
+    - utils.bat.enable `boolean` - Enables the module
   - [ffmpeg](/modules/home-manager/utils/ffmpeg.nix) - Install ffmpeg
     - utils.ffmpeg.enable `boolean` - Enables the module
   - [file](/modules/home-manager/utils/file.nix) - Install file
@@ -141,6 +143,8 @@ Breakdown of the included modules.
   - terminal.enable `boolean` - Enables the module
 - [tmux](/modules/home-manager/tmux/default.nix) - Configure tmux
   - tmux.enable `boolean` - Enables the module
+  - [sessionx](/modules/home-manager/tmux/sessionx.nix) - Configure sessionx
+    - tmux.sessionx.enable `boolean` - Enables sessionx
   - [tmuxinator](/modules/home-manager/tmux/tmuxinator.nix) - Configure tmuxinator
     - tmux.tmuxinator.enable `boolean` - Enables tmuxinator
 - [user-dirs](/modules/home-manager/user-dirs.nix) - Custom user dirs

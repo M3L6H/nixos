@@ -1,5 +1,6 @@
 { lib, ... }: {
   imports = [
+    ./bat.nix
     ./ffmpeg.nix
     ./file.nix
     ./fzf.nix
@@ -19,6 +20,7 @@
     ./wl-clipboard.nix
   ];
 
+  utils.bat.enable = lib.mkDefault false;
   utils.ffmpeg.enable = lib.mkDefault false;
   utils.file.enable = lib.mkDefault false;
   utils.fzf.enable = lib.mkDefault false;

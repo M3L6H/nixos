@@ -4,10 +4,12 @@
   };
 
   imports = [
+    ./sessionx.nix
     ./tmuxinator.nix
   ];
 
   config = lib.mkIf config.tmux.enable {
+    tmux.sessionx.enable = lib.mkDefault true;
     tmux.tmuxinator.enable = lib.mkDefault true;
 
     utils.playerctl.enable = true; # Used by playerctl plugin
