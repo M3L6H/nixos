@@ -40,7 +40,7 @@ Breakdown of the included modules.
   - [monitors](/modules/home-manager/hyprland/monitors.nix) - Configures monitors
   - [wallpaper](/modules/home-manager/hyprland/wallpaper.nix) - Configures wallpapers
 - DEPRECATED: See the nixcats module ~[neovim](/modules/home-manager/neovim) - Add neovim (configured in lua using [Lazy](https://github.com/folke/lazy.nvim))~
-    - neovim.enable `boolean` - Enables the module
+    - neovim.enable `boolean` - DEPRECATED: See the nixcats module ~Enables the module~
   - [colorscheme](/modules/home-manager/neovim/plugins/colorscheme.nix) - Sets the colorscheme of neovim
     - neovim.plugins.colorscheme.enable `boolean` - Enables the module
   - [eyeliner](/modules/home-manager/neovim/plugins/eyeliner.nix) - Configures eyeliner
