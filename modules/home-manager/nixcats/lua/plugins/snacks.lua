@@ -50,6 +50,16 @@ local M = {
       },
     },
     image = { enabled = true },
+    indent = {
+      enabled = true,
+      indent = {
+        only_scope = true,
+        only_current = true,
+      },
+      scope = {
+        only_current = true,
+      },
+    },
   },
 }
 
