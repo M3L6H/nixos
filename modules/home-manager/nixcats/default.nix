@@ -11,6 +11,8 @@ in {
   ];
 
   config = lib.mkIf config.nixcats.enable {
+    utils.chafa.enable = true; # Used in neovim dashboard
+
     nixCats = {
       enable = true;
 
@@ -43,6 +45,7 @@ in {
             nvim-treesitter.withAllGrammars
             oil-nvim
             smartcolumn-nvim
+            snacks-nvim
             vim-tmux-navigator
             which-key-nvim
           ] ++ [

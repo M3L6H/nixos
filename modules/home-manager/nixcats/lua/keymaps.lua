@@ -19,6 +19,8 @@ local function close_all()
   vim.cmd("bufdo! bwipeout!") -- Close all buffers
   if not switch_window() then
     vim.cmd("q") -- Quit vim if we are not in a tmux session
+  else
+    vim.cmd("lua Snacks.dashboard()") -- Return to dashboard otherwise
   end
 end
 

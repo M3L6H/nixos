@@ -10,6 +10,7 @@ local M = {
       "lspinfo",
       "mason",
       "oil",
+      "snacks_dashboard",
       "Trouble",
     },
     custom_colorcolumn = {

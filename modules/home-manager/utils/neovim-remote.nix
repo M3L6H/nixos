@@ -13,8 +13,21 @@
       text = ''
         #!/usr/bin/env sh
 
+        # This script assumes we always want neovim running in the first tmux window
+        # It also assumes that window is index 1
+
+        NVIM_CMD='nvim --listen /tmp/nvimsocket'
+        IS_TMUX="$([ "$TERM_PROGRAM" = 'tmux' ] && echo 'true' || echo 'false')"
+        CUR_WIN="$(tmux display-message -p '#{window_index}')"
+
+        if ! lsof /tmp/nvimsocket >/dev/null 2>&1; then
+          if "$IS_TMUX" && [ "$CUR_WIN" != '1' ]; then
+            tmux send-keys -t "$(tmux display-message -p '#S'):1" "$NVIM_CMD" Enter
+          fi
+        fi
+
         nvr -s --remote "$@" \
-        && tmux select-window -t 1
+        && if "$IS_TMUX"; then tmux select-window -t 1; fi
       '';
     };
 
