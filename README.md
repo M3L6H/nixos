@@ -102,6 +102,8 @@ Breakdown of the included modules.
 - [utils](/modules/home-manager/utils) - CLI utils submodule
   - [bat](/modules/home-manager/utils/bat.nix) - Install bat
     - utils.bat.enable `boolean` - Enables the module
+  - [chafa](/modules/home-manager/utils/chafa.nix) - Install chafa
+    - utils.chafa.enable `boolean` - Enables the module
   - [ffmpeg](/modules/home-manager/utils/ffmpeg.nix) - Install ffmpeg
     - utils.ffmpeg.enable `boolean` - Enables the module
   - [file](/modules/home-manager/utils/file.nix) - Install file
