@@ -49,6 +49,7 @@ local M = {
         },
       },
     },
+    image = { enabled = true },
   },
 }
 

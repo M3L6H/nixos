@@ -16,12 +16,17 @@ local function switch_window()
 end
 
 local function close_all()
-  vim.cmd("bufdo! bwipeout!") -- Close all buffers
+  -- Close all buffers
+  vim.cmd("bufdo! bwipeout!")
+
   -- If we are not a neovim-remote server or not in tmux
   if vim.v.servername ~= "/tmp/nvimsocket" or not switch_window() then
-    vim.cmd("q") -- Quit vim
+    -- Quit vim
+    vim.cmd("q")
   else
-    vim.cmd("lua Snacks.dashboard()") -- Return to dashboard otherwise
+    -- Return to dashboard otherwise
+    -- Open in current window. Weird things happen if we let Snacks make a new window
+    Snacks.dashboard({ win = vim.api.nvim_get_current_win() })
   end
 end
 
