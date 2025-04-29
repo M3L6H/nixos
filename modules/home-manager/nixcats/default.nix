@@ -12,6 +12,7 @@ in {
 
   config = lib.mkIf config.nixcats.enable {
     utils.chafa.enable = true; # Used in neovim dashboard
+    utils.image-magick.enable = true; # Used in snacks image module
 
     nixCats = {
       enable = true;

@@ -3,7 +3,7 @@ local M = {
   dependencies = { { "echasnovski/mini.icons", opts = {} } },
   lazy = false,
   keys = {
-    { "-", "<cmd>Oil --float<cr>", mode = "n", desc = "Open parent directory" },
+    { "-", "<cmd>Oil --float --preview<cr>", mode = "n", desc = "Open parent directory" },
   },
   opts = {
     columns = {
@@ -41,18 +41,6 @@ local M = {
       border = vim.g.border,
     },
   },
-  config = function(_, opts)
-    local oil = require("oil")
-    oil.setup(opts)
-
-    -- save when exiting insert mode
-    vim.api.nvim_create_autocmd("InsertLeave", {
-      pattern = "oil://*",
-      callback = function()
-        oil.save()
-      end,
-    })
-  end,
   init = function()
     vim.api.nvim_create_autocmd("User", {
       pattern = "OilEnter",
