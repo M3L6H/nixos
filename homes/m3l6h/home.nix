@@ -29,6 +29,9 @@
   # Enable managed user dirs
   user-dirs.enable = true;
 
+  # Enable video wallpaper
+  wallpaper.mpvpaper.enable = true;
+
   # Enable zsh
   zsh.enable = true;
 

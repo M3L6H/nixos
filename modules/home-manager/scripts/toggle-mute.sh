@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-ctl="$(which playerctl)"
-
 DIR="${HOME}/.local/share/state/playerctl"
+
+ctl="$(which playerctl)"
 
 if [ $? -ne 0 ]; then
   echo 'No playerctl found'

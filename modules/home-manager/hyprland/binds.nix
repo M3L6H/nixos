@@ -72,11 +72,14 @@
 
           # Media keys
           ", XF86AudioLowerVolume, exec, playerctl volume 0.10-"
-          ", XF86AudioMute, exec, /home/${username}/.local/bin/toggle-mute"
+          ", XF86AudioMute, exec, /home/${username}/.local/bin/toggle-mute.sh"
           ", XF86AudioRaiseVolume, exec, playerctl volume 0.10+"
           ", XF86AudioPlay, exec, playerctl play-pause"
           ", XF86AudioPrev, exec, playerctl previous"
           ", XF86AudioNext, exec, playerctl next"
+
+          # Toggle wallpaper
+          "$mainMod SHIFT, W, exec, /home/${username}/.local/bin/toggle-wallpaper.sh"
         ];
       };
     };
