@@ -79,7 +79,7 @@
           ", XF86AudioNext, exec, playerctl next"
 
           # Toggle wallpaper
-          "$mainMod SHIFT, W, exec, /home/${username}/.local/bin/toggle-wallpaper.sh"
+          "$mainMod SHIFT, W, exec, /home/${username}/.local/bin/choose-wallpaper.sh"
         ];
       };
     };

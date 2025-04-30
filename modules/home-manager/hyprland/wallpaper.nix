@@ -1,8 +1,9 @@
 { config, lib, pkgs, username, ... }: let
-  image1 = "/home/${username}/files/images/wallpaper/wallpaper1.jpg";
-  image2 = "/home/${username}/files/images/wallpaper/wallpaper2.jpg";
-  image3 = "/home/${username}/files/images/wallpaper/wallpaper3.jpg";
-  video =  "/home/${username}/files/images/wallpaper/wallpaper.mp4";
+  dir = "/home/${username}/files/images/wallpaper";
+  image1 = "${dir}/wallpaper1.jpg";
+  image2 = "${dir}/wallpaper2.jpg";
+  image3 = "${dir}/wallpaper3.jpg";
+  video =  "${dir}/wallpaper.mp4";
 in {
   options = {
     wallpaper.mpvpaper.enable = lib.mkEnableOption "enables mpvpaper wallpaper";
@@ -45,24 +46,37 @@ in {
     };
 
     wayland.windowManager.hyprland.settings = lib.mkIf config.wallpaper.mpvpaper.enable {
-      exec = [
+      exec-once = [
         "mpvpaper -p -o 'no-audio --loop-file=inf input-ipc-server=/tmp/mpv-socket' '*' ${video}"
       ];
     };
 
-    home.file.".local/bin/toggle-wallpaper.sh" = {
+    home.file.".local/bin/choose-wallpaper.sh" = {
       executable = true;
       text = ''
         #!/usr/bin/env sh
 
-        if killall .mpvpaper-wrapp; then
-          ${pkgs.swww}/bin/swww img -o DP-1 ${image1}
-          sleep 1
-          ${pkgs.swww}/bin/swww img -o HDMI-A-1 ${image2}
-          sleep 1
-          ${pkgs.swww}/bin/swww img -o DP-2 ${image3}
-        else
-          mpvpaper -p -o 'no-audio --loop-file=inf input-ipc-server=/tmp/mpv-socket' '*' ${video}
+        MPV_ARGS='no-audio --loop-file=inf input-ipc-server=/tmp/mpv-socket'
+        selection="$(ls ${dir} | rofi -dmenu)"
+
+        # If we selected a specific wallpaper, then display it
+        if [ -n "$selection" ]; then
+          killall .mpvpaper-wrapp
+
+          # If we selected a video wallpaper, use mpvpaper
+          if [ "''${selection#*.}" = 'mp4' ]; then
+            mpvpaper -p -f -o "$MPV_ARGS" '*' ${video}
+          # Otherwise use swww
+          else
+            swww img -o DP-1 "${dir}/$selection"
+            sleep 1
+            swww img -o HDMI-A-1 "${dir}/$selection"
+            sleep 1
+            swww img -o DP-2 "${dir}/$selection"
+          fi
+        # Otherwise toggle between video and image wallpaper
+        elif ! killall .mpvpaper-wrapp; then
+          mpvpaper -p -f -o "$MPV_ARGS" '*' ${video}
         fi
       '';
     };
