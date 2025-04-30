@@ -2,7 +2,7 @@ local M = {
   "williamboman/mason.nvim",
   -- Disable Mason in a Nix environment
   -- Nix serves as the package manager
-  enabled = require("../nixCatsUtils").lazyAdd(true, false),
+  enabled = require("nixCatsUtils").lazyAdd(true, false),
   build = ":MasonUpdate",
   event = "BufReadPre",
   keys = {

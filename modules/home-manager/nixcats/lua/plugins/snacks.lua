@@ -10,6 +10,36 @@ local M = {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  keys = {
+    { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart find files" },
+    -- Find
+    { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
+    { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Find diagnostics" },
+    { "<leader>fh", function() Snacks.picker.help() end, desc = "Find help" },
+    { "<leader>fn", function() Snacks.picker.notifications() end, desc = "Find notifications" },
+    { "<leader>fs", function() Snacks.picker.grep() end, desc = "Grep files" },
+    -- Code
+    { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename file" },
+    -- Goto
+    { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto definition" },
+    { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto declaration" },
+    { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+    { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto implementation" },
+    { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto t[y]pe definition" },
+    -- Jump
+    {
+      "]]",
+      function() Snacks.words.jump(vim.v.count1) end,
+      desc = "Jump to next reference",
+      mode = { "n", "t" },
+    },
+    {
+      "[[",
+      function() Snacks.words.jump(-vim.v.count1) end,
+      desc = "Jump to previous reference",
+      mode = { "n", "t" },
+    },
+  },
   opts = {
     bigfile = { enabled = true },
     dashboard = {
@@ -66,6 +96,9 @@ local M = {
       level = vim.log.levels.INFO,
     },
     quickfile = { enabled = true },
+    scroll = { enabled = true },
+    statuscolumn = { enabled = true },
+    words = { enabled = true },
   },
 }
 
