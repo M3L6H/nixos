@@ -61,6 +61,8 @@ local M = {
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
     { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Find diagnostics" },
     { "<leader>fh", function() Snacks.picker.help() end, desc = "Find help" },
+    { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Find keymaps" },
+    { "<leader>fm", function() Snacks.picker.marks() end, desc = "Find marks" },
     { "<leader>fn", function() Snacks.picker.notifications() end, desc = "Find notifications" },
     { "<leader>fs", function() Snacks.picker.grep() end, desc = "Grep files" },
     -- Code
@@ -68,7 +70,7 @@ local M = {
     -- Goto
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto definition" },
     { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto declaration" },
-    { "gr", function() Snacks.picker.lsp_references() end, nowait = true, desc = "References" },
+    { "gu", function() Snacks.picker.lsp_references() end, nowait = true, desc = "Goto usages" },
     { "gI", function() Snacks.picker.lsp_implementations() end, desc = "Goto implementation" },
     { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto t[y]pe definition" },
     -- Jump
@@ -91,13 +93,17 @@ local M = {
       sections = {
         {
           section = "terminal",
-          cmd = "chafa " .. image .. " --format symbols --symbols vhalf --size " .. size .. " --stretch --align center; sleep .1",
+          cmd = "chafa "
+            .. image
+            .. " --format symbols --symbols vhalf --size "
+            .. size
+            .. " --stretch --align center; sleep .1",
           height = height,
           padding = 1,
         },
         {
           pane = 2,
-          { section = "header", },
+          { section = "header" },
           { section = "keys", gap = 1, padding = 1 },
           {
             icon = " ",
@@ -112,16 +118,14 @@ local M = {
             icon = " ",
             title = "Git Status",
             section = "terminal",
-            enabled = function()
-              return git.enabled and Snacks.git.get_root() ~= nil
-            end,
+            enabled = function() return git.enabled and Snacks.git.get_root() ~= nil end,
             cmd = "git status --short --branch --renames",
             height = git.height - base_height,
             padding = 1,
             ttl = 5 * 60,
             indent = 3,
           },
-          { section = "startup", },
+          { section = "startup" },
         },
       },
     },
@@ -143,7 +147,10 @@ local M = {
     },
     quickfile = { enabled = true },
     scroll = { enabled = true },
-    statuscolumn = { enabled = true },
+    statuscolumn = {
+      enabled = true,
+      right = { "git", "fold" },
+    },
     words = { enabled = true },
   },
 }
