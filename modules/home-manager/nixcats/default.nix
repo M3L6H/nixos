@@ -39,6 +39,7 @@ in {
         startupPlugins = {
           general = with pkgs.vimPlugins; [
             lazy-nvim
+            guess-indent-nvim
             mini-diff
             mini-icons
             mini-statusline
