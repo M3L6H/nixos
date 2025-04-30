@@ -15,6 +15,9 @@
   ];
 
   config = lib.mkIf config.hyprland.enable {
+    wallpaper.mpvpaper.enable = lib.mkDefault false;
+    wallpaper.swww.enable = lib.mkDefault false;
+
     home.file.".config/electron-flags.conf".text = ''
       --enable-features=UseOzonePlatform
       --ozone-platform=wayland
