@@ -43,7 +43,7 @@ km.set(
 km.set(
   "n",
   "<leader>q",
-  function ()
+  function()
     vim.cmd("wa") -- Save all
     close_all()
   end,
@@ -56,10 +56,10 @@ km.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
 km.set("n", "J", "mzJ`z", { desc = "Join with next line" })
 
-km.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
-km.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
-km.set("n", "n", "nzzzv", { desc = "Find next" })
-km.set("n", "N", "Nzzzv", { desc = "Find previous" })
+-- km.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
+-- km.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up" })
+-- km.set("n", "n", "nzzzv", { desc = "Find next" })
+-- km.set("n", "N", "Nzzzv", { desc = "Find previous" })
 
 km.set("n", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
 km.set("v", "<leader>y", "\"+y", { desc = "Yank to system clipboard" })
@@ -79,7 +79,3 @@ km.set("v", "<A-d>", "\"_d", { desc = "Delete into void register" })
 km.set("n", "Q", "<nop>")
 
 km.set("n", "<leader>ll", "<CMD>Lazy<CR>", { desc = "Open Lazy" })
-
-km.set("n", "<leader>cf", function()
-  vim.lsp.buf.format()
-end, { desc = "Format file" })

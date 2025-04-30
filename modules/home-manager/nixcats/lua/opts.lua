@@ -23,8 +23,6 @@ o.backup = false
 o.undodir = os.getenv("HOME") .. "/.vim/undodir"
 o.undofile = true
 
--- Don't highlight searches
-o.hlsearch = false
 o.incsearch = true
 -- Case-insensitive searching unless one or more capital letters are included in the search term
 o.ignorecase = true
