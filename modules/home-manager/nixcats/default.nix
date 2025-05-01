@@ -46,6 +46,7 @@ in {
             mini-diff
             mini-icons
             mini-statusline
+            nvim-autopairs
             nvim-lspconfig
             nvim-treesitter.withAllGrammars
             oil-nvim
