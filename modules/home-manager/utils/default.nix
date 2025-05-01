@@ -5,6 +5,7 @@
     ./ffmpeg.nix
     ./file.nix
     ./fzf.nix
+    ./gh.nix
     ./glxinfo.nix
     ./image-magick.nix
     ./iw.nix
@@ -26,6 +27,7 @@
   utils.ffmpeg.enable = lib.mkDefault false;
   utils.file.enable = lib.mkDefault false;
   utils.fzf.enable = lib.mkDefault false;
+  utils.gh.enable = lib.mkDefault false;
   utils.glxinfo.enable = lib.mkDefault false;
   utils.image-magick.enable = lib.mkDefault false;
   utils.iw.enable = lib.mkDefault false;

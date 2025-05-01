@@ -112,6 +112,8 @@ Breakdown of the included modules.
     - utils.file.enable `boolean` - Enables the module
   - [fzf](/modules/home-manager/utils/fzf.nix) - Install fzf
     - utils.fzf.enable `boolean` - Enables the module
+  - [gh](/modules/home-manager/utils/gh.nix) - Install gh
+    - utils.gh.enable `boolean` - Enables the module
   - [glxinfo](/modules/home-manager/utils/glxinfo.nix) - Install glxinfo
     - utils.glxinfo.enable `boolean` - Enables the module
   - [image-magick](/modules/home-manager/utils/image-magick.nix) - Install the image-magick suite

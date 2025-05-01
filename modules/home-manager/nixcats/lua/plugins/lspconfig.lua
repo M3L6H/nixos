@@ -3,28 +3,31 @@ local lsps = {
     on_init = function(client)
       if client.workspace_folders then
         local path = client.workspace_folders[1].name
-        if path ~= vim.fn.stdpath('config') and (vim.uv.fs_stat(path..'/.luarc.json') or vim.uv.fs_stat(path..'/.luarc.jsonc')) then
+        if
+          path ~= vim.fn.stdpath("config")
+          and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
+        then
           return
         end
       end
 
-      client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+      client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
         runtime = {
-          version = 'LuaJIT'
+          version = "LuaJIT",
         },
         workspace = {
           checkThirdParty = false,
           library = {
-            vim.env.VIMRUNTIME
-          }
-        }
+            vim.env.VIMRUNTIME,
+          },
+        },
       })
     end,
     settings = {
-      Lua = {}
+      Lua = {},
     },
   },
-  nixd = {}
+  nixd = {},
 }
 
 local M = {
@@ -37,7 +40,18 @@ local M = {
       lspconfig[lsp].setup(opts or {})
     end
   end,
+  init = function()
+    vim.diagnostic.config({
+      signs = {
+        text = {
+          [vim.diagnostic.severity.ERROR] = "",
+          [vim.diagnostic.severity.WARN] = "",
+          [vim.diagnostic.severity.INFO] = "󰋼",
+          [vim.diagnostic.severity.HINT] = "󰌵",
+        },
+      },
+    })
+  end,
 }
 
 return M
-
