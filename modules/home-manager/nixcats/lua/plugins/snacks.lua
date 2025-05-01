@@ -43,13 +43,15 @@ end
 local max_height = 40
 local base_height = 2
 local height = math.min(max_height, tonumber(dims[2]))
-local heights = get_heights(height - max_height + 17, {
+local heights = get_heights(height - max_height + 30, {
   { min = base_height + 3, max = base_height + 8 },
-  { min = base_height + 2, max = base_height + 5 },
+  { min = base_height + 3, max = base_height + 6 },
+  { min = base_height + 5, max = base_height + 10 },
 })
 
 local recents = heights[1]
 local git = heights[2]
+local gh = heights[3]
 
 local M = {
   "folke/snacks.nvim",
@@ -103,8 +105,7 @@ local M = {
         },
         {
           pane = 2,
-          { section = "header" },
-          { section = "keys", gap = 1, padding = 1 },
+          { icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
           {
             icon = " ",
             title = "Recent Files",
@@ -123,7 +124,22 @@ local M = {
             height = git.height - base_height,
             padding = 1,
             ttl = 5 * 60,
-            indent = 3,
+            indent = 2,
+          },
+          {
+            icon = " ",
+            title = "Open Issues",
+            section = "terminal",
+            enabled = function() return gh.enabled and Snacks.git.get_root() ~= nil end,
+            cmd = "gh issue list -L "
+              .. gh.height
+              .. ' | awk -F\'\\t\' \'{ print "\\033[32m"$1"\\t\\033[36m"$4"\\t\\033[0m"$3; }\'',
+            key = "i",
+            action = function() vim.fn.jobstart("gh issue list --web", { detach = true }) end,
+            height = gh.height - base_height,
+            padding = 1,
+            ttl = 5 * 60,
+            indent = 2,
           },
           { section = "startup" },
         },
