@@ -60,6 +60,7 @@ local M = {
   keys = {
     { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart find files" },
     -- Find
+    { "<leader>fc", function() Snacks.picker.commands() end, desc = "Find commands" },
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find files" },
     { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Find diagnostics" },
     { "<leader>fh", function() Snacks.picker.help() end, desc = "Find help" },

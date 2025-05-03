@@ -239,6 +239,13 @@ To build the home-manager configuration, run
 hms
 ```
 
+To update the system, run
+
+```sh
+nix flake update
+nxs
+```
+
 # Credits
 
 Non-exhaustive list of sources I referenced/learned from while building this.

@@ -1,4 +1,11 @@
-{ device, inputs, username, ... }: {
+{
+  device,
+  hostname,
+  inputs,
+  username,
+  ...
+}:
+{
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos
@@ -94,7 +101,10 @@
     keyMap = "us";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -153,10 +163,9 @@
 
   # Home manager
   home-manager = {
-    extraSpecialArgs = { inherit inputs username; };
+    extraSpecialArgs = { inherit hostname inputs username; };
     users = {
       "${username}" = import ../../homes/${username}/home.nix;
     };
   };
 }
-

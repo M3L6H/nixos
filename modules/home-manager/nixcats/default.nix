@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  hostname,
   inputs,
   username,
   ...
@@ -60,6 +61,7 @@ in
                 conform-nvim
                 flash-nvim
                 guess-indent-nvim
+                lazydev-nvim
                 mini-diff
                 mini-icons
                 mini-statusline
@@ -111,9 +113,11 @@ in
               nix = true;
             };
             extra = {
-              nixdExtras.nixpkgs = ''import ${pkgs.path} {}'';
-              nixdExtras.nixos_options = ''(builtins.getFlake "path:${builtins.toString inputs.self.outPath}").nixosConfigurations.configname.options'';
-              nixdExtras.home_manager_options = ''(builtins.getFlake "path:${builtins.toString inputs.self.outPath}").homeConfigurations.configname.options'';
+              nixdExtras.nixpkgs = ''import (builtins.getFlake "path:${builtins.toString inputs.self}").inputs.nixpkgs {}'';
+              nixdExtras.nixos_options = ''(builtins.getFlake "path:${builtins.toString inputs.self}").nixosConfigurations.${hostname}.options'';
+              nixdExtras.home_manager_options = ''(builtins.getFlake "path:${builtins.toString inputs.self}").homeConfigurations.${username}.options'';
+
+              nixdExtras.nvim_lspconfig = "${pkgs.vimPlugins.nvim-lspconfig}";
             };
           };
       };

@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     gpg.enable = lib.mkEnableOption "enables gpg module";
   };
@@ -16,7 +23,7 @@
 
     services.gpg-agent = {
       enable = true;
-      pinentryPackage = pkgs.pinentry-qt;
+      pinentry.package = pkgs.pinentry-qt;
     };
 
     home.persistence."/persist/home/${username}" = lib.mkIf config.impermanence.enable {
@@ -26,4 +33,3 @@
     };
   };
 }
-
