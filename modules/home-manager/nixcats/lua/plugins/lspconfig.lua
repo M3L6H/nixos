@@ -81,7 +81,7 @@ local M = {
           km.set(
             "n",
             "<leader>dd",
-            function() vim.diagnostics.display_float() end,
+            function() vim.diagnostic.open_float() end,
             { desc = "Display diagnostics" }
           )
         end,

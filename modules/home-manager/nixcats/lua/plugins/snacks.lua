@@ -5,17 +5,17 @@ for dim in string.gmatch(size, "%d+") do
   table.insert(dims, dim)
 end
 
----@class (exact) Block
+---@class (exact) MyBlock
 ---@field min integer
 ---@field max integer
 
----@class (exact) Desc
+---@class (exact) MyDesc
 ---@field enabled boolean
 ---@field height integer
 
 ---@param height integer Height we have to work with
----@param blocks Block[] Array of blocks that we need to fit
----@return Desc[]
+---@param blocks MyBlock[] Array of blocks that we need to fit
+---@return MyDesc[]
 local function get_heights(height, blocks)
   local res = {}
   local sum = 0
