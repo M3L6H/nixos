@@ -2,69 +2,49 @@ local utils = require("nixCatsUtils")
 
 local lsps = {
   lua_ls = {
-    on_init = function(client)
-      if client.workspace_folders then
-        local path = client.workspace_folders[1].name
-        if
-          path ~= vim.fn.stdpath("config")
-          and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-        then
-          return
-        end
-      end
-
-      client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-        runtime = {
-          version = "LuaJIT",
-        },
-        workspace = {
-          checkThirdParty = false,
-          library = {
-            vim.env.VIMRUNTIME,
-          },
-        },
-      })
-    end,
+    pattern = { "*.lua" },
     settings = {
-      Lua = {},
+      Lua = {
+        signatureHelp = { enabled = true },
+        diagnostics = {
+          globals = { "nixCats" },
+        },
+      },
     },
   },
   -- We shouldn't need nixd if we are running outside of nixCats!
   nixd = utils.lazyAdd(false, {
-    nixpkgs = {
-      expr = nixCats.extra("nixdExtras.nixpkgs") or [[import <nixpkgs> {}]],
-    },
-    options = {
-      nixos = {
-        expr = nixCats.extra("nixdExtras.nixos_options"),
+    pattern = { "*.nix" },
+    settings = {
+      nixd = {
+        nixpkgs = {
+          expr = nixCats.extra("nixdExtras.nixpkgs") or [[import <nixpkgs> {}]],
+        },
+        options = {
+          nixos = {
+            expr = nixCats.extra("nixdExtras.nixos_options"),
+          },
+          ["home-manager"] = {
+            expr = nixCats.extra("nixdExtras.home_manager_options"),
+          },
+        },
+        formatting = { command = { "nixfmt" } },
       },
-      ["home-manager"] = {
-        expr = nixCats.extra("nixdExtras.home_manager_options"),
-      },
     },
-    formatting = { command = { "nixfmt" } },
   }),
 }
 
 local M = {
   "neovim/nvim-lspconfig",
   dependencies = { { "saghen/blink.cmp" } },
-  event = "BufReadPre",
-  keys = {
-    { "<leader>cr", function() vim.lsp.buf.rename() end, desc = "Code rename" },
-  },
-  config = function()
-    local lspconfig = require("lspconfig")
-
-    for lsp, opts in pairs(lsps) do
-      if opts then
-        -- Merge any manually specified capabilities
-        opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities or {})
-        lspconfig[lsp].setup(opts)
-      end
-    end
-  end,
+  cmd = { "LspInfo", "LspLog", "LspStart", "LspStop", "LspRestart" },
   init = function()
+    local lspConfigPath = utils.lazyAdd(
+      require("lazy.core.config").options.root .. "/nvim-lspconfig",
+      nixCats.extra("nixdExtras.nvim_lspconfig")
+    )
+    vim.opt.runtimepath:prepend(lspConfigPath)
+
     vim.diagnostic.config({
       signs = {
         text = {
@@ -75,6 +55,60 @@ local M = {
         },
       },
     })
+
+    -- We use Mason-lspconfig when we are not in the nixcats world
+    if utils.isNixCats then
+      for lsp, config in pairs(lsps) do
+        if config then
+          -- Merge any manually specified capabilities
+          config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities or {})
+          vim.lsp.config(lsp, config)
+        end
+      end
+    end
+
+    -- We use Mason-lspconfig when we are not in the nixcats world
+    if utils.isNixCats then
+      local buf_read_pre_lsp = vim.api.nvim_create_augroup("buf-read-pre-lsp", { clear = true })
+      local lsp_attach = vim.api.nvim_create_augroup("lsp-attach", { clear = true })
+
+      vim.api.nvim_create_autocmd("LspAttach", {
+        group = lsp_attach,
+        pattern = "*",
+        callback = function()
+          local km = vim.keymap
+          km.set("n", "<leader>cr", function() vim.lsp.rename() end, { desc = "Code rename" })
+          km.set(
+            "n",
+            "<leader>dd",
+            function() vim.diagnostics.display_float() end,
+            { desc = "Display diagnostics" }
+          )
+        end,
+        desc = "Set up basic keymaps",
+      })
+
+      for lsp, config in pairs(lsps) do
+        if config then
+          vim.api.nvim_create_autocmd("BufReadPre", {
+            group = buf_read_pre_lsp,
+            pattern = config.pattern,
+            callback = function() vim.lsp.enable(lsp) end,
+            once = true,
+            desc = "Enable lsp in BufReadPre",
+          })
+
+          if config.on_attach then
+            vim.api.nvim_create_autocmd("LspAttach", {
+              group = lsp_attach,
+              pattern = config.pattern,
+              callback = config.on_attach,
+              desc = "Setup LSP-specific behavior on attach",
+            })
+          end
+        end
+      end
+    end
   end,
 }
 
