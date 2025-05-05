@@ -30,7 +30,7 @@ local function get_heights(height, blocks)
   end
 
   for i, block in ipairs(blocks) do
-    if sum < height then
+    if res[i].enabled and sum < height then
       local diff = math.min(height - sum, block.max - block.min)
       res[i].height = res[i].height + diff
       sum = sum + diff
