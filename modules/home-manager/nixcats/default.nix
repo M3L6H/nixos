@@ -70,6 +70,7 @@ in
                 nvim-treesitter.withAllGrammars
                 oil-nvim
                 smartcolumn-nvim
+                smear-cursor-nvim
                 snacks-nvim
                 vim-tmux-navigator
                 which-key-nvim
