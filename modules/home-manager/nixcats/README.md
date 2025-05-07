@@ -10,6 +10,16 @@ Put together during the [Journey #0000](https://github.com/M3L6H/nixos/milestone
 | `vim.g.dashboard.size`  | Size of the dashboard image to pass to chafa                |
 | `vim.g.terminalwindow`  | Specify the tmux window vim should switch to when "closing" |
 
+## Dependencies
+
+| Dependency   | Purpose                             |
+| ------------ | ----------------------------------- |
+| chafa        | Used for image in dashboard         |
+| image-magick | Used for image in dashboard         |
+| fzf          | Used in picker                      |
+| ripgrep      | Used in picker                      |
+| gh           | Used for GitHub issues in dashboard |
+
 ## Credits
 
 In no particular order.
