@@ -72,6 +72,7 @@ in
                 smartcolumn-nvim
                 smear-cursor-nvim
                 snacks-nvim
+                undotree
                 vim-tmux-navigator
                 which-key-nvim
               ]
