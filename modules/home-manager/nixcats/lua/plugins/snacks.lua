@@ -1,3 +1,5 @@
+local utils = require("nixCatsUtils")
+
 local image = vim.g.dashboard.image
 local size = vim.g.dashboard.size
 local dims = {}
@@ -161,6 +163,15 @@ local M = {
     notifier = {
       enabled = true,
       level = vim.log.levels.INFO,
+    },
+    picker = {
+      enabled = true,
+      matcher = {
+        frecency = true,
+      },
+      db = {
+        sqlite3_path = utils.lazyAdd(nil, nixCats.extra("nixdExtras.sqlite3_path")),
+      },
     },
     quickfile = { enabled = true },
     scroll = { enabled = true },
