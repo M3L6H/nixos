@@ -1,4 +1,5 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   imports = [
     ./bat.nix
     ./chafa.nix
@@ -6,16 +7,20 @@
     ./file.nix
     ./fzf.nix
     ./gh.nix
+    ./ghostscript.nix
     ./glxinfo.nix
     ./image-magick.nix
     ./iw.nix
     ./jq.nix
     ./killall.nix
     ./lsof.nix
+    ./mermaid-cli.nix
     ./neovim-remote.nix
     ./parted.nix
     ./playerctl.nix
     ./ripgrep.nix
+    ./sqlite.nix
+    ./tectonic.nix
     ./unp.nix
     ./vulkan.nix
     ./wget.nix
@@ -28,19 +33,22 @@
   utils.file.enable = lib.mkDefault false;
   utils.fzf.enable = lib.mkDefault false;
   utils.gh.enable = lib.mkDefault false;
+  utils.ghostscript.enable = lib.mkDefault false;
   utils.glxinfo.enable = lib.mkDefault false;
   utils.image-magick.enable = lib.mkDefault false;
   utils.iw.enable = lib.mkDefault false;
   utils.jq.enable = lib.mkDefault false;
   utils.killall.enable = lib.mkDefault false;
   utils.lsof.enable = lib.mkDefault false;
+  utils.mermaid-cli.enable = lib.mkDefault false;
   utils.nvr.enable = lib.mkDefault false;
-  utils.ripgrep.enable = lib.mkDefault false;
   utils.parted.enable = lib.mkDefault false;
   utils.playerctl.enable = lib.mkDefault false;
+  utils.ripgrep.enable = lib.mkDefault false;
+  utils.sqlite.enable = lib.mkDefault false;
+  utils.tectonic.enable = lib.mkDefault false;
   utils.unp.enable = lib.mkDefault false;
   utils.vulkan.enable = lib.mkDefault false;
   utils.wget.enable = lib.mkDefault false;
   utils.wl-clipboard.enable = lib.mkDefault false;
 }
-

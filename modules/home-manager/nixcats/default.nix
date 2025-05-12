@@ -23,8 +23,12 @@ in
     utils.chafa.enable = true; # Used in neovim dashboard
     utils.fzf.enable = true; # Used in picker
     utils.gh.enable = true; # Used in neovim dashboard
-    utils.image-magick.enable = true; # Used in snacks image module
+    utils.ghostscript.enable = true; # Used by Snacks image module
+    utils.image-magick.enable = true; # Used by Snacks image module
+    utils.mermaid-cli.enable = true; # Used by Snacks image module
     utils.ripgrep.enable = true; # Used in picker
+    utils.sqlite.enable = true; # Used in picker
+    utils.tectonic.enable = true; # Used by Snacks image module
 
     # Tone down nixd logs
     home.sessionVariables.NIXD_FLAGS = "-log=error";
@@ -120,6 +124,7 @@ in
               nixdExtras.home_manager_options = ''(builtins.getFlake "path:${builtins.toString inputs.self}").homeConfigurations.${username}.options'';
 
               nixdExtras.nvim_lspconfig = "${pkgs.vimPlugins.nvim-lspconfig}";
+              nixdExtras.sqlite3_path = "${pkgs.sqlite.out}/lib/libsqlite3.so";
             };
           };
       };

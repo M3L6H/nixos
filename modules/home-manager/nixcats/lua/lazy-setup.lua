@@ -1,19 +1,19 @@
 -- Taken from https://github.com/BirdeeHub/nixCats-nvim/blob/main/templates/LazyVim/init.lua
 
-local utils = require('nixCatsUtils')
+local utils = require("nixCatsUtils")
 
 -- Set up a default value for when we are not in the Nix world
-utils.setup {
+utils.setup({
   non_nix_value = true,
-}
+})
 
 -- If in the Nix world, keep the lockfile in the NixOS config so it can remain
 -- checked into source contro
 local function getlockfilepath()
-  if utils.isNixCats and type(nixCats.settings.unwrappedCfgPath) == 'string' then
-    return nixCats.settings.unwrappedCfgPath .. '/lazy-lock.json'
+  if utils.isNixCats and type(nixCats.settings.unwrappedCfgPath) == "string" then
+    return nixCats.settings.unwrappedCfgPath .. "/lazy-lock.json"
   else
-    return vim.fn.stdpath 'config' .. '/lazy-lock.json'
+    return vim.fn.stdpath("config") .. "/lazy-lock.json"
   end
 end
 
@@ -37,10 +37,10 @@ local lazyOptions = {
     -- Don't check for updates in a Nix environment
     enabled = utils.lazyAdd(true, false),
   },
+  rocks = { enabled = false },
 }
 
 -- Lazy wrapper which uses the nixCats version in a nix environment
-require('nixCatsUtils.lazyCat').setup(nixCats.pawsible { 'allPlugins', 'start', 'lazy.nvim' }, {
-  { import = 'plugins' },
+require("nixCatsUtils.lazyCat").setup(nixCats.pawsible({ "allPlugins", "start", "lazy.nvim" }), {
+  { import = "plugins" },
 }, lazyOptions)
-

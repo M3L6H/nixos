@@ -114,6 +114,8 @@ Breakdown of the included modules.
     - utils.fzf.enable `boolean` - Enables the module
   - [gh](/modules/home-manager/utils/gh.nix) - Install gh
     - utils.gh.enable `boolean` - Enables the module
+  - [ghostscript](/modules/home-manager/utils/ghostscript.nix) - Install ghostscript
+    - utils.ghostscript.enable `boolean` - Enables the module
   - [glxinfo](/modules/home-manager/utils/glxinfo.nix) - Install glxinfo
     - utils.glxinfo.enable `boolean` - Enables the module
   - [image-magick](/modules/home-manager/utils/image-magick.nix) - Install the image-magick suite
@@ -126,12 +128,18 @@ Breakdown of the included modules.
     - utils.killall.enable `boolean` - Enables the module
   - [lsof](/modules/home-manager/utils/lsof.nix) - Install lsof
     - utils.lsof.enable `boolean` - Enables the module
+  - [mermaid-cli](/modules/home-manager/utils/mermaid-cli.nix) - Install mermaid-cli
+    - utils.mermaid-cli.enable `boolean` - Enables the module
   - [ripgrep](/modules/home-manager/utils/ripgrep.nix) - Install ripgrep
     - utils.ripgrep.enable `boolean` - Enables the module
   - [parted](/modules/home-manager/utils/parted.nix) - Install parted
     - utils.parted.enable `boolean` - Enables the module
   - [playerctl](/modules/home-manager/utils/playerctl.nix) - Install playerctl
     - utils.playerctl.enable `boolean` - Enables the module
+  - [sqlite](/modules/home-manager/utils/sqlite.nix) - Install sqlite
+    - utils.sqlite.enable `boolean` - Enables the module
+  - [tectonic](/modules/home-manager/utils/tectonic.nix) - Install tectonic
+    - utils.tectonic.enable `boolean` - Enables the module
   - [unp](/modules/home-manager/utils/unp.nix) - Install unp & its requisite tools
     - utils.unp.enable `boolean` - Enables the module
   - [vulkan](/modules/home-manager/utils/vulkan.nix) - Install vulkan-tools
