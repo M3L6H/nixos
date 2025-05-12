@@ -2,7 +2,7 @@ local M = {
   "echasnovski/mini.surround",
   keys = {
     { "Sa", mode = { "n", "v" }, desc = "Surround add" },
-    { "Sd", mode = { "n", "v" }, desc = "Surround delete" },
+    { "Sd", desc = "Surround delete" },
     { "Sf", desc = "Surround find" },
     { "SF", desc = "Surround find back" },
     { "Sr", desc = "Surround replace" },

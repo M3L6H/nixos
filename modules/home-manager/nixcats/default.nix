@@ -69,6 +69,7 @@ in
                 mini-diff
                 mini-icons
                 mini-statusline
+                mini-surround
                 nvim-autopairs
                 nvim-lspconfig
                 nvim-treesitter.withAllGrammars
