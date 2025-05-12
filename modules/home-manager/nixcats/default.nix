@@ -73,6 +73,7 @@ in
                 nvim-autopairs
                 nvim-lspconfig
                 nvim-treesitter.withAllGrammars
+                nvim-treesitter-textobjects
                 oil-nvim
                 smartcolumn-nvim
                 smear-cursor-nvim

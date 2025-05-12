@@ -35,6 +35,15 @@ local M = {
     }, false),
     auto_install = utils.lazyAdd(true, false),
     sync_install = false,
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<Tab>",
+        node_incremental = "<Tab>",
+        scope_incremental = false,
+        node_decremental = "<S-Tab>",
+      },
+    },
   },
   config = function(_, opts) require("nvim-treesitter.configs").setup(opts) end,
 }
