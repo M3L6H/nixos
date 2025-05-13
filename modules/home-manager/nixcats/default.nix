@@ -3,12 +3,31 @@
   lib,
   hostname,
   inputs,
+  pkgs,
   username,
   ...
 }:
 let
   colorscheme = "kanagawa";
   utils = inputs.nixCats.utils;
+
+  demicolon =
+    (pkgs.vimUtils.buildVimPlugin {
+      pname = "demicolon.nvim";
+      version = "2025-04-25";
+      src = pkgs.fetchFromGitHub {
+        owner = "mawkler";
+        repo = "demicolon.nvim";
+        rev = "8d79e527dbbef9de06405a30258b8d752c0638c4";
+        hash = "sha256-UTzA9xX14zS6FV4g4HNWjyYyFPGE/Rc9dADa2+JFltU=";
+      };
+      meta.homepage = "https://github.com/mawkler/demicolon.nvim/";
+    }).overrideAttrs
+      {
+        nvimSkipModules = [
+          "demicolon.repeat_jump"
+        ];
+      };
 in
 {
   options = {
@@ -63,6 +82,7 @@ in
                 lazy-nvim
                 blink-cmp
                 conform-nvim
+                demicolon
                 flash-nvim
                 guess-indent-nvim
                 lazydev-nvim
