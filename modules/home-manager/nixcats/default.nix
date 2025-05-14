@@ -90,6 +90,8 @@ in
                 mini-icons
                 mini-statusline
                 mini-surround
+                noice-nvim
+                nui-nvim
                 nvim-autopairs
                 nvim-lspconfig
                 nvim-treesitter.withAllGrammars
