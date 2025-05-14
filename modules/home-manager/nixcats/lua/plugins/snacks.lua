@@ -172,6 +172,17 @@ local M = {
       db = {
         sqlite3_path = utils.lazyAdd(nil, nixCats.extra("nixdExtras.sqlite3_path")),
       },
+      actions = require("trouble.sources.snacks").actions,
+      win = {
+        input = {
+          keys = {
+            ["<C-t>"] = {
+              "trouble_open",
+              mode = { "n", "i" },
+            },
+          },
+        },
+      },
     },
     quickfile = { enabled = true },
     scroll = { enabled = true },
