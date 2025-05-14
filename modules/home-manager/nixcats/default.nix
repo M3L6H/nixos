@@ -94,10 +94,12 @@ in
                 nvim-lspconfig
                 nvim-treesitter.withAllGrammars
                 nvim-treesitter-textobjects
+                nvim-web-devicons
                 oil-nvim
                 smartcolumn-nvim
                 smear-cursor-nvim
                 snacks-nvim
+                trouble-nvim
                 undotree
                 vim-tmux-navigator
                 which-key-nvim
