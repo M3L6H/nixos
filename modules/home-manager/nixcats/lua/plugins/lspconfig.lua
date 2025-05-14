@@ -5,9 +5,15 @@ local lsps = {
     pattern = { "*.lua" },
     settings = {
       Lua = {
-        signatureHelp = { enabled = true },
+        signatureHelp = { enable = true },
         diagnostics = {
           globals = { "nixCats" },
+        },
+        -- Inlay hints
+        hint = {
+          enable = true,
+          arrayIndex = "Disable",
+          paramName = "Literal",
         },
       },
     },
@@ -75,17 +81,31 @@ local M = {
       vim.api.nvim_create_autocmd("LspAttach", {
         group = lsp_attach,
         pattern = "*",
-        callback = function()
+        callback = function(event)
           local km = vim.keymap
-          km.set("n", "<leader>cr", function() vim.lsp.rename() end, { desc = "Code rename" })
+          km.set(
+            { "n", "x" },
+            "<leader>ca",
+            function() vim.lsp.buf.code_action() end,
+            { desc = "[C]ode [A]ctions" }
+          )
+          km.set("n", "<leader>cr", function() vim.lsp.rename() end, { desc = "[C]ode [R]ename" })
           km.set(
             "n",
             "<leader>dd",
             function() vim.diagnostic.open_float() end,
-            { desc = "Display diagnostics" }
+            { desc = "[D]iagnostics [D]isplay" }
           )
+
+          -- Get client
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+          if client and client.server_capabilities.inlayHintProvider then
+            vim.g.inlay_hints_visible = true
+            vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+          end
         end,
-        desc = "Set up basic keymaps",
+        desc = "Additional LSP init after attach",
       })
 
       for lsp, config in pairs(lsps) do
