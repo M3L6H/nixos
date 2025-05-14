@@ -1,4 +1,5 @@
 local M = {
+  enabled = false,
   "mawkler/demicolon.nvim",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
