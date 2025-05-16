@@ -83,12 +83,6 @@ local M = {
         pattern = "*",
         callback = function(event)
           local km = vim.keymap
-          km.set(
-            { "n", "x" },
-            "<leader>ca",
-            function() vim.lsp.buf.code_action() end,
-            { desc = "[C]ode [A]ctions" }
-          )
           km.set("n", "<leader>cr", function() vim.lsp.rename() end, { desc = "[C]ode [R]ename" })
           km.set(
             "n",

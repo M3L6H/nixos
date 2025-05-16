@@ -83,6 +83,7 @@ in
                 blink-cmp
                 conform-nvim
                 demicolon
+                fastaction-nvim
                 flash-nvim
                 guess-indent-nvim
                 lazydev-nvim
