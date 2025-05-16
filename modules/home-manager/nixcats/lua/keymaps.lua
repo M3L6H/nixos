@@ -20,7 +20,7 @@ local function close_all()
   vim.cmd("bufdo! bwipeout!")
 
   -- If we are not a neovim-remote server or not in tmux
-  if vim.v.servername ~= "/tmp/nvimsocket" or not switch_window() then
+  if not vim.v.servername:find("^/tmp/nvimsocket") or not switch_window() then
     -- Quit vim
     vim.cmd("q")
   else

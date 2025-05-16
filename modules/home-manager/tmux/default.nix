@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options = {
     tmux.enable = lib.mkEnableOption "enables tmux module";
   };
@@ -59,6 +65,9 @@
         # Set status right length to handle playerctl
         set -g status-right-length 150
 
+        # Disable detatch on destroy so we can easily close all tmux sessions
+        set-option -g detach-on-destroy off
+
         # No auto renaming
         set-option -g allow-rename off
       '';
@@ -82,7 +91,7 @@
             # Plugins
             set -g @kanagawa-plugins "playerctl cpu-usage gpu-usage ram-usage weather time"
             set -g @kanagawa-military-time true
-            set -g @kanagawa-left-icon "󱚝 "
+            set -g @kanagawa-left-icon "󱚝  #S"
             set -g @kanagawa-show-fahrenheit true
             set -g @kanagawa-show-location false
             set -g @kanagawa-show-timezone false
@@ -116,4 +125,3 @@
     };
   };
 }
-
