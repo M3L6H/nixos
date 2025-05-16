@@ -1,14 +1,11 @@
 local M = {
-  enabled = false,
   "mawkler/demicolon.nvim",
+  enabled = true,
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
-  keys = {
-    { ";", desc = "Go to next" },
-    { ",", desc = "Go to prev" },
-  },
+  event = "BufReadPost",
   opts = {
     disabled_keys = { "p", "I", "A", "i" },
   },

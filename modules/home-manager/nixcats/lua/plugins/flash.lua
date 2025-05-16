@@ -1,19 +1,6 @@
 local M = {
   "folke/flash.nvim",
   event = "VeryLazy",
-  ---@type Flash.Config
-  ---@diagnostic disable-next-line missing-fields
-  opts = {
-    jump = {
-      nohlsearch = true,
-      autojump = true,
-    },
-    label = {
-      rainbow = {
-        enabled = false,
-      },
-    },
-  },
   keys = {
     {
       "<CR>",
@@ -32,6 +19,33 @@ local M = {
       mode = { "c" },
       function() require("flash").toggle() end,
       desc = "Toggle Flash Search",
+    },
+    {
+      "<esc>",
+      mode = { "n", "x", "o" },
+      function()
+        local char = require("flash.plugins.char")
+        if char.state then char.state:hide() end
+      end,
+      desc = "Cancel Flash Char",
+    },
+  },
+  ---@type Flash.Config
+  ---@diagnostic disable-next-line missing-fields
+  opts = {
+    jump = {
+      nohlsearch = true,
+      autojump = true,
+    },
+    label = {
+      rainbow = {
+        enabled = false,
+      },
+    },
+    modes = {
+      char = {
+        enabled = false,
+      },
     },
   },
 }
