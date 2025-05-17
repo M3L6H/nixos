@@ -1,10 +1,18 @@
-{ config, lib, pkgs, username, ... }: let
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+let
   dir = "/home/${username}/files/images/wallpaper";
   image1 = "${dir}/wallpaper1.jpg";
   image2 = "${dir}/wallpaper2.jpg";
   image3 = "${dir}/wallpaper3.jpg";
-  video =  "${dir}/wallpaper.mp4";
-in {
+  video = "${dir}/wallpaper.mp4";
+in
+{
   options = {
     wallpaper.mpvpaper.enable = lib.mkEnableOption "enables mpvpaper wallpaper";
     wallpaper.swww.enable = lib.mkEnableOption "enables swww wallpaper";
@@ -56,7 +64,9 @@ in {
       text = ''
         #!/usr/bin/env sh
 
-        MPV_ARGS='no-audio --loop-file=inf input-ipc-server=/tmp/mpv-socket'
+        # Use gpu-api vulkan due to:
+        # https://github.com/mpv-player/mpv/issues/15099#issuecomment-2413464065
+        MPV_ARGS='--gpu-api=vulkan no-audio --loop-file=inf input-ipc-server=/tmp/mpv-socket'
         selection="$(ls ${dir} | rofi -dmenu)"
 
         # If we selected a specific wallpaper, then display it
@@ -82,4 +92,3 @@ in {
     };
   };
 }
-
