@@ -44,7 +44,7 @@
         autosuggestion.enable = true;
 
         envExtra = ''
-          ${if config.nixcats.enable then "export EDITOR='nvim'" else ""}
+          ${if config.neovim.enable then "export EDITOR='nvim'" else ""}
           ${if config.tmux.enable then "export ZSH_TMUX_AUTOSTART=true" else ""}
           # Autoquit can get us locked out of our terminal if our tmux config gets jacked up
           ${if config.tmux.enable then "export ZSH_TMUX_AUTOQUIT=false" else ""}

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ../../modules/home-manager/default.nix
   ];
@@ -17,8 +18,8 @@
   # Enable management of hyprland through home-manager
   hyprland.enable = true;
 
-  # Enable neovim configured with nixCats-nvim
-  nixcats.enable = true;
+  # Enable custom neovim flake
+  neovim.enable = true;
 
   # Enable kitty
   terminal.enable = true;
@@ -77,4 +78,3 @@
   # Enable wget
   utils.wget.enable = true;
 }
-

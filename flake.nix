@@ -35,6 +35,7 @@
       url = "github:nix-community/impermanence";
     };
 
+    m3l6h-neovim.url = "github:m3l6h/neovim";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     tmux-sessionx.url = "github:omerxx/tmux-sessionx";
