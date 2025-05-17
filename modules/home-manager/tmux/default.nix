@@ -70,9 +70,6 @@
 
         # No auto renaming
         set-option -g allow-rename off
-
-        # Enable extended keys so Tab and C-i are interpreted differently
-        set-option -g extended-keys on
       '';
 
       keyMode = "vi";
