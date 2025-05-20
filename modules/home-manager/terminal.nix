@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options = {
     terminal.enable = lib.mkEnableOption "enables terminal module";
   };
@@ -10,6 +16,7 @@
       font = {
         package = pkgs.nerd-fonts.victor-mono;
         name = "VictorMono Nerd Font";
+        size = 10;
       };
 
       settings = {
@@ -39,7 +46,8 @@
     };
 
     # Required for dynamically changing the terminal background in kitty
-    home.sessionVariables.KITTY_LISTEN_ON = "${if config.scripts.wallpaper-haven.enable then "unix:/tmp/kitty" else "none"}";
+    home.sessionVariables.KITTY_LISTEN_ON = "${
+      if config.scripts.wallpaper-haven.enable then "unix:/tmp/kitty" else "none"
+    }";
   };
 }
-
