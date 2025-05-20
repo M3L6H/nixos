@@ -66,6 +66,9 @@
   # Enable glxinfo util
   utils.glxinfo.enable = true;
 
+  # Enable gh util
+  utils.gh.enable = true;
+
   # Enable lsof util
   utils.lsof.enable = true;
 
