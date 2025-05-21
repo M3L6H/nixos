@@ -20,6 +20,7 @@
     ./playerctl.nix
     ./ripgrep.nix
     ./sqlite.nix
+    ./tealdeer.nix
     ./tectonic.nix
     ./unp.nix
     ./vulkan.nix
@@ -46,6 +47,7 @@
   utils.playerctl.enable = lib.mkDefault false;
   utils.ripgrep.enable = lib.mkDefault false;
   utils.sqlite.enable = lib.mkDefault false;
+  utils.tealdeer.enable = lib.mkDefault false;
   utils.tectonic.enable = lib.mkDefault false;
   utils.unp.enable = lib.mkDefault false;
   utils.vulkan.enable = lib.mkDefault false;

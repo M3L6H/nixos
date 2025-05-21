@@ -115,6 +115,8 @@ Breakdown of the included modules.
     - utils.playerctl.enable `boolean` - Enables the module
   - [sqlite](modules/home-manager/utils/sqlite.nix) - Install sqlite
     - utils.sqlite.enable `boolean` - Enables the module
+  - [tealdeer](modules/home-manager/utils/tealdeer.nix) - Install tealdeer
+    - utils.tealdeer.enable `boolean` - Enables the module
   - [tectonic](modules/home-manager/utils/tectonic.nix) - Install tectonic
     - utils.tectonic.enable `boolean` - Enables the module
   - [unp](modules/home-manager/utils/unp.nix) - Install unp & its requisite tools
