@@ -3,6 +3,7 @@
   imports = [
     ./hyprland
     ./scripts
+    ./services
     ./software
     ./tmux
     ./toolchains

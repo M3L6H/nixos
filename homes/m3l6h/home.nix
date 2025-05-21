@@ -31,13 +31,17 @@
   user-dirs.enable = true;
 
   # Enable video wallpaper
-  wallpaper.mpvpaper.enable = true;
+  # Disabling due to memory leaks :(
+  wallpaper.mpvpaper.enable = false;
 
   # Enable zsh
   zsh.enable = true;
 
   # Enable wallpaper haven script
   scripts.wallpaper-haven.enable = false;
+
+  # Enable clipboard manager service
+  services.clip-mngr.enable = true;
 
   # Enable bazecor
   software.bazecor.enable = false;

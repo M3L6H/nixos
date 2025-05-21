@@ -7,9 +7,7 @@
 }:
 let
   dir = "/home/${username}/files/images/wallpaper";
-  image1 = "${dir}/wallpaper1.jpg";
-  image2 = "${dir}/wallpaper2.jpg";
-  image3 = "${dir}/wallpaper3.jpg";
+  image = "${dir}/wallpaper.jpg";
   video = "${dir}/wallpaper.mp4";
 in
 {
@@ -40,12 +38,12 @@ in
         ExecStart = "${pkgs.writeShellScript "swww-init-wallpaper" ''
           #!/run/current-system/sw/bin/bash
 
-          ${pkgs.swww}/bin/swww img -t fade -o DP-1 ${image1}
+          ${pkgs.swww}/bin/swww img -t fade -o DP-1 ${image}
           sleep 1
-          ${pkgs.swww}/bin/swww img -t fade -o HDMI-A-1 ${image2}
-          ${pkgs.swww}/bin/swww img -t fade -o DP-2 ${image3}
+          ${pkgs.swww}/bin/swww img -t fade -o HDMI-A-1 ${image}
+          ${pkgs.swww}/bin/swww img -t fade -o DP-2 ${image}
           sleep 1
-          ${pkgs.swww}/bin/swww img -t fade -o DP-2 ${image3}
+          ${pkgs.swww}/bin/swww img -t fade -o DP-2 ${image}
         ''}";
         Restart = "on-failure";
         RestartSec = 1;

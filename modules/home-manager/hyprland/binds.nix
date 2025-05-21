@@ -1,4 +1,10 @@
-{ config, lib, username, ... }: {
+{
+  config,
+  lib,
+  username,
+  ...
+}:
+{
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland = {
       settings = {
@@ -6,9 +12,9 @@
         bind = [
           "$mainMod, F, exec, uwsm app -- kitty"
           "$mainMod, D, exec, uwsm app -- vivaldi"
-          "$mainMod, Space, exec, rofi -show run"
+          "$mainMod, Space, exec, rofi -show drun -run-command \"uwsm app -- {cmd}\""
           "$mainMod, Q, killactive,"
-          "$mainMod ALT, L, exec, hyprlock"
+          "$mainMod ALT, L, exec, uwsm app -- hyprlock"
           "$mainMod SHIFT, Q, exit,"
 
           # Navigation
@@ -85,4 +91,3 @@
     };
   };
 }
-

@@ -51,6 +51,9 @@ Breakdown of the included modules.
   - [wallpaper-haven](modules/home-manager/scripts/wallpaper-haven.nix) - Sets a random wallpaper from wallpaper haven
     - scripts.wallpaper-haven.enable `boolean` - Enables the module
     - configure [api options](https://wallhaven.cc/help/api) with `~/.config/.wallhaven.ini`
+- [services](modules/home-manager/services) - Systemd services submodule
+  - [clip-mngr](modules/home-manager/services/clip-mngr.nix) - Systemd clipboard manager
+    - services.clip-mngr.enable `boolean` - Enables the module
 - [software](modules/home-manager/software) - Software submodule
   - [bazecor](modules/home-manager/software/bazecor.nix) - Graphical configurator for Dygma products
     - software.bazecor.enable `boolean` - Enables the module
