@@ -125,8 +125,8 @@ Breakdown of the included modules.
 - [aliases](modules/home-manager/aliases.nix) - Define shell aliases
 - [gpg](modules/home-manager/gpg.nix) - Enables gpg keys
   - gpg.enable `boolean` - Enables the module
-- [neovim](modules/home-manager/impermanence.nix) - Enables impermanence at user level
-  - neovim.enable `boolean` - Enables the module
+- [impermanence](modules/home-manager/impermanence.nix) - Enables impermanence at user level
+  - impermanence.enable `boolean` - Enables the module
 - [neovim](modules/home-manager/neovim.nix) - Enables my custom neovim flake
   - neovim.enable `boolean` - Enables the module
 - [terminal](modules/home-manager/terminal.nix) - Configure terminal
