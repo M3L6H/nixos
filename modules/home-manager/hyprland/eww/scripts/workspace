@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+
+# Expects monitor index to be passed as the argument
+workspaces() {
+  monitor="$1"
+
+  active_ws="$(hyprctl monitors -j | jq ".[] | select(.id == $monitor) | .activeWorkspace.id")"
+  ws_dat="$(hyprctl workspaces -j | jq '[.[] | {id: .id, monitor: .monitorID, content: .lastwindowtitle}]')"
+  full=' '
+  empty=' '
+
+  btns="$(for i in $(seq 1 9); do
+    ws="$(jq ".[] | select(.id == $i)" <<<"$ws_dat")"
+
+    if [ -z "$ws" ]; then
+      echo -n " (button :onclick \"hyprctl dispatch moveworkspacetomonitor $i $monitor && hyprctl dispatch workspace $i\" :class \"ws-inactive\" \"$empty\")"
+    else
+      label="$([ -z "$(jq -r '.content' <<<"$ws")" ] && echo "$empty" || echo "$full")"
+      active="$([ "$active_ws" = "$i" ] && echo 'ws-active' || echo 'ws-inactive')"
+      echo -n " (button :onclick \"hyprctl dispatch moveworkspacetomonitor $i $monitor && hyprctl dispatch workspace $i\" :class \"$active\" \"$label\")"
+    fi
+  done)"
+
+  echo "(box :class \"ws-box\" :orientation \"h\" :spacing 5 :space-evenly false${btns})"
+}
+
+workspaces "$@"
+
+socat -u "UNIX-CONNECT:${XDG_RUNTIME_DIR}/hypr/${HYPRLAND_INSTANCE_SIGNATURE}/.socket2.sock" - | while read -r line; do
+  case "$line" in
+    closewindow | createworkspace* | destroyworkspace* | move* | openwindow | workspace*)
+      workspaces "$@"
+    ;;
+    *) ;;
+  esac
+done
+

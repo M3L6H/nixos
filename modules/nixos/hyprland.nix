@@ -1,4 +1,11 @@
-{ config, inputs, lib, pkgs, ... }: {
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
+{
   options = {
     hyprland.enable = lib.mkEnableOption "enables hyprland module";
   };
@@ -21,9 +28,6 @@
     environment.systemPackages = with pkgs; [
       # Enable compatibility between the EGL API and the Wayland protocol
       egl-wayland
-
-      # Custom widgets/bar
-      eww
 
       # Notifications
       mako
@@ -86,4 +90,3 @@
     };
   };
 }
-

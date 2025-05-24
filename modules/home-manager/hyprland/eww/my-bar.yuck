@@ -1,0 +1,70 @@
+;; Start workspace scripts (1 per monitor)
+(deflisten workspace-0 "scripts/workspace 0")
+(deflisten workspace-1 "scripts/workspace 1")
+(deflisten workspace-2 "scripts/workspace 2")
+
+;; Define the window (bar) at the top of the screen
+(defwindow my-bar-0
+  :monitor 0
+  :geometry (geometry
+              :x "0%"
+              :y "10px"
+              :width "99%"
+              :height "20px"
+              :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (centerbox
+    :orientation "horizontal"
+    :class "my-bar"
+    (literal :content workspace-0)
+    (label ;; Placeholder
+      :text ""
+      :justify "center")
+    (label ;; Placeholder
+      :text ""
+      :justify "center")))
+
+(defwindow my-bar-1
+  :monitor 1
+  :geometry (geometry
+              :x "0%"
+              :y "10px"
+              :width "99%"
+              :height "20px"
+              :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (centerbox
+    :orientation "horizontal"
+    :class "my-bar"
+    (literal :content workspace-1)
+    (label ;; Placeholder
+      :text ""
+      :justify "center")
+    (label ;; Placeholder
+      :text ""
+      :justify "center")))
+(defwindow my-bar-2
+  :monitor 2
+  :geometry (geometry
+              :x "0%"
+              :y "10px"
+              :width "99%"
+              :height "20px"
+              :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (centerbox
+    :orientation "horizontal"
+    :class "my-bar"
+    (literal :content workspace-2)
+    (label ;; Placeholder
+      :text ""
+      :justify "center")
+    (label ;; Placeholder
+      :text ""
+      :justify "center")))

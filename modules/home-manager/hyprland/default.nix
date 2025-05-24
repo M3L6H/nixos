@@ -1,4 +1,5 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   options = {
     hyprland.enable = lib.mkEnableOption "enables hyprland module";
   };
@@ -6,9 +7,11 @@
   imports = [
     ./rofi
     ./binds.nix
+    ./eww.nix
     ./hypridle.nix
     ./hyprlock.nix
     ./hyprshot.nix
+    ./layer-rules.nix
     ./monitors.nix
     ./wallpaper.nix
     ./workspaces.nix
@@ -45,8 +48,15 @@
           "XDG_SESSION_TYPE,wayland"
         ];
 
+        general = {
+          gaps_out = "11";
+          "col.inactive_border" = "rgba(00000000)";
+          "col.active_border" = "rgb(87a987)";
+          resize_on_border = true;
+        };
+
         misc = {
-          focus_on_activate = "true";
+          focus_on_activate = "false";
         };
 
         cursor = {
@@ -68,4 +78,3 @@
     };
   };
 }
-

@@ -32,15 +32,19 @@ Breakdown of the included modules.
 
 - [hyprland](modules/home-manager/hyprland) - Hyprland submodule
   - hyprland.enable `boolean` - Enables the module and its submodules
+  - [eww](modules/home-manager/hyprland/eww) - Eww configuration and scripts
   - [rofi](modules/home-manager/hyprland/rofi) - Configures rofi
   - [binds](modules/home-manager/hyprland/binds.nix) - Sets hyprland keybinds
+  - [eww](modules/home-manager/hyprland/eww.nix) - Configues eww
   - [hypridle](modules/home-manager/hyprland/hypridle.nix) - Configures hypridle
   - [hyprlock](modules/home-manager/hyprland/hyprlock.nix) - Configures hyprlock
   - [hyprshot](modules/home-manager/hyprland/hyprshot.nix) - Configures hyprshot
+  - [layer-rules](modules/home-manager/hyprland/layer-rules.nix) - Configures layerrules
   - [monitors](modules/home-manager/hyprland/monitors.nix) - Configures monitors
   - [wallpaper](modules/home-manager/hyprland/wallpaper.nix) - Configures wallpapers
     - wallpaper.mpvpaper.enable `boolean` - Enable mpvpaper video wallpaper
     - wallpaper.swww.enable `boolean` - Enable swww image wallpaper
+  - [workspaces](modules/home-manager/hyprland/workspaces.nix) - Configures workspaces
 - [scripts](modules/home-manager/scripts) - Scripts submodule
   - [fs-diff](modules/home-manager/scripts/fs-diff.nix) - Use to find files needing to be persisted
     - Will automatically be enabled if `neovim.enable` is true
@@ -113,6 +117,8 @@ Breakdown of the included modules.
     - utils.parted.enable `boolean` - Enables the module
   - [playerctl](modules/home-manager/utils/playerctl.nix) - Install playerctl
     - utils.playerctl.enable `boolean` - Enables the module
+  - [socat](modules/home-manager/utils/socat.nix) - Install socat
+    - utils.socat.enable `boolean` - Enables the module
   - [sqlite](modules/home-manager/utils/sqlite.nix) - Install sqlite
     - utils.sqlite.enable `boolean` - Enables the module
   - [tealdeer](modules/home-manager/utils/tealdeer.nix) - Install tealdeer
@@ -232,6 +238,13 @@ To update the system, run
 
 ```sh
 nix flake update
+nxs
+```
+
+To update a single input, run
+
+```sh
+nix flake update <input>
 nxs
 ```
 

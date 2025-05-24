@@ -19,6 +19,7 @@
     ./parted.nix
     ./playerctl.nix
     ./ripgrep.nix
+    ./socat.nix
     ./sqlite.nix
     ./tealdeer.nix
     ./tectonic.nix
@@ -46,6 +47,7 @@
   utils.parted.enable = lib.mkDefault false;
   utils.playerctl.enable = lib.mkDefault false;
   utils.ripgrep.enable = lib.mkDefault false;
+  utils.socat.enable = lib.mkDefault false;
   utils.sqlite.enable = lib.mkDefault false;
   utils.tealdeer.enable = lib.mkDefault false;
   utils.tectonic.enable = lib.mkDefault false;

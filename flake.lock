@@ -654,14 +654,17 @@
       "inputs": {
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nvzone-minty": "nvzone-minty",
+        "nvzone-volt": "nvzone-volt",
+        "yuckls": "yuckls"
       },
       "locked": {
-        "lastModified": 1747767143,
-        "narHash": "sha256-/lm/87gZT6sSn5+/+XqTG+VXxQL8XyCIv67C3loq3P0=",
+        "lastModified": 1748028210,
+        "narHash": "sha256-Rg+8XFKp7r59xtphMOf2Lt04Oj0T1M5AMAixKE8hJLY=",
         "owner": "m3l6h",
         "repo": "neovim",
-        "rev": "2a8158e063ce32bd05867de5db83014f37e8d8ba",
+        "rev": "b6a5b61e46b64a15eb1bea3d8ec54ea13736fe76",
         "type": "github"
       },
       "original": {
@@ -837,6 +840,38 @@
         "type": "github"
       }
     },
+    "nvzone-minty": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1740723349,
+        "narHash": "sha256-jdz0cR1uz1EdxFCuxndsK9gyTZ2jg8wdYA0v33SevOg=",
+        "owner": "nvzone",
+        "repo": "minty",
+        "rev": "aafc9e8e0afe6bf57580858a2849578d8d8db9e0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvzone",
+        "repo": "minty",
+        "type": "github"
+      }
+    },
+    "nvzone-volt": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744335032,
+        "narHash": "sha256-6zbcJAY1kH5SyHw1J2GZEFvD8iJvkhBDwMCnIfW1olc=",
+        "owner": "nvzone",
+        "repo": "volt",
+        "rev": "c45d5f48da8e802e608b5c6da471ca4d84276dfb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvzone",
+        "repo": "volt",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -1001,6 +1036,22 @@
       "original": {
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
+        "type": "github"
+      }
+    },
+    "yuckls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1738989751,
+        "narHash": "sha256-oSohWZHh5RN8wQVCNvMQDwO4NVlj9432YidJTGDH+RM=",
+        "owner": "eugenenoble2005",
+        "repo": "yuckls",
+        "rev": "7de35f514201d29f9cc12d742160d9774bd2c1ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eugenenoble2005",
+        "repo": "yuckls",
         "type": "github"
       }
     }

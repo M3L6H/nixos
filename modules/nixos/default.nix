@@ -1,7 +1,9 @@
-{ lib, ... }: {
+{ lib, ... }:
+{
   imports = [
     ./services
 
+    ./fonts.nix
     ./hyprland.nix
     ./impermanence.nix
     ./mounts.nix
@@ -25,4 +27,3 @@
   config.users.enable = lib.mkDefault true;
   config.vcs.enable = lib.mkDefault true;
 }
-
