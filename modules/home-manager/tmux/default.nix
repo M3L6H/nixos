@@ -89,7 +89,7 @@
             set-option -g status-position top
 
             # Plugins
-            set -g @kanagawa-plugins "playerctl cpu-usage gpu-usage ram-usage weather time"
+            set -g @kanagawa-plugins "playerctl cpu-usage gpu-usage ram-usage weather"
             set -g @kanagawa-military-time true
             set -g @kanagawa-left-icon "󱚝  #S"
             set -g @kanagawa-show-fahrenheit true

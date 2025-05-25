@@ -33,13 +33,14 @@ $dragonYellow: #c4b28a;
 
 .my-bar {
   background-color: $dragonBlackTrans0;
+  border-radius: 10px;
+  font-size: 10px;
+  padding: 3px 8px;
 }
 
 /* Workspace buttons */
 .ws-box {
   background-color: transparent;
-  font-size: 10px;
-  margin: 3px 0 0 5px;
 }
 
 /* Inactive workspace button */
@@ -55,4 +56,10 @@ $dragonYellow: #c4b28a;
 /* Hover effect for inactive buttons */
 .ws-inactive:hover {
   color: $dragonGreen2;
+}
+
+/* Time styling */
+.time {
+  color: $dragonGreen;
+  font-style: italic;
 }

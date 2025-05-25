@@ -66,5 +66,7 @@
       :text ""
       :justify "center")
     (label ;; Placeholder
-      :text ""
-      :justify "center")))
+      :text "  ${formattime(EWW_TIME, "%a %m/%y %H:%M:%S")}"
+      :class "time"
+      :xalign 1
+      :justify "right")))

@@ -13,15 +13,15 @@ workspaces() {
     ws="$(jq ".[] | select(.id == $i)" <<<"$ws_dat")"
 
     if [ -z "$ws" ]; then
-      echo -n " (button :onclick \"hyprctl dispatch moveworkspacetomonitor $i $monitor && hyprctl dispatch workspace $i\" :class \"ws-inactive\" \"$empty\")"
+      echo -n " (button :tooltip \"Switch to workspace $i\" :onclick \"hyprctl dispatch moveworkspacetomonitor $i $monitor && hyprctl dispatch workspace $i\" :class \"ws-inactive\" \"$empty\")"
     else
       label="$([ -z "$(jq -r '.content' <<<"$ws")" ] && echo "$empty" || echo "$full")"
       active="$([ "$active_ws" = "$i" ] && echo 'ws-active' || echo 'ws-inactive')"
-      echo -n " (button :onclick \"hyprctl dispatch moveworkspacetomonitor $i $monitor && hyprctl dispatch workspace $i\" :class \"$active\" \"$label\")"
+      echo -n " (button :tooltip \"Switch to workspace $i\" :onclick \"hyprctl dispatch moveworkspacetomonitor $i $monitor && hyprctl dispatch workspace $i\" :class \"$active\" \"$label\")"
     fi
   done)"
 
-  echo "(box :class \"ws-box\" :orientation \"h\" :spacing 5 :space-evenly false${btns})"
+  echo "(box :hexpand false :class \"ws-box\" :orientation \"h\" :spacing 5 :space-evenly false${btns})"
 }
 
 workspaces "$@"

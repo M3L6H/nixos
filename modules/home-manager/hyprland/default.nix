@@ -49,10 +49,23 @@
         ];
 
         general = {
-          gaps_out = "11";
+          border_size = "0";
+          gaps_out = "10";
+          # Keeping in case I decide to turn border back on
           "col.inactive_border" = "rgba(00000000)";
           "col.active_border" = "rgb(87a987)";
-          resize_on_border = true;
+          resize_on_border = "true";
+        };
+
+        decoration = {
+          rounding = "10";
+          dim_inactive = "true";
+          dim_strength = "0.2";
+
+          blur = {
+            size = "16";
+            passes = "2";
+          };
         };
 
         misc = {
