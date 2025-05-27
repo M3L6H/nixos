@@ -23,6 +23,9 @@
 
         INSOMNIA="$(systemctl is-active --quiet --user hypridle.service && echo 'false' || echo 'true')"
 
+        # Don't sleep while I'm trying to rebuild
+        systemctl --quiet --user stop hypridle.service
+
         sudo nixos-rebuild-ng switch --flake /etc/nixos#nixos "$@" |& tee /tmp/build.log
 
         if "$INSOMNIA"; then
