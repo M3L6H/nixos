@@ -1,4 +1,5 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }:
+{
   config = lib.mkIf config.impermanence.enable {
     home.file.".local/bin/persist" = {
       executable = true;
@@ -8,4 +9,3 @@
     home.shellAliases.persist = "sudo $HOME/.local/bin/persist";
   };
 }
-

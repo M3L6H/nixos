@@ -1,46 +1,31 @@
 { ... }:
 {
   config = {
-    home.file.".local/bin/home-manager-wrapper.sh" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env sh
-
-        INSOMNIA="$(systemctl is-active --quiet --user hypridle.service && echo 'false' || echo 'true')"
-
-        home-manager switch --flake /etc/nixos#m3l6h "$@"
-
-        if "$INSOMNIA"; then
-          systemctl --quiet --user stop hypridle.service
-        fi
-      '';
-    };
-
     home.file.".local/bin/nix-rebuild-wrapper.sh" = {
       executable = true;
       text = ''
         #!/usr/bin/env sh
 
-        INSOMNIA="$(systemctl is-active --quiet --user hypridle.service && echo 'false' || echo 'true')"
+        INSOMNIA="$([ -f \"$HOME/.local/state/no-suspend\" ] && echo 'true' || echo 'false')"
 
         # Don't sleep while I'm trying to rebuild
-        systemctl --quiet --user stop hypridle.service
+        touch \"$HOME/.local/state/no-suspend\"
 
         sudo nixos-rebuild-ng switch --flake /etc/nixos#nixos "$@" |& tee /tmp/build.log
 
-        if "$INSOMNIA"; then
-          systemctl --quiet --user stop hypridle.service
+        if ! "$INSOMNIA"; then
+          rm \"$HOME/.local/state/no-suspend\"
         fi
       '';
     };
 
     home.shellAliases = {
-      dream = "echo 'Sweet dreams...'; systemctl --user start hypridle.service";
+      dream = "echo 'Sweet dreams...'; rm -f $HOME/.local/state/no-suspend";
       gds = "git diff --staged";
       gs = "git status";
-      hms = "/home/m3l6h/.local/bin/home-manager-wrapper.sh";
+      hms = "home-manager switch --flake /etc/nixos#m3l6h";
       icat = "kitten icat";
-      insomnia = "echo 'Having nightmares...'; systemctl --user stop hypridle.service";
+      insomnia = "echo 'Having nightmares...'; touch $HOME/.local/state/no-suspend";
       maxvol = "pactl set-sink-volume @DEFAULT_SINK@ 100%";
       mntimp = "sudo mkdir /mnt >/dev/null 2>&1; sudo mount -o subvol=/ /dev/mapper/root /mnt";
       nxs = "/home/m3l6h/.local/bin/nix-rebuild-wrapper.sh";

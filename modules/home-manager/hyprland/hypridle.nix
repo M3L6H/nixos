@@ -1,5 +1,14 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   config = lib.mkIf config.hyprland.enable {
+    # Used to toggle suspend on/off
+    scripts.conditional-suspend.enable = true;
+
     home.packages = with pkgs; [
       brightnessctl
     ];
@@ -31,11 +40,10 @@
           }
           {
             timeout = "1800";
-            on-timeout = "systemctl suspend"; # suspend pc
+            on-timeout = "conditional-suspend"; # suspend pc
           }
         ];
       };
     };
   };
 }
-
