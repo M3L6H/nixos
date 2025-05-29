@@ -6,15 +6,15 @@
       text = ''
         #!/usr/bin/env sh
 
-        INSOMNIA="$([ -f \"$HOME/.local/state/no-suspend\" ] && echo 'true' || echo 'false')"
+        INSOMNIA="$([ -f "$HOME/.local/state/no-suspend" ] && echo 'true' || echo 'false')"
 
         # Don't sleep while I'm trying to rebuild
-        touch \"$HOME/.local/state/no-suspend\"
+        touch "$HOME/.local/state/no-suspend"
 
         sudo nixos-rebuild-ng switch --flake /etc/nixos#nixos "$@" |& tee /tmp/build.log
 
         if ! "$INSOMNIA"; then
-          rm \"$HOME/.local/state/no-suspend\"
+          rm -f "$HOME/.local/state/no-suspend"
         fi
       '';
     };
