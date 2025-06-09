@@ -6,7 +6,9 @@
 }:
 {
   config = lib.mkIf config.hyprland.enable {
-    # Used to toggle suspend on/off
+    # Used to lock only if not in insomnia
+    scripts.conditional-lock.enable = true;
+    # Used to suspend only if not in insomnia
     scripts.conditional-suspend.enable = true;
 
     home.packages = with pkgs; [
@@ -31,7 +33,7 @@
           }
           {
             timeout = "180";
-            on-timeout = "loginctl lock-session";
+            on-timeout = "conditional-lock";
           }
           {
             timeout = "360";

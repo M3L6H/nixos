@@ -1,6 +1,7 @@
 { lib, ... }:
 {
   imports = [
+    ./conditional-lock.nix
     ./conditional-suspend.nix
     ./fs-diff.nix
     ./persist.nix
@@ -9,6 +10,7 @@
   ];
 
   config = {
+    scripts.conditional-lock.enable = lib.mkDefault false;
     scripts.conditional-suspend.enable = lib.mkDefault false;
     scripts.wallpaper-haven.enable = lib.mkDefault false;
 
