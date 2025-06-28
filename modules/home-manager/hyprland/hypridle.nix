@@ -21,28 +21,33 @@
       settings = {
         general = {
           lock_cmd = "pidof hyprlock || hyprlock";
-          before_sleep_cmd = "loginctl lock-session";
-          after_sleep_cmd = "hyprctl dispatch dpms on"; # to avoid having to press a key twice to turn on the display
+          before_sleep_cmd = "$HOME/.local/bin/conditional-lock";
+          # To avoid having to press a key twice to turn on the display
+          after_sleep_cmd = "hyprctl dispatch dpms on";
         };
 
         listener = [
           {
             timeout = "90";
-            on-timeout = "brightnessctl -s set 10"; # set monitor backlight to minimum, avoid 0 on OLED monitor
-            on-resume = "brightnessctl -r"; # monitor backlight restore
+            # Set monitor backlight to minimum, avoid 0 on OLED monitor
+            on-timeout = "brightnessctl -sd rgb:kbd_backlight set 0";
+            # Monitor backlight restore
+            on-resume = "brightnessctl -rd rgb:kbd_backlight";
           }
           {
             timeout = "180";
-            on-timeout = "conditional-lock";
+            on-timeout = "$HOME/.local/bin/conditional-lock";
           }
           {
             timeout = "360";
-            on-timeout = "hyprctl dispatch dpms off"; # screen off when timeout has passed
-            on-resume = "hyprctl dispatch dpms on"; # screen on when activity is detected after timeout has fired
+            # Screen off when timeout has passed
+            on-timeout = "hyprctl dispatch dpms off";
+            # Screen on when activity is detected after timeout has fired
+            on-resume = "hyprctl dispatch dpms on && brightnessctl -r";
           }
           {
             timeout = "1800";
-            on-timeout = "conditional-suspend"; # suspend pc
+            on-timeout = "$HOME/.local/bin/conditional-suspend"; # suspend pc
           }
         ];
       };
