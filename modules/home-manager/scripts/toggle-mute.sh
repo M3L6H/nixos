@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 DIR="${HOME}/.local/share/state/playerctl"
 

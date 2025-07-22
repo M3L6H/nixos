@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 if [ -f "${HOME}/.local/state/no-suspend" ]; then
   echo 'Suspend disabled'

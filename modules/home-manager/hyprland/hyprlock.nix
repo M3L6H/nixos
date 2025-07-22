@@ -1,13 +1,9 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   config = lib.mkIf config.hyprland.enable {
     home.file.".config/hypr/hyprlock.conf" = {
       text = ''
         # Inspired by https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
-
-        general {
-          disable_loading_bar = true
-          grace = 30
-        }
 
         background {
           monitor = DP-1
@@ -62,4 +58,3 @@
     };
   };
 }
-

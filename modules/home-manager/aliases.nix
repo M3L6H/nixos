@@ -19,6 +19,8 @@
         if ! "$INSOMNIA"; then
           rm -f "$HOME/.local/state/no-suspend"
         fi
+
+        rm -f "$HOME/.local/state/no-lock"
       '';
     };
 
