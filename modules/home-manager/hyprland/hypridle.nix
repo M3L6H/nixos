@@ -16,7 +16,7 @@
 
       settings = {
         general = {
-          lock_cmd = "pidof hyprlock || hyprlock";
+          lock_cmd = "pidof hyprlock || hyprlock --grace 60";
           before_sleep_cmd = "$HOME/.local/bin/conditional-lock";
 
           # To avoid having to press a key twice to turn on the display
