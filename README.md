@@ -46,8 +46,16 @@ Breakdown of the included modules.
     - wallpaper.swww.enable `boolean` - Enable swww image wallpaper
   - [workspaces](modules/home-manager/hyprland/workspaces.nix) - Configures workspaces
 - [scripts](modules/home-manager/scripts) - Scripts submodule
+  - [conditional-lock](modules/home-manager/scripts/conditional-lock.nix) - When called will lock the system as long as ~/.local/state/no-lock is not present
+    - scripts.conditional-lock.enable `boolean` - Enables the module
+  - [conditional-suspend](modules/home-manager/scripts/conditional-suspend.nix) - When called will suspend the system as long as ~/.local/state/no-suspend is not present
+    - scripts.conditional-suspend.enable `boolean` - Enables the module
   - [fs-diff](modules/home-manager/scripts/fs-diff.nix) - Use to find files needing to be persisted
     - Will automatically be enabled if `neovim.enable` is true
+  - [home-manager-wrapper](modules/home-manager/scripts/home-manager-wrapper.nix) - Wrapper around home-manager to suspend lock/sleep during switch
+    - Always enabled
+  - [nix-rebuild-wrapper](modules/home-manager/scripts/nix-rebuild-wrapper.nix) - Wrapper around nix rebuild to suspend lock/sleep during switch
+    - Always enabled
   - [persist](modules/home-manager/scripts/persist.nix) - Util to persist files/directories
     - Will automatically be enabled if `neovim.enable` is true
   - [toggle-mute](modules/home-manager/scripts/toggle-mute.nix) - Util to toggle-mute in playerctl

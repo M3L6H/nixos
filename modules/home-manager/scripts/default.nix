@@ -4,6 +4,8 @@
     ./conditional-lock.nix
     ./conditional-suspend.nix
     ./fs-diff.nix
+    ./home-manager-wrapper.nix
+    ./nix-rebuild-wrapper.nix
     ./persist.nix
     ./toggle-mute.nix
     ./wallpaper-haven.nix
