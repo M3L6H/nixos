@@ -150,6 +150,7 @@ Breakdown of the included modules.
   - neovim.enable `boolean` - Enables the module
 - [terminal](modules/home-manager/terminal.nix) - Configure terminal
   - terminal.enable `boolean` - Enables the module
+  - terminal.emulator `string` - Set the terminal emulator to use
 - [tmux](modules/home-manager/tmux/default.nix) - Configure tmux
   - tmux.enable `boolean` - Enables the module
   - [sessionx](modules/home-manager/tmux/sessionx.nix) - Configure sessionx

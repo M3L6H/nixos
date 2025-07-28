@@ -21,7 +21,7 @@
   # Enable custom neovim flake
   neovim.enable = true;
 
-  # Enable kitty
+  # Enable terminal
   terminal.enable = true;
 
   # Enable tmux

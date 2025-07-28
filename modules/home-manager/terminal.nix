@@ -5,13 +5,43 @@
   ...
 }:
 {
-  options = {
-    terminal.enable = lib.mkEnableOption "enables terminal module";
+  options = with lib; {
+    terminal.enable = mkEnableOption "enables terminal module";
+    terminal.emulator = mkOption {
+      default = "ghostty";
+      description = "
+        Set the terminal emulator to use.
+        Supported values:
+         - ghostty
+         - kitty
+        ";
+      type = with types; uniq str;
+    };
   };
 
   config = lib.mkIf config.terminal.enable {
+    home.packages = with pkgs; [
+      nerd-fonts.victor-mono
+    ];
+
+    programs.ghostty = {
+      enable = config.terminal.emulator == "ghostty";
+
+      enableZshIntegration = true;
+
+      settings = {
+        font-family = "VictorMono Nerd Font";
+        font-size = 10;
+        theme = "Kanagawa Dragon";
+        background-opacity = 0.85;
+        scrollback-limit = 1073741824; # 1 GB in bytes
+        copy-on-select = "clipboard";
+        confirm-close-surface = "false";
+      };
+    };
+
     programs.kitty = {
-      enable = true;
+      enable = config.terminal.emulator == "kitty";
 
       font = {
         package = pkgs.nerd-fonts.victor-mono;
@@ -47,7 +77,10 @@
 
     # Required for dynamically changing the terminal background in kitty
     home.sessionVariables.KITTY_LISTEN_ON = "${
-      if config.scripts.wallpaper-haven.enable then "unix:/tmp/kitty" else "none"
+      if config.terminal.emulator == "kitty" && config.scripts.wallpaper-haven.enable then
+        "unix:/tmp/kitty"
+      else
+        "none"
     }";
   };
 }

@@ -20,11 +20,12 @@
 
     wayland.windowManager.hyprland.settings = {
       bind = [
-        "$mainMod SHIFT, C, exec, kitty --class clipse -e 'clipse'"
+        "$mainMod SHIFT, C, exec, ${config.terminal.emulator} --class=com.example.clipse -e 'clipse'"
       ];
+
       windowrule = [
-        "float, class:(clipse)"
-        "size 622 652, class:(clipse)"
+        "float, class:(com.example.clipse)"
+        "size 622 652, class:(com.example.clipse)"
       ];
     };
 

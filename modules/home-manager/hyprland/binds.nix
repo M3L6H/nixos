@@ -10,7 +10,7 @@
       settings = {
         "$mainMod" = "SUPER";
         bind = [
-          "$mainMod, F, exec, uwsm app -- kitty"
+          "$mainMod, F, exec, uwsm app -- ${config.terminal.emulator}"
           "$mainMod, D, exec, uwsm app -- vivaldi"
           "$mainMod, Space, exec, rofi -show drun -run-command \"uwsm app -- {cmd}\""
           "$mainMod, Q, killactive,"
