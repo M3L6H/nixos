@@ -16,7 +16,6 @@
       imageDisplay = {
         type = "kitty";
       };
-      systemdTarget = "sway-session.target";
     };
 
     wayland.windowManager.hyprland.settings = {
