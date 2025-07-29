@@ -16,6 +16,22 @@
       imageDisplay = {
         type = "kitty";
       };
+      theme = {
+        useCustomTheme = true;
+        DimmedDesc = "#9e9b93";
+        DimmedTitle = "#a6a69c";
+        FilteredMatch = "#b6927b";
+        NormalDesc = "#a99c8b";
+        NormalTitle = "#8ba4b0";
+        SelectedDesc = "#c4b28a";
+        SelectedTitle = "#87a987";
+        SelectedBorder = "#87a987";
+        SelectedDescBorder = "#87a987";
+        TitleFore = "#c5c9c5";
+        Titleback = "#282727";
+        StatusMsg = "#a292a3";
+        PinIndicatorColor = "#c4746e";
+      };
     };
 
     wayland.windowManager.hyprland.settings = {
@@ -26,6 +42,8 @@
       windowrule = [
         "float, class:(com.example.clipse)"
         "size 622 652, class:(com.example.clipse)"
+        "stayfocused, class:(com.example.clipse)"
+        "opacity 0.8, class:(com.example.clipse)"
       ];
     };
 
