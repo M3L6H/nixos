@@ -95,6 +95,8 @@ Breakdown of the included modules.
     - utils.bat.enable `boolean` - Enables the module
   - [chafa](modules/home-manager/utils/chafa.nix) - Install chafa
     - utils.chafa.enable `boolean` - Enables the module
+  - [expect](modules/home-manager/utils/expect.nix) - Install expect tools (e.g. unbuffer)
+    - utils.expect.enable `boolean` - Enables the module
   - [ffmpeg](modules/home-manager/utils/ffmpeg.nix) - Install ffmpeg
     - utils.ffmpeg.enable `boolean` - Enables the module
   - [file](modules/home-manager/utils/file.nix) - Install file

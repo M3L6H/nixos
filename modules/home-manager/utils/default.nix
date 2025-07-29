@@ -3,6 +3,7 @@
   imports = [
     ./bat.nix
     ./chafa.nix
+    ./expect.nix
     ./ffmpeg.nix
     ./file.nix
     ./fzf.nix
@@ -31,6 +32,7 @@
 
   utils.bat.enable = lib.mkDefault false;
   utils.chafa.enable = lib.mkDefault false;
+  utils.expect.enable = lib.mkDefault false;
   utils.ffmpeg.enable = lib.mkDefault false;
   utils.file.enable = lib.mkDefault false;
   utils.fzf.enable = lib.mkDefault false;
