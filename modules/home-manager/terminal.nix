@@ -35,6 +35,9 @@
         theme = "Kanagawa Dragon";
         background-opacity = 0.85;
         scrollback-limit = 1073741824; # 1 GB in bytes
+        keybind = [
+          "ctrl+shift+t=unbind" # No need for terminal tabs with tmux :)
+        ];
         copy-on-select = "clipboard";
         confirm-close-surface = "false";
       };
