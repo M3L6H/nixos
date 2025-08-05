@@ -42,7 +42,6 @@
       windowrule = [
         "float, class:(com.example.clipse)"
         "size 622 652, class:(com.example.clipse)"
-        "stayfocused, class:(com.example.clipse)"
       ];
     };
 
