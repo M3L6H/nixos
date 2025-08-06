@@ -1,60 +1,87 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  username,
+  ...
+}:
 {
   config = lib.mkIf config.hyprland.enable {
-    home.file.".config/hypr/hyprlock.conf" = {
-      text = ''
-        # Inspired by https://github.com/justinmdickey/publicdots/blob/main/.config/hypr/hyprlock.conf
+    home.file.".config/hypr/hyprlock.conf" =
+      let
+        monitor-1 = "DP-1";
+        monitor-2 = "DP-2";
+        monitor-3 = "HDMI-A-1";
 
-        background {
-          monitor = DP-1
-          path = /home/m3l6h/files/images/sfw/wlop/sky-1/20_sky1_8k.jpg
-          blur_passes = 2
-          contrast = 1
-          brightness = 0.75
-          vibrancy = 0.2
-          vibrancy_darkness = 0.2
-        }
+        dir = "/home/${username}/files/images/wallpaper";
+        image = "${dir}/wallpaper.jpg";
+      in
+      {
+        text = ''
+          general {
+            hide_cursor = true
+            ignore_empty_input = true
+          }
 
-        background {
-          monitor = DP-2
-          path = /home/m3l6h/files/images/sfw/wlop/sky-2/21_sky2_8k.jpg
-          blur_passes = 2
-          contrast = 1
-          brightness = 0.75
-          vibrancy = 0.2
-          vibrancy_darkness = 0.2
-        }
+          background {
+            path = ${image}
+            blur_passes = 3
+            contrast = 1
+            brightness = 0.75
+            vibrancy = 0.2
+            vibrancy_darkness = 0.2
+          }
 
-        background {
-          monitor = HDMI-A-1
-          path = /home/m3l6h/files/images/sfw/wlop/sky-3/22_sky3_8k.jpg
-          blur_passes = 2
-          contrast = 1
-          brightness = 0.75
-          vibrancy = 0.2
-          vibrancy_darkness = 0.2
-        }
+          label {
+            monitor = ${monitor-1}
+            text = <span foreground="##c5c9c5">Hello, <i>$USER</i></span>
+            font_size = 36
+            font_family = VictorMono Nerd Font
+            position = 0, 0
+            halign = center
+            valign = center
+          }
 
-        input-field {
-          monitor = DP-2
-          size = 250, 60
-          outline_thickness = 2
-          dots_size = 0.2 # Scale of input-field height, 0.2 - 0.8
-          dots_spacing = 0.35 # Scale of dots' absolute size, 0.0 - 1.0
-          dots_center = true
-          outer_color = rgba(0, 0, 0, 0)
-          inner_color = rgba(0, 0, 0, 0.2)
-          font_color = rgb(255, 255, 255)
-          fade_on_empty = false
-          rounding = -1
-          check_color = rgb(204, 136, 34)
-          placeholder_text = <i><span foreground="##cdd6f4">Input Password...</span></i>
-          hide_input = false
-          position = 0, -200
-          halign = center
-          valign = center
-        }
-      '';
-    };
+          label {
+            monitor = ${monitor-2} 
+            text = <span foreground="##c5c9c5">Enter password</span>
+            font_size = 24
+            font_family = VictorMono Nerd Font
+            position = 0, 0
+            halign = center
+            valign = center
+          }
+
+          label {
+            monitor = ${monitor-3} 
+            text = cmd[update:1000] echo "<span foreground='##c5c9c5'>$(date +%r)</span>"
+            font_size = 36
+            font_family = VictorMono Nerd Font
+            position = 0, 0
+            halign = center
+            valign = center
+          }
+
+          input-field {
+            monitor = DP-2
+            size = 250, 60
+            outline_thickness = 2
+            dots_size = 0.2
+            dots_spacing = 0.35
+            dots_center = true
+            outer_color = rgba(13, 12, 12)
+            inner_color = rgba(13, 12, 12, 0.2)
+            font_color = rgb(197, 201, 197)
+            font_family = VictorMono Nerd Font
+            fade_on_empty = true
+            rounding = -1
+            check_color = rgb(185, 141, 123)
+            placeholder_text = <i><span foreground="##625e5a">Password</span></i>
+            hide_input = false
+            position = 0, -75
+            halign = center
+            valign = center
+          }
+        '';
+      };
   };
 }
