@@ -24,12 +24,15 @@ nixos-install --root /mnt --flake /mnt/etc/nixos#nixos
 reboot
 ```
 
-# [modules](modules)
+## [modules](modules)
 
 Breakdown of the included modules.
 
-## [home-manager](modules/home-manager) - Home Manager modules
+### [home-manager](modules/home-manager) - Home Manager modules
 
+- [games](/modules/home-manager/games) - Central module for all games
+  - [minecraft](/modules/home-manager/games/minecraft.nix) - Installs minecraft via prismlauncher
+    - games.minecraft.enable `boolean` - Enables the module
 - [hyprland](modules/home-manager/hyprland) - Hyprland submodule
   - hyprland.enable `boolean` - Enables the module and its submodules
   - [eww](modules/home-manager/hyprland/eww) - Eww configuration and scripts
@@ -167,7 +170,7 @@ Breakdown of the included modules.
   - [zsh-vi-mode](modules/home-manager/zsh/zsh-vi-mode.nix) - Configures a better vi mode in zsh
     - zsh.vi-mode.enable `boolean` - Enables zsh-vi-mode
 
-## [nixos](modules/nixos) - Nixos modules
+### [nixos](modules/nixos) - Nixos modules
 
 - [services](modules/nixos/services) - Systemd services submodule
   - [clean-old-generations](modules/nixos/services/clean-old-generations.nix) - Systemd service to clean old nixos generations
@@ -192,7 +195,7 @@ Breakdown of the included modules.
 - [vcs](modules/nixos/vcs.nix) - Install git
   - vcs.enable `boolean` - Enables the module
 
-# Cheatsheet
+## Cheatsheet
 
 NixOS cheatsheet.
 
@@ -202,7 +205,7 @@ To list generations:
 nixos-rebuild list-generations
 ```
 
-## Troubleshooting
+### Troubleshooting
 
 To clean the store:
 
@@ -216,7 +219,7 @@ To verify/repair the store:
 sudo nix-store --verify --check-contents --repair
 ```
 
-# Development
+## Development
 
 This project is broken up into NixOS and home-manager configuration. The NixOS
 configuration lives in
@@ -231,7 +234,7 @@ separating it is that during _development_ the home-manager configuration can
 be built by itself, but **to persist any changes after reboot, the NixOS
 configuration will have to be built.**
 
-## Commands
+### Commands
 
 To build the NixOS configuration, run
 
@@ -259,22 +262,21 @@ nix flake update <input>
 nxs
 ```
 
-# Credits
+## Credits
 
 Non-exhaustive list of sources I referenced/learned from while building this.
 
 In no particular order.
 
-## People
+### People
 
 - [Vimjoyer](https://www.youtube.com/@vimjoyer)
 
-## Other people's configs
+### Other people's configs
 
 - [Liassica/nixos-config](https://codeberg.org/Liassica/nixos-config)
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 
-## Articles
+### Articles
 
 - [Impermanent NixOS: on a VM + tmpfs root + flakes + LUKS | Will Bush](https://willbush.dev/blog/impermanent-nixos/)
-
