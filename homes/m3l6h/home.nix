@@ -57,6 +57,9 @@
   # Enable krita
   software.krita.enable = false;
 
+  # Enable obs
+  software.obs.enable = true;
+
   # Enable vivaldi
   software.vivaldi.enable = true;
 

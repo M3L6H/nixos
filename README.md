@@ -78,6 +78,8 @@ Breakdown of the included modules.
     - software.firefox.enable `boolean` - Enables the module
   - [krita](modules/home-manager/software/krita.nix) - Enables krita
     - software.krita.enable `boolean` - Enables the module
+  - [obs](modules/home-manager/software/obs.nix) - Enables obs studio
+    - software.obs.enable `boolean` - Enables the module
   - [vivaldi](modules/home-manager/software/vivaldi.nix) - Enables vivaldi browser
     - software.vivaldi.enable `boolean` - Enables the module
 - [toolchains](modules/home-manager/toolchains) - Toolchains submodule
