@@ -34,6 +34,8 @@
           directories = [
             ".config/obs-studio"
           ];
+
+          allowOther = false;
         };
   };
 }

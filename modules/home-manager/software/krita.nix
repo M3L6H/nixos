@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     software.krita.enable = lib.mkEnableOption "enables krita module";
   };
@@ -17,7 +24,8 @@
         ".config/kritadisplayrc"
         ".config/kritarc"
       ];
+
+      allowOther = false;
     };
   };
 }
-

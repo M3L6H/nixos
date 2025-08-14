@@ -59,6 +59,8 @@
           ".local/share/PrismLauncher/metacache"
           ".local/share/PrismLauncher/prismlauncher.cfg"
         ];
+
+        allowOther = false;
       };
     };
 }

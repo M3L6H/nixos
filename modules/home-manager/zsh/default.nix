@@ -29,9 +29,13 @@
 
       programs.zoxide.enable = config.zsh.zoxide.enable;
 
-      home.persistence."/persist/home/${username}".directories = lib.mkIf config.impermanence.enable [
-        ".local/share/zoxide"
-      ];
+      home.persistence."/persist/home/${username}" = lib.mkIf config.impermanence.enable {
+        directories = [
+          ".local/share/zoxide"
+        ];
+
+        allowOther = false;
+      };
 
       home.file.".zsh-custom/themes/spaceship.zsh-theme" = {
         recursive = true;
@@ -76,16 +80,15 @@
         oh-my-zsh = {
           enable = true;
           inherit custom;
-          plugins =
-            [
-              "git"
-            ]
-            ++ lib.optionals (config.tmux.enable) [
-              "tmux"
-            ]
-            ++ lib.optionals (config.zsh.zoxide.enable) [
-              "zoxide"
-            ];
+          plugins = [
+            "git"
+          ]
+          ++ lib.optionals (config.tmux.enable) [
+            "tmux"
+          ]
+          ++ lib.optionals (config.zsh.zoxide.enable) [
+            "zoxide"
+          ];
           theme = "spaceship";
         };
       };

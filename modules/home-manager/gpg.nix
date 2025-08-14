@@ -30,6 +30,8 @@
       directories = [
         ".gnupg"
       ];
+
+      allowOther = false;
     };
   };
 }

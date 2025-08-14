@@ -24,6 +24,8 @@
       directories = [
         ".cache/tealdeer"
       ];
+
+      allowOther = false;
     };
   };
 }

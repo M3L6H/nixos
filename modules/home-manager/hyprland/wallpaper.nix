@@ -20,9 +20,13 @@ in
     # Used to terminate mpvpaper
     utils.killall.enable = true;
 
-    home.persistence."/persist/home/${username}".directories = lib.mkIf config.impermanence.enable [
-      ".cache/swww"
-    ];
+    home.persistence."/persist/home/${username}" = lib.mkIf config.impermanence.enable {
+      directories = [
+        ".cache/swww"
+      ];
+
+      allowOther = false;
+    };
 
     systemd.user.services.swww-init-wallpaper = lib.mkIf config.wallpaper.swww.enable {
       Unit = {

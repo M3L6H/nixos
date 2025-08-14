@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     software.bazecor.enable = lib.mkEnableOption "enables bazecor module";
   };
@@ -8,10 +15,13 @@
       bazecor
     ];
 
-    home.persistence."/persist/home/${username}".directories = lib.mkIf config.impermanence.enable [
-      ".config/Bazecor"
-      "Dygma"
-    ];
+    home.persistence."/persist/home/${username}" = lib.mkIf config.impermanence.enable {
+      directories = [
+        ".config/Bazecor"
+        "Dygma"
+      ];
+
+      allowOther = false;
+    };
   };
 }
-

@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     software.vivaldi.enable = lib.mkEnableOption "enables vivaldi module";
   };
@@ -11,16 +18,16 @@
           (prev.vivaldi.overrideAttrs (oldAttrs: {
             dontWrapQtApps = false;
             dontPatchELF = true;
-            nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-          }))
-          .override {
-            commandLineArgs = ''
-              --enable-features=UseOzonePlatform
-              --ozone-platform=wayland
-              --ozone-platform-hint=auto
-              --enable-features=WaylandWindowDecorations
-            '';
-          };
+            nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.kdePackages.wrapQtAppsHook ];
+          })).override
+            {
+              commandLineArgs = ''
+                --enable-features=UseOzonePlatform
+                --ozone-platform=wayland
+                --ozone-platform-hint=auto
+                --enable-features=WaylandWindowDecorations
+              '';
+            };
       })
     ];
 
@@ -33,6 +40,8 @@
         ".config/vivaldi"
         ".local/lib/vivaldi"
       ];
+
+      allowOther = false;
     };
 
     xdg.mimeApps = {
@@ -47,4 +56,3 @@
     };
   };
 }
-

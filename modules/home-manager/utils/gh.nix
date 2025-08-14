@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     utils.gh.enable = lib.mkEnableOption "enables gh module";
   };
@@ -12,7 +19,8 @@
       directories = [
         ".config/gh"
       ];
+
+      allowOther = false;
     };
   };
 }
-

@@ -28,6 +28,8 @@ in
         ".local/state/nvim"
         ".vim/undodir"
       ];
+
+      allowOther = false;
     };
 
     m3l6h-neovim = {
@@ -50,13 +52,14 @@ in
             settings = {
               inherit colorscheme;
 
-              aliases =
-                [ "nvim" ]
-                ++ lib.optionals (config.utils.nvr.enable) [
-                  "v"
-                  "vi"
-                  "vim"
-                ];
+              aliases = [
+                "nvim"
+              ]
+              ++ lib.optionals (config.utils.nvr.enable) [
+                "v"
+                "vi"
+                "vim"
+              ];
 
               unwrappedCfgPath = "${config.home.homeDirectory}/.local/state/nvim/lazy";
             };

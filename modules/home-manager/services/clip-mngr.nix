@@ -49,6 +49,8 @@
       directories = [
         ".config/clipse"
       ];
+
+      allowOther = false;
     };
   };
 }

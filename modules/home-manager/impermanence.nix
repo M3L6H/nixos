@@ -1,4 +1,11 @@
-{ config, inputs, lib, username, ... }: {
+{
+  config,
+  inputs,
+  lib,
+  username,
+  ...
+}:
+{
   options = {
     impermanence.enable = lib.mkEnableOption "enables impermanence module";
   };
@@ -28,8 +35,7 @@
         ".gitconfig"
       ];
 
-      allowOther = true;
+      allowOther = false;
     };
   };
 }
-

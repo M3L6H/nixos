@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     software.firefox.enable = lib.mkEnableOption "enables firefox module";
   };
@@ -13,9 +20,12 @@
       MOZ_ENABLE_WAYLAND = 1;
     };
 
-    home.persistence."/persist/home/${username}".directories = lib.mkIf config.impermanence.enable [
-      ".mozilla/firefox"
-    ];
+    home.persistence."/persist/home/${username}" = lib.mkIf config.impermanence.enable {
+      directories = [
+        ".mozilla/firefox"
+      ];
+
+      allowOther = false;
+    };
   };
 }
-

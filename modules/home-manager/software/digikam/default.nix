@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     software.digikam.enable = lib.mkEnableOption "enables digikam module";
   };
@@ -19,7 +26,8 @@
         ".config/digikam_systemrc"
         ".config/digikamrc"
       ];
+
+      allowOther = false;
     };
   };
 }
-

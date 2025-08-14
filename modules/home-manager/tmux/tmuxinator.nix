@@ -1,4 +1,11 @@
-{ config, lib, pkgs, username, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  username,
+  ...
+}:
+{
   options = {
     tmux.tmuxinator.enable = lib.mkEnableOption "enables tmuxinator util";
   };
@@ -12,7 +19,8 @@
       directories = [
         ".config/tmuxinator"
       ];
+
+      allowOther = false;
     };
   };
 }
-
