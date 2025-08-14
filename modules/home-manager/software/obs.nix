@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  username,
   ...
 }:
 {
@@ -26,5 +27,13 @@
         obs-pipewire-audio-capture
       ];
     };
+
+    home.persistence."/persist/home/${username}/.config/obs-studio" =
+      lib.mkIf config.impermanence.enable
+        {
+          directories = [
+            ".config/obs-studio"
+          ];
+        };
   };
 }
