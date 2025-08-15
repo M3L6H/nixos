@@ -30,11 +30,10 @@
   # Enable managed user dirs
   user-dirs.enable = true;
 
-  # Disabling video wallpaper due to memory leaks :(
-  wallpaper.mpvpaper.enable = false;
+  wallpaper.mpvpaper.enable = true;
 
   # Enable swww wallpaper
-  wallpaper.swww.enable = true;
+  wallpaper.swww.enable = false;
 
   # Enable zsh
   zsh.enable = true;
