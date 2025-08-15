@@ -30,10 +30,10 @@
           "$mainMod SHIFT, L, movewindow, r"
 
           # Resize window
-          "$mainMod ALT, H, resizeactive, -160 0"
-          "$mainMod ALT, J, resizeactive, 0 160"
-          "$mainMod ALT, K, resizeactive, 0 -160"
-          "$mainMod ALT, L, resizeactive, 160 0"
+          "$mainMod ALT SHIFT, H, resizeactive, -50 0"
+          "$mainMod ALT SHIFT, J, resizeactive, 0 50"
+          "$mainMod ALT SHIFT, K, resizeactive, 0 -50"
+          "$mainMod ALT SHIFT, L, resizeactive, 50 0"
 
           # Move windows between monitors
           "$mainMod ALT, 1, movewindow, mon:DP-1"
