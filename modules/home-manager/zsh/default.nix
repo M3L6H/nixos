@@ -75,6 +75,17 @@
             else
               ""
           }
+
+          # Inspired by https://discourse.nixos.org/t/nix-shell-does-not-use-my-users-shell-zsh/5588/13
+          alias nix-shell='nix-shell --run "$SHELL$'
+          nix() {
+            if [ "$1" = 'develop' ]; then
+              shift
+              command nix develop -c "$SHELL" "$@"
+            else
+              command nix "$@"
+            fi
+          }
         '';
 
         oh-my-zsh = {
