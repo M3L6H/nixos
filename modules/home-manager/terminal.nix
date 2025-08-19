@@ -37,6 +37,15 @@
         scrollback-limit = 1073741824; # 1 GB in bytes
         keybind = [
           "ctrl+shift+t=unbind" # No need for terminal tabs with tmux :)
+          "alt+1=unbind" # We don't use tabs
+          "alt+2=unbind" # We don't use tabs
+          "alt+3=unbind" # We don't use tabs
+          "alt+4=unbind" # We don't use tabs
+          "alt+5=unbind" # We don't use tabs
+          "alt+6=unbind" # We don't use tabs
+          "alt+7=unbind" # We don't use tabs
+          "alt+8=unbind" # We don't use tabs
+          "alt+9=unbind" # We don't use tabs
         ];
         copy-on-select = "clipboard";
         confirm-close-surface = "false";
