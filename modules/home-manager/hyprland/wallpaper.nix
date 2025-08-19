@@ -99,7 +99,7 @@ in
 
           # Use gpu-api vulkan due to:
           # https://github.com/mpv-player/mpv/issues/15099#issuecomment-2413464065
-          MPV_ARGS='--gpu-api=vulkan no-audio --loop-file=inf'
+          MPV_ARGS='--keepaspect=no --autofit-smaller=100% --gpu-api=vulkan no-audio --loop-file=inf'
 
           mpvpaper -p -o "$MPV_ARGS" '*' "''${VIDEO:-${video}}"
         ''}";
@@ -130,7 +130,7 @@ in
           THRESHOLD_MB=1024
           MONITOR_COMMAND="mpvpaper"
 
-          rss_total_kb=$(ps -C "$MONITOR_COMMAND" -o rss= | awk '{sum += $1} END {print sum}')
+          rss_total_kb=$(ps -p "$(pidof "$MONITOR_COMMAND")" -o rss= | awk '{sum += $1} END {print sum}')
 
           if [ -n "$rss_total_kb" ] && [ "$rss_total_kb" -gt 0 ]; then
               rss_total_mb=$(( rss_total_kb / 1024 ))
