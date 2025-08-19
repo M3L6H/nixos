@@ -30,10 +30,11 @@
   # Enable managed user dirs
   user-dirs.enable = true;
 
-  wallpaper.mpvpaper.enable = true;
+  # Still having memory issues :(
+  wallpaper.mpvpaper.enable = false;
 
   # Enable swww wallpaper
-  wallpaper.swww.enable = false;
+  wallpaper.swww.enable = true;
 
   # Enable zsh
   zsh.enable = true;
