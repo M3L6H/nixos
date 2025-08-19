@@ -1,4 +1,8 @@
-{ device ? throw "Set this to your disk device, e.g. /dev/sda", ... }: {
+{
+  device ? throw "Set this to your disk device, e.g. /dev/sda",
+  ...
+}:
+{
   disko.devices = {
     disk.main = {
       inherit device;
@@ -22,10 +26,10 @@
               mountpoint = "/boot";
               mountOptions = [
                 "defaults"
-                  "nodev"
-                  "nosuid"
-                  "noexec"
-                  "umask=0077"
+                "nodev"
+                "nosuid"
+                "noexec"
+                "umask=0077"
               ];
             };
           };
@@ -113,4 +117,3 @@
     };
   };
 }
-

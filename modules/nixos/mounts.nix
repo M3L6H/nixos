@@ -1,4 +1,5 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   options = {
     mounts.enable = lib.mkEnableOption "enables mounts module";
   };
@@ -11,8 +12,8 @@
         "rw"
         "users" # Allow any user to mount and unmount
         "nofail" # Prevent the system from failing if the drive does not exist
+        "exec" # Users implies noexec, so explicitly set exec
       ];
     };
   };
 }
-
