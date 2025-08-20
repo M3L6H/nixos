@@ -1,8 +1,8 @@
-# Nixos
+# dotfiles-nixos
 
 My personal nixos configuration.
 
-## Installation
+## installation
 
 Boot into NixOS installer.
 
@@ -197,7 +197,7 @@ Breakdown of the included modules.
 - [vcs](modules/nixos/vcs.nix) - Install git
   - vcs.enable `boolean` - Enables the module
 
-## Cheatsheet
+## cheatsheet
 
 NixOS cheatsheet.
 
@@ -207,7 +207,7 @@ To list generations:
 nixos-rebuild list-generations
 ```
 
-### Troubleshooting
+### troubleshooting
 
 To clean the store:
 
@@ -221,7 +221,7 @@ To verify/repair the store:
 sudo nix-store --verify --check-contents --repair
 ```
 
-## Development
+## development
 
 This project is broken up into NixOS and home-manager configuration. The NixOS
 configuration lives in
@@ -236,7 +236,7 @@ separating it is that during _development_ the home-manager configuration can
 be built by itself, but **to persist any changes after reboot, the NixOS
 configuration will have to be built.**
 
-### Commands
+### commands
 
 To build the NixOS configuration, run
 
@@ -264,21 +264,21 @@ nix flake update <input>
 nxs
 ```
 
-## Credits
+## credits
 
 Non-exhaustive list of sources I referenced/learned from while building this.
 
 In no particular order.
 
-### People
+### people
 
 - [Vimjoyer](https://www.youtube.com/@vimjoyer)
 
-### Other people's configs
+### other people's configs
 
 - [Liassica/nixos-config](https://codeberg.org/Liassica/nixos-config)
 - [Misterio77/nix-config](https://github.com/Misterio77/nix-config)
 
-### Articles
+### articles
 
 - [Impermanent NixOS: on a VM + tmpfs root + flakes + LUKS | Will Bush](https://willbush.dev/blog/impermanent-nixos/)
