@@ -29,9 +29,12 @@ $dragonYellow: #c4b28a;
 * {
   all: unset;
   font-family: 'VictorMono Nerd Font', monospace;
+  background-color: transparent;
 }
 
-.my-bar {
+/* Base styles for bar modules */
+.bar-module,
+.time {
   background-color: $dragonBlackTrans0;
   border-radius: 10px;
   font-size: 10px;
@@ -39,10 +42,6 @@ $dragonYellow: #c4b28a;
 }
 
 /* Workspace buttons */
-.ws-box {
-  background-color: transparent;
-}
-
 /* Inactive workspace button */
 .ws-inactive {
   color: $dragonBlack5;

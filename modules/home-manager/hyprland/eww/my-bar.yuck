@@ -6,21 +6,28 @@
 ;; Define the window (bar) at the top of the screen
 (defwindow my-bar-0
   :monitor 0
+  :namespace "eww-bar"
   :geometry (geometry
               :x "0%"
               :y "10px"
               :width "99%"
               :height "20px"
               :anchor "top center")
-  :stacking "fg"
+  :stacking "bg"
   :exclusive true
   :focusable false
   (centerbox
     :orientation "horizontal"
-    :class "my-bar"
-    (literal :content workspace-0)
+    (box
+      :hexpand false
+      :space-evenly false
+      :orientation "h"
+      (literal
+        :class "bar-module"
+        :content workspace-0))
     (label ;; Placeholder
       :text ""
+      :hexpand true
       :justify "center")
     (label ;; Placeholder
       :text ""
@@ -28,45 +35,63 @@
 
 (defwindow my-bar-1
   :monitor 1
+  :namespace "eww-bar"
   :geometry (geometry
               :x "0%"
               :y "10px"
               :width "99%"
               :height "20px"
               :anchor "top center")
-  :stacking "fg"
+  :stacking "bg"
   :exclusive true
   :focusable false
   (centerbox
     :orientation "horizontal"
-    :class "my-bar"
-    (literal :content workspace-1)
+    (box
+      :hexpand false
+      :space-evenly false
+      :orientation "h"
+      (literal
+        :class "bar-module"
+        :content workspace-1))
     (label ;; Placeholder
       :text ""
       :justify "center")
     (label ;; Placeholder
       :text ""
       :justify "center")))
+
 (defwindow my-bar-2
   :monitor 2
+  :namespace "eww-bar"
   :geometry (geometry
               :x "0%"
               :y "10px"
               :width "99%"
               :height "20px"
               :anchor "top center")
-  :stacking "fg"
+  :stacking "bg"
   :exclusive true
   :focusable false
   (centerbox
     :orientation "horizontal"
-    :class "my-bar"
-    (literal :content workspace-2)
+    (box
+      :hexpand false
+      :space-evenly false
+      :orientation "h"
+      (literal
+        :class "bar-module"
+        :content workspace-2))
     (label ;; Placeholder
       :text ""
       :justify "center")
-    (label ;; Placeholder
-      :text "  ${formattime(EWW_TIME, "%a %m/%y %H:%M:%S")}"
-      :class "time"
-      :xalign 1
-      :justify "right")))
+    (box
+      :hexpand false
+      :space-evenly false
+      :orientation "h"
+      (box :hexpand true)
+      (label ;; Placeholder
+        :text "  ${formattime(EWW_TIME, "%a %m/%y %H:%M:%S")}"
+        :class "time"
+        :xalign 1
+        :justify "right"))))
